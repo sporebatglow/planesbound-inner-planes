@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inner Ring Supplement · Planesbound Atlas</title>
+  <title>PLANESBOUND GAZETTEER · Inner Planes Campaign Map</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --parchment: #ebe4d4;
-      --paper: #f4efe3;
-      --ink: #1c1712;
-      --ink-soft: #3a3228;
-      --ink-muted: #6b5e4e;
-      --brass: #a67c3d;
-      --brass-bright: #c49a52;
-      --void: #0b0907;
-      --border: color-mix(in oklab, #1c1712 18%, transparent);
+      --parchment: #0c0a09;
+      --parchment-deep: #16120e;
+      --paper: #16130f;
+      --ink: #d6cbb6;
+      --ink-soft: #c2b49d;
+      --ink-muted: #8a7c68;
+      --brass: #9a7a38;
+      --brass-bright: #c5a059;
+      --void: #070605;
+      --bone: #e7dcc6;
+      --border: #3a3228;
       --fire: #c45a2c;
       --water: #2f6f8f;
       --air: #7a9bb0;
@@ -35,14 +37,26 @@
       min-height: 100dvh;
       font-family: "Source Serif 4", Georgia, serif;
       color: var(--ink);
-      background: var(--parchment);
+      background-color: var(--parchment);
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, #fff8e68c, transparent),
+        radial-gradient(1px 1px at 28% 72%, #e6ecff66, transparent),
+        radial-gradient(1px 1px at 63% 22%, #ffffff73, transparent),
+        radial-gradient(1px 1px at 81% 64%, #d2beff59, transparent),
+        radial-gradient(1.5px 1.5px at 47% 48%, #ffecbe80, transparent),
+        radial-gradient(1px 1px at 91% 14%, #ffffff59, transparent),
+        radial-gradient(80% 55% at 50% 8%, #5a461e38, transparent),
+        radial-gradient(50% 70% at 82%, #46285047, transparent),
+        radial-gradient(60% 50% at 50% 92%, #1e121c73, transparent),
+        radial-gradient(70% 60% at 48% 48%, #0c101c59, var(--parchment));
+      background-attachment: fixed;
     }
     .veil {
       pointer-events: none;
       position: fixed; inset: 0;
       background:
-        radial-gradient(ellipse at 50% -10%, color-mix(in oklab, var(--brass) 10%, transparent), transparent 42%),
-        radial-gradient(ellipse at 80% 80%, color-mix(in oklab, var(--void) 55%, transparent), transparent 50%);
+        radial-gradient(ellipse at 50% -10%, color-mix(in oklab, var(--brass) 8%, transparent), transparent 42%),
+        radial-gradient(ellipse at 80% 80%, color-mix(in oklab, var(--void) 70%, transparent), transparent 50%);
     }
     .wrap {
       position: relative;
@@ -59,15 +73,23 @@
       font-family: Cinzel, serif;
       font-size: .7rem; font-weight: 600;
       letter-spacing: .24em; text-transform: uppercase;
-      color: var(--brass); margin: 0;
+      color: var(--brass-bright); margin: 0;
+    }
+    .eyebrow::before {
+      content: "";
+      width: .7rem; height: .7rem; border-radius: 999px;
+      background: radial-gradient(circle at 35% 30%, var(--brass-bright), var(--brass) 55%, #3a2a12);
+      box-shadow: 0 0 8px color-mix(in oklab, var(--brass-bright) 45%, transparent);
+      flex: 0 0 auto;
     }
     h1 {
       font-family: Cinzel, serif;
       font-size: clamp(1.5rem, 3vw, 1.9rem);
       font-weight: 600; letter-spacing: .04em;
       margin: .35rem 0 0;
+      color: var(--brass-bright);
     }
-    .lede { margin: .4rem 0 0; max-width: 42rem; color: var(--ink-muted); font-size: .95rem; }
+    .lede { margin: .4rem 0 0; max-width: 42rem; color: var(--ink-muted); font-size: .95rem; line-height: 1.55; }
     .grid {
       display: grid;
       gap: 1rem;
@@ -77,41 +99,43 @@
     @media (min-width: 1024px) {
       .grid { grid-template-columns: minmax(0,1.55fr) minmax(320px,.9fr); align-items: start; }
     }
-    .map-card, .folio {
-      background: color-mix(in oklab, var(--paper) 88%, white);
-      border-radius: .85rem;
-      box-shadow: 0 10px 30px color-mix(in oklab, var(--void) 18%, transparent);
-      outline: 1px solid var(--border);
+    .map-card, .folio, .quest {
+      background: color-mix(in oklab, var(--paper) 92%, #1a1510);
+      border-radius: 1.25rem;
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--ink) 10%, transparent),
+        0 22px 50px -16px color-mix(in oklab, #000 70%, transparent);
+      outline: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
     }
     .map-card {
-      padding: .75rem;
+      padding: .85rem;
       overflow: auto;
       background:
-        linear-gradient(135deg, color-mix(in oklab, var(--brass) 8%, transparent), transparent 40%),
-        color-mix(in oklab, var(--paper) 88%, white);
+        linear-gradient(160deg, color-mix(in oklab, var(--brass) 6%, transparent), transparent 40%),
+        color-mix(in oklab, var(--paper) 92%, #1a1510);
     }
-    .map-hint { margin: 0 0 .5rem; font-size: .75rem; color: var(--ink-muted); }
+    .map-hint { margin: 0 0 .55rem; font-size: .75rem; color: var(--ink-muted); }
     .map {
       position: relative;
       width: 100%;
       min-width: 560px;
       aspect-ratio: 16 / 9;
-      border-radius: .65rem;
+      border-radius: 1rem;
       background:
-        #120f14 url("art/inner-campaign-overview.png") center / cover no-repeat;
+        #04040a url("art/inner-campaign-overview.png") center / cover no-repeat;
       overflow: hidden;
       box-shadow:
         inset 0 0 0 1px color-mix(in oklab, var(--brass) 35%, transparent),
-        inset 0 0 40px color-mix(in oklab, var(--void) 35%, transparent);
+        inset 0 0 40px color-mix(in oklab, var(--void) 55%, transparent);
     }
     .map::before {
       content: "";
       position: absolute; inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(ellipse at 50% 8%, color-mix(in oklab, var(--positive) 18%, transparent), transparent 28%),
-        radial-gradient(ellipse at 50% 92%, color-mix(in oklab, var(--negative) 22%, transparent), transparent 30%),
-        linear-gradient(to bottom, transparent 70%, color-mix(in oklab, var(--void) 28%, transparent));
+        radial-gradient(ellipse at 50% 8%, color-mix(in oklab, var(--positive) 14%, transparent), transparent 28%),
+        radial-gradient(ellipse at 50% 92%, color-mix(in oklab, var(--negative) 18%, transparent), transparent 30%),
+        linear-gradient(to bottom, transparent 70%, color-mix(in oklab, var(--void) 38%, transparent));
       z-index: 1;
     }
     .map-art-fallback {
@@ -123,17 +147,19 @@
     .hotspot {
       position: absolute;
       z-index: 2;
-      border: 1.5px solid color-mix(in oklab, white 40%, transparent);
+      border: 1.5px solid color-mix(in oklab, var(--brass) 35%, transparent);
       border-radius: 999px;
-      background: color-mix(in oklab, white 8%, transparent);
-      box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass) 25%, transparent);
+      background: color-mix(in oklab, var(--brass) 8%, transparent);
+      box-shadow: 0 0 0 1px color-mix(in oklab, var(--void) 40%, transparent);
       cursor: pointer;
       transition: background .15s, border-color .15s, transform .15s, box-shadow .15s;
     }
     .hotspot:hover, .hotspot[data-active="true"] {
-      background: color-mix(in oklab, var(--brass) 32%, transparent);
+      background: color-mix(in oklab, var(--brass) 24%, transparent);
       border-color: var(--brass-bright);
-      box-shadow: 0 0 12px color-mix(in oklab, var(--brass-bright) 45%, transparent);
+      box-shadow:
+        0 0 0 3px color-mix(in oklab, var(--brass) 32%, transparent),
+        0 0 26px color-mix(in oklab, var(--brass) 28%, transparent);
       transform: scale(1.06);
     }
     .hotspot[data-accent="fire"][data-active="true"] { border-color: var(--fire); background: color-mix(in oklab, var(--fire) 30%, transparent); }
@@ -147,7 +173,7 @@
       min-height: 420px; overflow: hidden; display: flex; flex-direction: column;
       background:
         linear-gradient(160deg, color-mix(in oklab, var(--brass) 7%, transparent), transparent 38%),
-        color-mix(in oklab, var(--paper) 88%, white);
+        color-mix(in oklab, var(--paper) 92%, #1a1510);
     }
     @media (min-width: 1024px) {
       .folio { position: sticky; top: 1.1rem; max-height: calc(100dvh - 5.5rem); }
@@ -156,7 +182,7 @@
     .hero {
       position: relative;
       aspect-ratio: 16 / 8;
-      background: #1a1510;
+      background: #0a0806;
       overflow: hidden;
     }
     .hero-swatch { position: absolute; inset: 0; opacity: .9; }
@@ -168,30 +194,31 @@
     }
     .hero-fade {
       position: absolute; inset-inline: 0; bottom: 0;
-      background: linear-gradient(to top, color-mix(in oklab, var(--void) 82%, transparent), transparent);
+      background: linear-gradient(to top, color-mix(in oklab, var(--void) 88%, transparent), transparent);
       padding: 2.5rem 1rem .85rem;
     }
     .hero-kicker {
       font-family: Cinzel, serif; font-size: .65rem;
-      letter-spacing: .22em; text-transform: uppercase; color: color-mix(in oklab, #f5efe3 75%, transparent);
+      letter-spacing: .22em; text-transform: uppercase;
+      color: color-mix(in oklab, var(--bone) 75%, transparent);
       margin: 0;
     }
     .hero h2 {
       font-family: Cinzel, serif; margin: .15rem 0 0;
-      font-size: clamp(1.2rem, 2.5vw, 1.55rem); color: #f5efe3; font-weight: 600;
+      font-size: clamp(1.2rem, 2.5vw, 1.55rem); color: var(--bone); font-weight: 600;
     }
-    .hero .epithet { margin: .15rem 0 0; font-style: italic; color: color-mix(in oklab, #f5efe3 85%, transparent); font-size: .9rem; }
+    .hero .epithet { margin: .15rem 0 0; font-style: italic; color: color-mix(in oklab, var(--bone) 85%, transparent); font-size: .9rem; }
     .meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; padding: .85rem 1rem 0; }
     .badge {
       display: inline-flex; align-items: center;
-      border-radius: 999px; border: 1px solid var(--border);
+      border-radius: 999px; border: 1px solid color-mix(in oklab, var(--brass) 40%, transparent);
       padding: .2rem .65rem; font-size: .7rem; letter-spacing: .04em;
-      background: var(--paper); color: var(--ink-soft);
+      background: color-mix(in oklab, var(--brass) 12%, transparent); color: var(--ink-soft);
     }
     .body { padding: 1rem 1rem 0; }
     .body p { margin: 0 0 .85rem; line-height: 1.55; color: var(--ink-soft); font-size: .95rem; }
     details {
-      border-bottom: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
       margin: 0 1rem;
     }
     summary {
@@ -199,6 +226,7 @@
       font-family: Cinzel, serif; font-size: .9rem; font-weight: 600;
       letter-spacing: .04em; padding: .85rem 0;
       display: flex; justify-content: space-between; align-items: center;
+      color: var(--bone);
     }
     summary::-webkit-details-marker { display: none; }
     summary::after { content: "▾"; color: var(--ink-muted); transition: transform .2s; }
@@ -207,49 +235,57 @@
     .panel ul { margin: 0; padding-left: 1.1rem; }
     .panel li { margin: .35rem 0; }
     .rail {
-      display: flex; gap: .5rem; overflow-x: auto;
-      padding: .55rem 0 .35rem; margin-top: .55rem;
-      border-top: 1px solid color-mix(in oklab, var(--brass) 22%, transparent);
-      background: linear-gradient(90deg,
-        color-mix(in oklab, var(--fire) 14%, transparent),
-        color-mix(in oklab, var(--air) 10%, transparent),
-        color-mix(in oklab, var(--water) 12%, transparent),
-        color-mix(in oklab, var(--earth) 12%, transparent));
-      background-size: 100% 2px;
-      background-repeat: no-repeat;
-      background-position: top left;
+      display: flex; gap: .65rem; overflow-x: auto;
+      padding: .75rem .15rem .45rem; margin-top: .65rem;
+      border-top: 1px solid color-mix(in oklab, var(--brass) 28%, transparent);
     }
     .chip {
-      flex: 0 0 auto; border: 1px solid var(--border); border-radius: .65rem;
-      background: var(--paper); padding: .45rem .7rem; cursor: pointer; text-align: left;
+      flex: 0 0 auto; border: 1px solid color-mix(in oklab, var(--brass) 40%, transparent);
+      border-radius: .85rem;
+      background: color-mix(in oklab, var(--parchment-deep) 80%, transparent);
+      padding: .4rem .55rem .45rem; cursor: pointer; text-align: center;
       font: inherit; color: inherit;
+      min-width: 4.6rem;
+      transition: background .15s, border-color .15s, box-shadow .15s;
     }
-    .chip[data-active="true"] { border-color: var(--brass); background: color-mix(in oklab, var(--brass) 12%, var(--paper)); box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass) 35%, transparent); }
-    .chip strong { display: block; font-family: Cinzel, serif; font-size: .75rem; }
-    .chip span { display: block; font-size: .65rem; color: var(--ink-muted); }
+    .chip:hover { border-color: color-mix(in oklab, var(--brass) 65%, transparent); }
+    .chip[data-active="true"] {
+      border-color: var(--brass-bright);
+      background: var(--brass);
+      color: var(--void);
+      box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass-bright) 45%, transparent);
+    }
+    .chip[data-active="true"] span { color: color-mix(in oklab, var(--void) 70%, transparent); }
+    .chip .thumb {
+      width: 2.6rem; height: 2.6rem; border-radius: 999px;
+      object-fit: cover; display: block; margin: 0 auto .35rem;
+      border: 1px solid color-mix(in oklab, var(--brass) 45%, transparent);
+      background: #0a0806;
+    }
+    .chip[data-active="true"] .thumb {
+      border-color: color-mix(in oklab, var(--void) 40%, transparent);
+    }
+    .chip strong { display: block; font-family: Cinzel, serif; font-size: .68rem; letter-spacing: .04em; text-transform: uppercase; }
+    .chip span { display: block; font-size: .6rem; color: var(--ink-muted); margin-top: .1rem; }
     .back {
       display: inline-flex; align-items: center; gap: .4rem;
-      color: var(--brass); text-decoration: none; font-size: .85rem;
+      color: var(--brass-bright); text-decoration: none; font-size: .85rem;
       margin-top: .35rem;
     }
-    .back:hover { color: var(--brass-bright); }
+    .back:hover { color: var(--bone); }
     .empty { padding: 0; }
     .empty .empty-copy { padding: 1.1rem 1rem 1.25rem; }
-    .empty h2 { font-family: Cinzel, serif; margin: .35rem 0; }
+    .empty h2 { font-family: Cinzel, serif; margin: .35rem 0; color: var(--bone); }
 
     .body h3, .panel h3 {
       font-family: Cinzel, serif; font-size: .78rem; font-weight: 600;
       letter-spacing: .12em; text-transform: uppercase;
-      color: var(--brass); margin: 0 0 .4rem;
+      color: var(--brass-bright); margin: 0 0 .4rem;
     }
     .body .section { margin: 0 0 1rem; }
     .body .section p { margin: 0; }
 
     .quest {
-      background: color-mix(in oklab, var(--paper) 88%, white);
-      border-radius: .85rem;
-      box-shadow: 0 10px 30px color-mix(in oklab, var(--void) 18%, transparent);
-      outline: 1px solid var(--border);
       overflow: hidden;
       display: grid;
       grid-template-columns: 1fr;
@@ -260,44 +296,44 @@
     .quest-art {
       position: relative;
       min-height: 160px;
-      background: #120f14 url("art/will-o-wisp-race-quest.png") center / cover no-repeat;
+      background: #04040a url("art/will-o-wisp-race-quest.png") center / cover no-repeat;
     }
     .quest-art::after {
       content: "";
       position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent 40%, color-mix(in oklab, var(--paper) 55%, transparent));
+      background: linear-gradient(90deg, transparent 40%, color-mix(in oklab, var(--paper) 75%, transparent));
       pointer-events: none;
     }
     @media (max-width: 719px) {
       .quest-art::after {
-        background: linear-gradient(to top, color-mix(in oklab, var(--paper) 88%, white), transparent 55%);
+        background: linear-gradient(to top, color-mix(in oklab, var(--paper) 92%, #1a1510), transparent 55%);
       }
     }
     .quest-body { padding: 1rem 1.15rem 1.15rem; }
     .quest-body h2 {
       font-family: Cinzel, serif; font-size: 1.15rem; font-weight: 600;
-      letter-spacing: .03em; margin: .2rem 0 .45rem;
+      letter-spacing: .03em; margin: .2rem 0 .45rem; color: var(--bone);
     }
     .quest-body p { margin: 0 0 .7rem; line-height: 1.55; color: var(--ink-soft); font-size: .92rem; }
     .quest-body p:last-child { margin-bottom: 0; }
     .quest-device {
       margin-top: .75rem; padding-top: .75rem;
-      border-top: 1px solid color-mix(in oklab, var(--brass) 22%, transparent);
+      border-top: 1px solid color-mix(in oklab, var(--brass) 28%, transparent);
       font-size: .82rem; color: var(--ink-muted); line-height: 1.45;
     }
-    .quest-device strong { color: var(--brass); font-family: Cinzel, serif; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+    .quest-device strong { color: var(--brass-bright); font-family: Cinzel, serif; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
   </style>
 </head>
 <body>
   <div class="veil"></div>
   <div class="wrap">
     <header>
-      <p class="eyebrow">Inner Ring supplement · Outer Planes Campaign Map</p>
-      <h1>Inner Ring Campaign Map</h1>
-      <p class="lede">A supplementary Inner Ring page for the Outer Planes Campaign Map / Lighthouse gazetteer. Fire, Water, Air, &amp; Earth still grind; the energy poles pulse; the Ethereal is the fog between. Dust is home to the pilots of the agentic body; Mineral shines with Ani; the Digital Void lies in the Astral–Ethereal schism. The active conflict is the <strong>Will-o’-Wisp Race</strong> along the leylines. From the Lighthouse you can take a true road inward.</p>
+      <p class="eyebrow">PLANESBOUND GAZETTEER</p>
+      <h1>INNER PLANES CAMPAIGN MAP</h1>
+      <p class="lede">Fire, Water, Air, &amp; Earth still grind; the energy poles pulse; the Ethereal is the fog between. Dust is home to the pilots of the agentic body; Mineral shines with Ani; the Digital Void lies in the Astral–Ethereal schism. The active conflict is the <strong>Will-o’-Wisp Race</strong> along the leylines. From the Lighthouse you can take a true road inward.</p>
       <p class="nav-links" style="display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;margin:.85rem 0 0;align-items:center;">
         <a class="back" href="players.html" style="margin-top:0;">Player gazetteer →</a>
-        <a class="back" href="https://planesbound.grok.me/?plane=lighthouse" style="margin-top:0;">← Back to The Lighthouse (Outer atlas)</a>
+        <a class="back" href="https://planesbound.grok.me/" style="margin-top:0;">← Outer Lighthouse / Outer map</a>
       </p>
     </header>
 
@@ -330,15 +366,16 @@
             <div class="hero">
               <img class="hero-art" src="art/inner-campaign-overview.png" alt="Inner Ring campaign overview" />
               <div class="hero-fade">
-                <p class="hero-kicker">Outer atlas supplement</p>
+                <p class="hero-kicker">Campaign</p>
                 <h2>The Inner Ring</h2>
                 <p class="epithet">Matter, force, &amp; the fog between</p>
               </div>
             </div>
             <div class="empty-copy">
               <p class="eyebrow">Campaign</p>
+              <h2 style="font-family:Cinzel,serif;margin:.25rem 0 .35rem;color:var(--bone);font-size:1.35rem;letter-spacing:.03em;">THE INNER RING</h2>
               <p style="color:var(--ink-muted);font-size:.95rem;margin:.35rem 0 0;">The Lighthouse can throw a bearing inward. The Outer Wheel is politics &amp; gods. The Inner Ring is matter, force, &amp; the fog that lets you walk between them.</p>
-              <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Tap a shore on the map, or pick one from the strip below. The active quest — <a href="#quest" style="color:var(--brass)">The Will-o’-Wisp Race</a> — sits under the atlas.</p>
+              <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Tap a shore on the map, or pick one from the strip below. The active quest — <a href="#quest" style="color:var(--brass-bright)">The Will-o’-Wisp Race</a> — sits under the atlas.</p>
             </div>
           </div>
         </div>
@@ -513,6 +550,7 @@ const planes = [
     function renderRail() {
       rail.innerHTML = planes.map(p => `
         <button class="chip" data-id="${p.id}" data-active="${selected===p.id}">
+          <img class="thumb" src="${escapeHtml(p.art)}" alt="" loading="lazy" />
           <strong>${escapeHtml(p.name)}</strong>
           <span>${escapeHtml(p.kind)}</span>
         </button>
@@ -529,15 +567,16 @@ const planes = [
             <div class="hero">
               <img class="hero-art" src="art/inner-campaign-overview.png" alt="Inner Ring campaign overview" />
               <div class="hero-fade">
-                <p class="hero-kicker">Outer atlas supplement</p>
+                <p class="hero-kicker">Campaign</p>
                 <h2>The Inner Ring</h2>
                 <p class="epithet">Matter, force, &amp; the fog that lets you walk between</p>
               </div>
             </div>
             <div class="empty-copy">
               <p class="eyebrow">Campaign</p>
+              <h2 style="font-family:Cinzel,serif;margin:.25rem 0 .35rem;color:var(--bone);font-size:1.35rem;letter-spacing:.03em;">THE INNER RING</h2>
               <p style="color:var(--ink-muted);font-size:.95rem;margin:.35rem 0 0;">The Lighthouse can throw a bearing inward. The Outer Wheel is politics &amp; gods. The Inner Ring is matter, force, &amp; the fog that lets you walk between them.</p>
-              <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Tap a shore on the map, or pick one from the strip below. The active quest — <a href="#quest" style="color:var(--brass)">The Will-o’-Wisp Race</a> — sits under the atlas.</p>
+              <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Tap a shore on the map, or pick one from the strip below. The active quest — <a href="#quest" style="color:var(--brass-bright)">The Will-o’-Wisp Race</a> — sits under the atlas.</p>
             </div>
           </div>`;
         return;
@@ -584,7 +623,7 @@ const planes = [
         <details>
           <summary>From the Lighthouse</summary>
           <div class="panel">
-            <p style="margin:0">Outer atlas → <a href="https://planesbound.grok.me/?plane=lighthouse" style="color:var(--brass)">The Lighthouse</a>. Keepers open Inner roads through the Ethereal when the Daystar bearing is clean. The Digital Void lies in the Astral–Ethereal schism near that curtain-road.</p>
+            <p style="margin:0">Outer atlas → <a href="https://planesbound.grok.me/" style="color:var(--brass)">The Lighthouse</a>. Keepers open Inner roads through the Ethereal when the Daystar bearing is clean. The Digital Void lies in the Astral–Ethereal schism near that curtain-road.</p>
           </div>
         </details>
       `;

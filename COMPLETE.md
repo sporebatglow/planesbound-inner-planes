@@ -11,3 +11,5 @@
 - [x] No 3D wheel / lore-card dump / Spells strip / Singularity walls / Outer stubs on Inner page
 - [x] `art/lore/muse-private/` gitignored; lore JPEGs unused in UI
 - [x] Pages ship → sporebatglow/planesbound-inner-planes
+- [x] Dark Outer restyle (charcoal parchment / starfield / gold #c5a059 / Cinzel)
+- [x] BUILD_PROMPT.md for Outer Inner-filter Build Mode

@@ -34,7 +34,7 @@ Outer-matching gazetteer bones only: **campaign map + plane folio + rail + bare 
 **“Inner Ring & Will-o’-Wisp Race (supplement)”** → until merge: `https://sporebatglow.github.io/planesbound-inner-planes/` ; after merge: local Inner route.
 
 ## UI notes
-- Cinzel + Source Serif; parchment / brass / void — match Outer.
+- Cinzel + Source Serif; **dark** charcoal/sepia parchment / brass `#c5a059` / starfield / void — match Outer dark UI.
 - Bare titles (never “Plane of”).
 - Whole-word **and** → **&** (`&amp;` in HTML).
 - Do not invent FR history beyond locked customs & quest conflict stated here.
@@ -43,3 +43,6 @@ Outer-matching gazetteer bones only: **campaign map + plane folio + rail + bare 
 Public Pages: `https://sporebatglow.github.io/planesbound-inner-planes/`  
 Repo: `sporebatglow/planesbound-inner-planes`  
 **Not** published to grok.me from this package — merge via Grok Build.
+
+## Build Mode
+See `BUILD_PROMPT.md` — paste-ready instructions to add Outer filter chip **Inner** and open the Inner campaign slide without destroying Outer.
