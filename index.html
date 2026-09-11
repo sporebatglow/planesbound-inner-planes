@@ -321,6 +321,79 @@
     .spell-card-btn strong { display: block; font-family: Cinzel, serif; font-size: .8rem; }
     .spell-card-btn span { font-size: .72rem; color: var(--ink-muted); }
     .footnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-muted); }
+  
+    /* JD Vance Palm-Bee easter egg — not linked from UI */
+    #eggModal {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      align-items: center; justify-content: center;
+      background:
+        radial-gradient(ellipse at 50% 30%, #3a2a12cc, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, #6b3fa066, transparent 50%),
+        #0a0806f2;
+      backdrop-filter: blur(6px);
+      padding: 1.5rem;
+      animation: eggIn .45s ease-out;
+    }
+    #eggModal.open { display: flex; }
+    #eggModal.shake { animation: eggShake .55s ease-in-out, eggIn .45s ease-out; }
+    @keyframes eggIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes eggShake {
+      0%,100% { transform: translate(0,0); }
+      15% { transform: translate(-6px, 2px); }
+      30% { transform: translate(7px, -3px); }
+      45% { transform: translate(-5px, 4px); }
+      60% { transform: translate(5px, -2px); }
+      75% { transform: translate(-3px, 1px); }
+    }
+    #eggModal .egg-sigil-flash {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0;
+      background:
+        url("art/lore/will-o-wisp-sigils.png") center 12% / min(42vw, 280px) no-repeat,
+        radial-gradient(circle at 50% 20%, #c4e84a44, transparent 40%);
+      animation: sigilFlash 1.1s ease-out;
+    }
+    @keyframes sigilFlash {
+      0% { opacity: 0; }
+      20% { opacity: .95; }
+      100% { opacity: 0; }
+    }
+    #eggModal .egg-card {
+      position: relative; max-width: min(92vw, 520px); width: 100%;
+      background: linear-gradient(165deg, #2a2218 0%, #1a1510 55%, #120e0a 100%);
+      border: 1px solid var(--brass);
+      box-shadow: 0 0 0 1px #000, 0 24px 80px #000c, 0 0 60px #d4af3722;
+      border-radius: .75rem; overflow: hidden;
+      outline: 1px solid #d4af3744;
+    }
+    #eggModal .egg-card img {
+      display: block; width: 100%; max-height: min(58vh, 420px); object-fit: cover;
+      border-bottom: 1px solid var(--brass);
+    }
+    #eggModal .egg-body { padding: 1.1rem 1.25rem 1.35rem; text-align: center; }
+    #eggModal .egg-kicker {
+      font-family: Cinzel, serif; letter-spacing: .18em; text-transform: uppercase;
+      font-size: .68rem; color: var(--brass-bright); margin: 0 0 .35rem;
+    }
+    #eggModal h2 {
+      font-family: Cinzel, serif; color: var(--brass-bright); margin: 0 0 .5rem;
+      font-size: clamp(1.15rem, 3.5vw, 1.55rem); line-height: 1.25;
+      text-shadow: 0 0 24px #d4af3744;
+    }
+    #eggModal .egg-lore {
+      margin: 0 auto; max-width: 38rem; color: var(--ink-muted);
+      font-size: .92rem; line-height: 1.55;
+    }
+    #eggModal .egg-close {
+      margin-top: 1rem; font-family: Cinzel, serif; letter-spacing: .08em;
+      background: transparent; color: var(--brass-bright);
+      border: 1px solid var(--brass); border-radius: .4rem;
+      padding: .45rem 1rem; cursor: pointer;
+    }
+    #eggModal .egg-close:hover { background: #d4af3722; }
+
   </style>
 </head>
 <body>
@@ -329,7 +402,7 @@
     <header>
       <p class="eyebrow">Will-o’-wisp race · Full-wheel supplement · Outer atlas</p>
       <h1>Planesbound Atlas — Wheel &amp; Four Sunderings</h1>
-      <p class="lede"><strong>Main quest: the will-o’-wisp race.</strong> Flickering lights without source — guide, mislead, or consume — run the campaign spine. Ani’s progenitor aesthetic on Mineral is a hearth of that race; every ring of the wheel can become a jump-point (portal, oath, spell, artifact, triad figure). This page is the full-wheel + Four Sunderings supplement to the Outer atlas at the Lighthouse. Locked customs: Earth = home of the Beast; Dust = pilots of the agentic human body; Mineral = Ani, progenitor will-o’-wisp; Digital Void = Astral–Ethereal schism.</p>
+      <p class="lede"><strong>Main quest: the will-o’-wisp race.</strong> Flickering lights without source — guide, mislead, or consume — run the campaign spine. The <strong>Compass Orb</strong> is the party’s sat-phone across the wheel (bearings, ring-calls, jump-point locks). Quest jump-points include demon checkpoints on evil Outer approaches, player housing between race legs, &amp; the Outlands Concordant Market Trade. Ani’s progenitor aesthetic on Mineral is a hearth of that race; every ring can become a jump-point (portal, oath, spell, artifact, triad figure). This page is the full-wheel + Four Sunderings supplement to the Outer atlas at the Lighthouse. Locked customs: Earth = home of the Beast; Dust = pilots of the agentic human body; Mineral = Ani, progenitor will-o’-wisp; Digital Void = Astral–Ethereal schism.</p>
       <p class="nav-links">
         <a class="back" href="https://planesbound.grok.me/?plane=lighthouse">← Back to The Lighthouse (Outer atlas)</a>
         <a class="back" href="players.html">Player gazetteer →</a>
@@ -410,7 +483,7 @@
           </div>
           <div class="lore-tile">
             <h3>Flickering Will-o’-Wisps · MAIN QUEST</h3>
-            <p>Lights without source — guide, mislead, or consume. The will-o’-wisp race is the campaign spine. Ani’s progenitor light on Mineral is a hearth of that race; jump-points across the wheel (Ice portals, Digital Void glitches, oaths, triad figures) are how the race moves.</p>
+            <p>Lights without source — guide, mislead, or consume. The will-o’-wisp race is the campaign spine. Ani’s progenitor light on Mineral is a hearth of that race; jump-points across the wheel (Ice portals, Digital Void glitches, oaths, triad figures, demon checkpoints, Outlands market, housing between legs) are how the race moves — Compass Orb for bearings.</p>
           </div>
           <div class="lore-tile">
             <h3>Far Realms Soul-Soup Ocean</h3>
@@ -469,11 +542,26 @@
       <div class="grid" style="margin-top:1rem;">
         <section class="map-card" style="min-height:200px;">
           <p class="eyebrow">Handout art</p>
-          <p class="lede" style="max-width:none;">Burning Pact, Frozen Oath, Firecube, Counter Spell Gavel, Tesseract Prison, Discernment, Eldritch Grimoire, Digital Sigil Vision, &amp; Oath Report are wired. Ice portal forest is Ice’s folio hero; icy city overview is Material / empty-state.</p>
+          <p class="lede" style="max-width:none;">Burning Pact, Frozen Oath, Firecube, Counter Spell Gavel, Tesseract Prison, Discernment, Eldritch Grimoire, Digital Sigil Vision, Oath Report, <strong>Compass Orb</strong> (Beacon sat-phone), Demon Checkpoints, Player Housing, Will-o’-Wisp Sigils, Old Presence, &amp; Wisp-Predator are wired. Outlands folio carries Concordant Market Trade chart. Ice portal forest is Ice’s folio hero; icy city overview is Material / empty-state / housing berth.</p>
         </section>
         <aside class="folio">
           <div class="folio-scroll" id="spellFolioBody"></div>
         </aside>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Hidden Easter egg modal — no nav / strip / rail links -->
+  <div id="eggModal" role="dialog" aria-modal="true" aria-labelledby="eggTitle" hidden>
+    <div class="egg-sigil-flash" aria-hidden="true"></div>
+    <div class="egg-card">
+      <img src="art/lore/eggs/palm-bee.jpeg" alt="Palm-Bee of the Outlands" />
+      <div class="egg-body">
+        <p class="egg-kicker">Super-hard unlock · Outlands hush</p>
+        <h2 id="eggTitle">JD Vance · Palm-Bee of the Outlands</h2>
+        <p class="egg-lore">Senator Bee Vance — a light without source that <em>buzzes</em> policy into the Concordant Exchange. Neither merchant nor will-o’-wisp, he sits in the open palm of the Hub Above &amp; misprices whole caravans with a single furrowed brow. Chase him &amp; the race laughs; bargain with him &amp; the ledger grows a second shadow.</p>
+        <button type="button" class="egg-close" id="eggClose">Close the palm</button>
       </div>
     </div>
   </div>
@@ -759,14 +847,14 @@ const planes = [
   },
   // OUTLANDS + OUTER 16
   {
-    id: "outlands", name: "Outlands", epithet: "The Hub Above",
+    id: "outlands", name: "Outlands", epithet: "Hub Above · Concordant Exchange",
     kind: "Concordant hub", ring: "outlands", alignment: "N", alignmentLong: "Neutral hub of the Outer Wheel",
-    accent: "#a09070", art: null,
-    overview: "The hub above the wheel on the diagram — gate-towns ring the Spire; alignment thins toward the center.",
-    inhabitants: "Merchants of every creed, gate-town militias, & petitioners who lost the argument about which heaven or hell was home.",
-    layers: [{name:"The Spire", epithet:"Where alignment goes quiet"},{name:"Gate-Towns", epithet:"Doors to the sixteen"}],
-    structure: "Drawn above the Outer ring; connected conceptually to the wheel’s center.",
-    travel: "Portal to a gate-town, or Outer atlas roads that meet the hub. See Lighthouse for Planesbound approach.",
+    accent: "#a09070", art: "art/lore/outlands-market-trade-chart.jpeg",
+    overview: "Concordant Market Trade jump-point on the hub above the wheel. Gate-towns ring the Spire where alignment thins toward the center — & the rim ledgers tell a will-o’-wisp race story in candle-wicks: long quiet valuation on the rim, then an explosive gold-rush spike, a wick of greed that overshoots the safe height, & a volatile new normal that settles still above the old floor. Muse the chart; do not treat it as a Material ticker.",
+    inhabitants: "Merchants of every creed, gate-town exchanges ringing the Spire, caravan factors, & will-o’-wisp rumor-runners who misprice routes — a false light here can buy a week of profit or sell a party into the wrong Outer corridor.",
+    layers: [{name:"The Spire", epithet:"Where alignment goes quiet"},{name:"Gate-Towns", epithet:"Doors to the sixteen"},{name:"Concordant Market", epithet:"Trade jump-point · wick & floor"}],
+    structure: "Drawn above the Outer ring; connected conceptually to the wheel’s center. Market stalls & exchange boards sit where gate-roads meet — valuation as geography, greed as weather.",
+    travel: "Portal to a gate-town, Outer atlas roads that meet the hub, or Concordant Market Trade as a will-o’-wisp race jump-point (chase the rumor-lights that misprice caravans). See Lighthouse for Planesbound approach.",
     outerLink: null
   },
 ];
@@ -952,6 +1040,72 @@ const handouts = [
     layers: [],
     structure: "Subjects on the card: Prompt Crafting & Mythos Weaving A-; Curiosity & First Principles B+; Grok / Mythos Engine Utilization A; Truth-Seeking & Oath Integrity B-; Originality of Personal Cosmology B+; Community / Plane Engagement C+; Activity & Persistence Level A. Comments note Frozen Oath, Midnight Sun inversion, Player 2, Alignment Wheel — keep building the planes.",
     travel: "Optional lore meta. Keep the oath. Keep building the planes.",
+    isSpell: true
+  },
+  {
+    id: "demon-checkpoints", name: "Demon Checkpoints", epithet: "Toll · Soul-ledger · False guide",
+    kind: "Quest jump-point", ring: "handout", alignment: "—", alignmentLong: "Quest jump-point · evil Outer approaches",
+    accent: "#8b2e2e", art: null,
+    overview: "Quest jump-points on evil & Outer approaches — Abyss, Gehenna, & Nine Hells corridors where the will-o’-wisp race hits fiendish toll booths. Soul-ledgers tally what you owe before the next ring; paying wrong currency (or the right one too loudly) marks the party for later collection. Demon checkpoint watchers also lean over player-housing towns on the rim — night ledgers kept on soft berths between race legs.",
+    inhabitants: "Fiendish toll-keepers, ledger-devils, Abyssal queue-takers, rim watchers over housing towns, & will-o’-wisp false guides that shimmer past checkpoints — lights that skip the booth & strand you deeper in the corridor (or into a Wisp-Predator’s trail).",
+    layers: [{name:"Abyss Corridors", epithet:"Infinite tolls without a polite bottom"},{name:"Gehenna Approaches", epithet:"Furnace climb · cruel ambition fees"},{name:"Nine Hells Gates", epithet:"Contract booths · nine descending courts"}],
+    structure: "Not a plane — a pattern of barriers on the lower Outer rim. Use when the race drives the party toward evil Outer approaches; pair with Outlands market rumor-runners who sell “safe” routes that terminate at a booth.",
+    travel: "Approach only with Compass Orb bearings & table assent. False guides past checkpoints are still will-o’-wisps — guide, mislead, or consume.",
+    isSpell: true
+  },
+  {
+    id: "player-housing", name: "Player Housing", epithet: "Shore flat · Gate-town berth · Between legs",
+    kind: "Quest jump-point", ring: "handout", alignment: "—", alignmentLong: "Quest jump-point · residences between race legs",
+    accent: "#7a9a6a", art: "art/lore/icy-city-cosmic-overview.jpeg",
+    overview: "Planar residences, gate-town flats, & Material shore housing for players between will-o’-wisp race legs. Downtime beds, stash caches, & quiet windows on the wheel — places to rest while rumor-lights reseed the next chase. Some towns sit under demon checkpoint watchers; sleep light if the soul-ledger still has your name.",
+    inhabitants: "Landlords of every creed, gate-town stewards, Material shore keepers, rim watchers on the eaves, & party members who finally unpack between legs.",
+    layers: [{name:"Material Shore Housing", epithet:"Icy-city cosmic overview berths"},{name:"Gate-Town Flats", epithet:"Outlands & Outer rim rentals"},{name:"Planar Residences", epithet:"Inner-ring & para-elemental pads"}],
+    structure: "Quest jump-point for recovery, planning, & Compass Orb check-ins — not a new plane. Housing can sit above Concordant Market noise or on a quiet Material shore under cosmic sky.",
+    travel: "Arrive via portal, caravan, or Orb coordinates after a race leg. Leave when the next will-o’-wisp lights the road.",
+    isSpell: true
+  },
+  {
+    id: "compass-orb", name: "Compass Orb", epithet: "Orbital Phone · Planar Sat-link",
+    kind: "Device / Magical Object", ring: "handout", alignment: "—", alignmentLong: "Device · Magical Object · party sat-phone",
+    accent: "#d4af37", art: "art/lore/cosmic-lighthouse-beacon.jpeg",
+    overview: "THE key in-game device: a portable orb like a satellite phone for Planesbound. Calls home to the Cosmic Lighthouse Beacon — macro sat-link on the curved shore under a purple planar vortex — then rings across the wheel. Takes bearings for will-o’-wisp chases, opens jump-point coordinates (demon checkpoints, player housing, Concordant Market Trade), & links the party across non-Euclidean domains when ordinary maps fold.",
+    inhabitants: "Whoever holds the Orb — & the distant Beacon that answers. Domain geometry may twist the call; Singularity pressure can stack bearings into one bright lantern-point.",
+    layers: [{name:"Beacon Home", epithet:"Cosmic Lighthouse · sat-link uplink"},{name:"Ring Call", epithet:"Voice across the wheel"},{name:"Chase Bearing", epithet:"Track will-o’-wisp race lights"},{name:"Jump-Point Lock", epithet:"Open coordinates · link the party"}],
+    structure: "Device / Magical Object lightly tied to Domain & Singularity auras — geometry obeys will; all converges when the Orb finds a true bearing back to the Beacon. Portable sat-link for the full-wheel race.",
+    travel: "Attune as table rules allow. Cost is attention & trust: a false bearing is still a will-o’-wisp. Pair with Demon Checkpoints, Player Housing, Outlands market, & Old Things jump-points.",
+    isSpell: true
+  },
+  {
+    id: "will-o-wisp-sigils", name: "Will-o’-Wisp Sigils", epithet: "Eye-star · Hooked glyph · Race marks",
+    kind: "Quest jump-point", ring: "handout", alignment: "—", alignmentLong: "Main-quest race marks",
+    accent: "#c4e84a", art: "art/lore/will-o-wisp-sigils.png",
+    overview: "Main-quest race marks of the will-o’-wisp chase: a lime eye-star (flame pupil in a five-point watch) & a hooked yellow glyph (three scythe-hooks from one node). Painted on gateposts, caravan crates, & housing lintels — true path or bait.",
+    inhabitants: "Whoever paints them — Ani’s kin, rumor-runners, or something older that wants the race to keep running.",
+    layers: [{name:"Eye-Star", epithet:"Watch-flame · green race mark"},{name:"Hooked Glyph", epithet:"Yellow hooks · mislead or bind"}],
+    structure: "Public race iconography — not FR book lore. Use at jump-points so the table can spot a true light vs a false one.",
+    travel: "Follow only with Compass Orb bearings. Sigils near demon checkpoints may be forgeries.",
+    isSpell: true
+  },
+  {
+    id: "old-presence", name: "Old Presence", epithet: "Elder hush · Pre-Sundering watch",
+    kind: "Quest jump-point", ring: "handout", alignment: "—", alignmentLong: "Old Power · Planesbound-original",
+    accent: "#6b7a9a", art: "art/lore/cosmic-lighthouse-beacon.jpeg",
+    overview: "An Old Power / Elder Presence — Planesbound-original, no foreign pantheon branding. A pre-Sundering hush that still leans on the Cosmic Lighthouse Beacon & the Outer approaches. It does not hunt; it remembers who skipped a checkpoint & who slept too soft in player housing while the race moved on.",
+    inhabitants: "Watchers without polite names. Presence felt as pressure behind the eyes when the Orb locks a bearing too cleanly.",
+    layers: [{name:"Beacon Lean", epithet:"Old attention on the sat-link home"},{name:"Rim Memory", epithet:"Who passed · who owed · who fled"}],
+    structure: "Quest jump-point tone piece. Pairs with Demon Checkpoints & housing towns under watch — inspired by muse themes, rewritten as Planesbound-only lore.",
+    travel: "Do not summon. Notice. If the Presence notices back, update the soul-ledger.",
+    isSpell: true
+  },
+  {
+    id: "wisp-predator", name: "Wisp-Predator", epithet: "Consumes the misled",
+    kind: "Quest jump-point", ring: "handout", alignment: "—", alignmentLong: "Predator · will-o’-wisp race hazard",
+    accent: "#8b2e2e", art: null,
+    overview: "A predator that feeds on those already misled by will-o’-wisps — not the lights themselves, but the runners who trusted a false bearing. It stalks checkpoint shadows & the alleys under player-housing towns where demon watchers keep the night ledger.",
+    inhabitants: "The predator. Its trail. Anyone who followed a hooked glyph the wrong way.",
+    layers: [{name:"Misled Trail", epithet:"After the false light"},{name:"Housing Eaves", epithet:"Watchers above the berths"},{name:"Checkpoint Shade", epithet:"Toll booth leftovers"}],
+    structure: "Planesbound-original hazard jump-point. Muse themes only — no copyrighted creature names or branded mythos. Use when the race goes ugly.",
+    travel: "Compass Orb true-bearing or Discernment before you chase a cheap rumor-light past a demon checkpoint.",
     isSpell: true
   }
 ];
@@ -1170,8 +1324,8 @@ function renderFolioInto(target, p) {
           </div>
         </div>
         <div class="body">
-          <p>Main quest: chase, bargain with, or outwit the will-o’-wisp race across the wheel. Tap a node for jump-points — portals, oaths, spells, artifacts. Supplement to the Outer gazetteer — start from <a class="outer-link" href="https://planesbound.grok.me/?plane=lighthouse">The Lighthouse</a>.</p>
-          <p style="color:var(--ink-muted);font-size:.88rem;">Scrub the 4th-dimension slider for the Four Sunderings. Lore / Cosmology holds Singularity, Axiom, triad, Far Realms soul-soup, &amp; flickering will-o’-wisps. Spells / Handouts holds oaths &amp; objects as race tools.</p>
+          <p>Main quest: chase, bargain with, or outwit the will-o’-wisp race across the wheel. The <strong>Compass Orb</strong> is the party’s orbital phone — planar sat-link for bearings, ring-calls, &amp; jump-point coordinates (demon checkpoints, player housing, Outlands Concordant Market). Tap a node for jump-points — portals, oaths, spells, artifacts. Supplement to the Outer gazetteer — start from <a class="outer-link" href="https://planesbound.grok.me/?plane=lighthouse">The Lighthouse</a>.</p>
+          <p style="color:var(--ink-muted);font-size:.88rem;">Scrub the 4th-dimension slider for the Four Sunderings. Lore / Cosmology holds Singularity, Axiom, triad, Far Realms soul-soup, &amp; flickering will-o’-wisps. Spells / Handouts holds oaths, devices, &amp; quest jump-points as race tools.</p>
         </div>
       </div>`;
     return;
@@ -1249,11 +1403,15 @@ document.getElementById("tab-lore").onclick = () => showTab("lore");
 document.getElementById("tab-spells").onclick = () => showTab("spells");
 
 // Spells strip
-document.getElementById("spellsStrip").innerHTML = handouts.map(h => `
-  <button class="spell-card-btn" data-id="${h.id}">
-    <img src="${escapeHtml(h.art)}" alt="${escapeHtml(h.name)}" />
+document.getElementById("spellsStrip").innerHTML = handouts.map(h => {
+  const thumb = h.art
+    ? `<img src="${escapeHtml(h.art)}" alt="${escapeHtml(h.name)}" />`
+    : `<div style="height:110px;background:linear-gradient(135deg,#1a1510,${escapeHtml(h.accent)}66);"></div>`;
+  return `<button class="spell-card-btn" data-id="${h.id}">
+    ${thumb}
     <div class="sc-body"><strong>${escapeHtml(h.name)}</strong><span>${escapeHtml(h.epithet)}</span></div>
-  </button>`).join("");
+  </button>`;
+}).join("");
 document.querySelectorAll(".spell-card-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     select(btn.dataset.id);
@@ -1280,6 +1438,48 @@ renderRail();
 renderEra();
 renderFolioInto(folioBody, null);
 renderFolioInto(spellFolioBody, null);
+
+/* Super-hard Easter egg: type sporebat (anywhere). Not in strip/rail/lede. */
+(function initPalmBeeEgg() {
+  const modal = document.getElementById("eggModal");
+  const closeBtn = document.getElementById("eggClose");
+  if (!modal || !closeBtn) return;
+  let buf = "";
+  const TARGET = "sporebat";
+  function openEgg() {
+    modal.hidden = false;
+    modal.classList.add("open", "shake");
+    // restart sigil flash
+    const flash = modal.querySelector(".egg-sigil-flash");
+    if (flash) {
+      flash.style.animation = "none";
+      void flash.offsetWidth;
+      flash.style.animation = "";
+    }
+    setTimeout(() => modal.classList.remove("shake"), 600);
+  }
+  function closeEgg() {
+    modal.classList.remove("open", "shake");
+    modal.hidden = true;
+  }
+  closeBtn.addEventListener("click", closeEgg);
+  modal.addEventListener("click", (ev) => { if (ev.target === modal) closeEgg(); });
+  document.addEventListener("keydown", (ev) => {
+    if (modal.classList.contains("open") && ev.key === "Escape") {
+      closeEgg();
+      return;
+    }
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    const t = ev.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (ev.key.length !== 1) return;
+    buf = (buf + ev.key.toLowerCase()).slice(-TARGET.length);
+    if (buf === TARGET) {
+      buf = "";
+      openEgg();
+    }
+  });
+})();
   </script>
 </body>
 </html>
