@@ -322,6 +322,12 @@
     .spell-card-btn span { font-size: .72rem; color: var(--ink-muted); }
     .footnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-muted); }
   
+
+    .egg-meme { margin-top: 1rem; text-align: left; max-width: 28rem; margin-left: auto; margin-right: auto; }
+    .egg-meme-line { margin: .2rem 0; font-family: Cinzel, serif; letter-spacing: .06em; font-size: .85rem; color: #e8d48b; }
+    .egg-meme-face { width: min(100%, 280px); margin: .5rem auto 0; display: block; border-radius: .5rem; border: 1px solid rgba(196,154,82,.45); }
+    .egg-doge { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(196,154,82,.35); }
+    .egg-doge img { width: min(100%, 320px); margin: .5rem auto; display: block; border-radius: .5rem; }
     /* JD Vance Palm-Bee easter egg — not linked from UI */
     #eggModal {
       display: none; position: fixed; inset: 0; z-index: 9999;
@@ -561,6 +567,17 @@
         <p class="egg-kicker">Super-hard unlock · Outlands hush</p>
         <h2 id="eggTitle">JD Vance · Palm-Bee of the Outlands</h2>
         <p class="egg-lore">Senator Bee Vance — a light without source that <em>buzzes</em> policy into the Concordant Exchange. Neither merchant nor will-o’-wisp, he sits in the open palm of the Hub Above &amp; misprices whole caravans with a single furrowed brow. Chase him &amp; the race laughs; bargain with him &amp; the ledger grows a second shadow.</p>
+        <div class="egg-meme" aria-label="Cursed item joke">
+          <p class="egg-meme-line"><strong>ME:</strong> I TOUCH THE CURSED ITEM</p>
+          <p class="egg-meme-line"><strong>DM:</strong> YOU ARE NOW CURSED</p>
+          <p class="egg-meme-line"><strong>ME:</strong></p>
+          <img class="egg-meme-face" src="art/lore/eggs/cursed-item-reaction.jpeg" alt="Cursed reaction" />
+        </div>
+        <div class="egg-doge" hidden id="eggDoge">
+          <p class="egg-kicker">…&amp; one more light without source</p>
+          <img src="art/lore/eggs/doge-paper-bag.png" alt="Doge in a paper bag" />
+          <p class="egg-lore">Doge of the Bag — such plane. Very wisp. Wow. Appears only after the Palm-Bee has been witnessed; a second shadow on the Concordant ledger.</p>
+        </div>
         <button type="button" class="egg-close" id="eggClose">Close the palm</button>
       </div>
     </div>
@@ -1449,6 +1466,8 @@ renderFolioInto(spellFolioBody, null);
   function openEgg() {
     modal.hidden = false;
     modal.classList.add("open", "shake");
+    const doge = document.getElementById("eggDoge");
+    if (doge) doge.hidden = true;
     // restart sigil flash
     const flash = modal.querySelector(".egg-sigil-flash");
     if (flash) {
@@ -1457,6 +1476,13 @@ renderFolioInto(spellFolioBody, null);
       flash.style.animation = "";
     }
     setTimeout(() => modal.classList.remove("shake"), 600);
+    // Doge arrives after the Palm-Bee is witnessed
+    setTimeout(() => {
+      if (doge) {
+        doge.hidden = false;
+        doge.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }, 1800);
   }
   function closeEgg() {
     modal.classList.remove("open", "shake");

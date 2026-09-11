@@ -1,3 +1,7 @@
+## Primary ship target
+
+**`planesbound.grok.me`** via Grok Build merge (see below). GitHub Pages is the staging mirror while Build Publish is sticky.
+
 # MERGE_NOTES — Port full-wheel atlas into planesbound.grok.me
 
 Supplement only. Do **not** replace the Outer gazetteer. Keep back-link to `/?plane=lighthouse`.
@@ -85,7 +89,10 @@ Main quest remains the **will-o’-wisp race**.
 - **Who:** **JD Vance · Palm-Bee of the Outlands** (Senator Bee Vance) — unmistakable title on reveal.
 - **Art:** `art/lore/eggs/palm-bee.jpeg` (not in spells strip, rail chips, or lede).
 - **Trigger:** type the word `sporebat` on the page (keydown buffer; ignores focused inputs). No UI affordance.
-- **Reveal:** full-viewport cinematic modal — dark parchment/cosmic backdrop, huge palm-bee art, Cinzel/brass title naming JD Vance, short mock-epic lore (a light without source that buzzes policy into the Concordant Exchange), soundless shake + will-o’-wisp sigils flash, Close the palm / Escape / click backdrop.
+- **Reveal:** full-viewport cinematic modal — dark parchment/cosmic backdrop, huge palm-bee art, Cinzel/brass title naming JD Vance, short mock-epic lore (a light without source that buzzes policy into the Concordant Exchange), soundless shake + will-o’-wisp sigils flash.
+- **Joke on find:** ME: I TOUCH THE CURSED ITEM / DM: YOU ARE NOW CURSED / ME: + `art/lore/eggs/cursed-item-reaction.jpeg`
+- **Doge coda:** ~1.8s after reveal, show `art/lore/eggs/doge-paper-bag.png` (“Doge of the Bag”) as second light without source.
+- Close: Close the palm / Escape / click backdrop.
 - Not discoverable via normal navigation. Keep this spoiler out of player-facing empty folio copy.
 
 </details>
