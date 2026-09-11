@@ -1,15 +1,13 @@
-# COMPLETE — Full-wheel atlas rebuild
+# COMPLETE — Inner Ring supplement (focused)
 
-- [x] 3D / isometric concentric wheel (diagram labels; Faywilds spelling)
-- [x] 4th-dimension Four Sunderings timeline (default Fourth)
-- [x] Main quest framed: **will-o’-wisp race**
-- [x] Singularity lore tab (Axiom, triad, auras, soul-soup)
-- [x] Spells / Objects / Handouts (Burning Pact, Frozen Oath, Firecube, Gavel, Tesseract, Discernment, Grimoire, Digital Sigil, Oath Report, Compass Orb, Demon Checkpoints, Player Housing)
-- [x] Outlands Concordant Market Trade jump-point (chart muse)
-- [x] Compass Orb as party sat-phone in lede / empty folio
-- [x] PLANESBOUND customs: Earth/Beast, Dust/pilots, Mineral/Ani, Digital Void schism
-- [x] Outer stubs + Lighthouse back-link
-- [x] MERGE_NOTES.md
-- [x] Pages ship to sporebatglow/planesbound-inner-planes (not grok.me)
-- [x] Old Things public jump-points (sigils, Old Presence, Wisp-Predator); muse-private gitignored
-- [x] Super-hard Easter egg: JD Vance Palm-Bee (trigger spoilered in MERGE_NOTES only)
+- [x] Restored Outer-matching bones (map + folio + rail + bare titles) from 84a033a line
+- [x] Fresh map overview: `art/inner-campaign-overview.png`
+- [x] Fourteen Inner shores with locked customs (Earth/Beast, Dust/pilots, Mineral/Ani, Digital Void)
+- [x] Quest panel: **The Will-o’-Wisp Race** (`art/will-o-wisp-race-quest.png`) tied to Fourth Sundering / Gulthias / Shade’s Third
+- [x] Thin Compass Orb one-liner (device only)
+- [x] Lighthouse Travel back-link to Outer atlas
+- [x] players.html + PLAYERS_GAZETTEER.md focused on Inner + quest
+- [x] MERGE_NOTES.md: merge into grok.me Outer without replacing it
+- [x] No 3D wheel / lore-card dump / Spells strip / Singularity walls / Outer stubs on Inner page
+- [x] `art/lore/muse-private/` gitignored; lore JPEGs unused in UI
+- [x] Pages ship → sporebatglow/planesbound-inner-planes

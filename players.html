@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Players’ Gazetteer · Will-o’-Wisp Race · Inner Ring</title>
+  <title>Players’ Gazetteer · Inner Ring · Planesbound Atlas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
@@ -110,6 +110,31 @@
     }
     .intro p { margin: 0 0 .85rem; line-height: 1.6; color: var(--ink-soft); font-size: .95rem; }
     .intro p:last-child { margin-bottom: 0; }
+    .quest-card {
+      margin: 1.25rem 0 0;
+      padding: 0;
+      background: color-mix(in oklab, var(--paper) 88%, white);
+      border-radius: .85rem;
+      outline: 1px solid var(--border);
+      box-shadow: 0 10px 30px color-mix(in oklab, var(--void) 12%, transparent);
+      overflow: hidden;
+    }
+    .quest-card .quest-hero {
+      display: block; width: 100%; height: auto; max-height: 220px; object-fit: cover;
+      background: #120f14;
+    }
+    .quest-card .quest-pad { padding: 1.15rem 1.2rem 1.25rem; }
+    .quest-card h2 {
+      font-family: Cinzel, serif; font-size: 1.05rem; font-weight: 600;
+      margin: .2rem 0 .55rem; letter-spacing: .03em;
+    }
+    .quest-card p { margin: 0 0 .75rem; line-height: 1.6; color: var(--ink-soft); font-size: .95rem; }
+    .quest-card p:last-child { margin-bottom: 0; }
+    .quest-card .device {
+      margin-top: .85rem; padding-top: .75rem;
+      border-top: 1px solid color-mix(in oklab, var(--brass) 22%, transparent);
+      font-size: .85rem; color: var(--ink-muted); line-height: 1.5;
+    }
     .plane {
       margin: 1.25rem 0 0;
       padding: 0;
@@ -194,8 +219,7 @@
     <header>
       <p class="eyebrow">Inner Ring supplement · Outer Planes Campaign Map</p>
       <h1>Players’ Gazetteer — The Inner Ring</h1>
-      <p class="lede">A player-facing Inner Ring supplement to the Outer Planes Campaign Map / Lighthouse gazetteer. Read aloud at the table, copy into character journals, or keep beside the atlas map.</p>
-      <p class="lede"><strong>Main quest:</strong> the will-o’-wisp race — lights without source that guide, mislead, or consume. Ani on Mineral is progenitor hearth. Full wheel, Four Sunderings timeline, Singularity lore, &amp; spell/object handouts live on the <a href="index.html" style="color:var(--brass)">atlas wheel</a>.</p>
+      <p class="lede">A player-facing Inner Ring supplement to the Outer Planes Campaign Map / Lighthouse gazetteer—same bones as the Outer atlas, focused on the Inner Ring &amp; the Will-o’-Wisp Race. Read aloud at the table, copy into character journals, or keep beside the campaign map.</p>
       <div class="nav">
         <a href="index.html">← Campaign map</a>
         <a href="https://planesbound.grok.me/?plane=lighthouse">← Back to The Lighthouse (Outer atlas)</a>
@@ -203,8 +227,9 @@
     </header>
 
     <nav class="toc" aria-label="Planes">
-      <h2>Fourteen shores</h2>
+      <h2>Quest &amp; fourteen shores</h2>
       <ol>
+        <li><a href="#quest">The Will-o’-Wisp Race</a></li>
         <li><a href="#fire">Fire</a></li>
         <li><a href="#water">Water</a></li>
         <li><a href="#air">Air</a></li>
@@ -230,6 +255,18 @@
       <p>At the center hangs the <strong>Ethereal</strong>—the fog between Material life &amp; Inner shores. Planesbound keepers treat it as a <strong>curtain-road</strong>: when the Lighthouse’s Daystar bearing is clean, a tuned lamp can throw a true road into that mist &amp; out toward elemental beaches.</p>
       <p>Near that curtain, in the schism between Astral thought-sea &amp; Ethereal mist, lies the <strong>Digital Void</strong>—real campaign geography, thin as a fault line &amp; twice as easy to miss.</p>
       <p><strong>Dust</strong> &amp; <strong>Mineral</strong> answer to meanings Planesbound travelers learn the hard way: Dust is home to the current pilots of the agentic human body; Mineral shines with Ani, progenitor will-o’-wisp of living crystal. Approach them with the same respect you would give any other shore.</p>
+      <p>The active conflict is the <strong>Will-o’-Wisp Race</strong>: lights without source racing the leylines while dark seeds try to solder the planes. See the quest section below.</p>
+    </section>
+
+    <section class="quest-card" id="quest" aria-labelledby="quest-h">
+      <img class="quest-hero" src="art/will-o-wisp-race-quest.png" alt="The Will-o’-Wisp Race" />
+      <div class="quest-pad">
+        <p class="eyebrow">Quest</p>
+        <h2 id="quest-h">The Will-o’-Wisp Race</h2>
+        <p>Lights without source that guide, mislead, or consume. Wisps race the leylines while dark seeds try to solder the planes shut—Fourth Sundering pressure, Gulthias blight, &amp; Shade’s secret Third Sundering tangled in the same chase.</p>
+        <p><strong>Ani / Mineral</strong> is a hearth of the race. Locked customs stay: Earth is home of the Beast; Dust, the pilots of the agentic body; the Digital Void sits in the Astral–Ethereal schism.</p>
+        <p class="device"><strong style="color:var(--brass);font-family:Cinzel,serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;">Compass Orb</strong> — thin planar bearing for the race; a party sat-link back toward the Lighthouse when the Daystar pulse is clean.</p>
+      </div>
     </section>
 
     <article class="plane" id="fire">
@@ -452,7 +489,7 @@
       </div>
       <div class="plane-body">
         <p>Mineral is living crystal &amp; facet-light. In Planesbound lore, <strong>Ani</strong> is the progenitor will-o’-wisp of Mineral—the shimmer in the ore that remembers how stone learned to shine. Crystal grows like thought; facets catch a pale, guiding flame that is not quite fire &amp; not quite soul.</p>
-        <p>Crystal mephits &amp; ore-born shapes may haunt the edges near Earth &amp; Positive, but the heart of the shore answers to Ani’s progenitor aesthetic: will-o’-wisp light in living crystal, goddess-like in patience &amp; strange in mercy.</p>
+        <p>Crystal mephits &amp; ore-born shapes may haunt the edges near Earth &amp; Positive, but the heart of the shore answers to Ani’s progenitor aesthetic: will-o’-wisp light in living crystal, goddess-like in patience &amp; strange in mercy. Ani’s hearth is a waypoint of the Will-o’-Wisp Race.</p>
         <div class="travel"><strong>Travel</strong><p>Ethereal curtain-road to Inner shores; follow the facet-glow when the Daystar bearing is clean. Do not shatter what lights your way.</p></div>
       </div>
     </article>

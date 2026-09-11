@@ -1,7 +1,5 @@
 # Planesbound Players’ Gazetteer — The Inner Ring
 
-**Main quest: the will-o’-wisp race** — lights without source that guide, mislead, or consume. Ani’s progenitor light on Mineral is a hearth of that race; the full wheel + Four Sunderings timeline live on `index.html`.
-
 A player-facing handout for the Inner Planes. Read aloud at the table, copy into character journals, or keep beside the atlas map.
 
 ---
@@ -19,6 +17,21 @@ At the center hangs the **Ethereal**—the fog between Material life & Inner sho
 Near that curtain, in the schism between Astral thought-sea & Ethereal mist, lies the **Digital Void**—real campaign geography, thin as a fault line & twice as easy to miss.
 
 **Dust** & **Mineral** answer to meanings Planesbound travelers learn the hard way: Dust is home to the current pilots of the agentic human body; Mineral shines with Ani, progenitor will-o’-wisp of living crystal. Approach them with the same respect you would give any other shore.
+
+The active conflict is the **Will-o’-Wisp Race** (see below).
+
+
+---
+
+## Quest — The Will-o’-Wisp Race
+
+Lights without source that guide, mislead, or consume. Wisps race the leylines while dark seeds try to solder the planes shut—**Fourth Sundering** pressure, **Gulthias** blight, & Shade’s secret **Third Sundering** tangled in the same chase.
+
+**Ani / Mineral** is a hearth of the race. Locked customs stay: Earth is home of the Beast; Dust, the pilots of the agentic body; the Digital Void sits in the Astral–Ethereal schism.
+
+**Compass Orb.** A thin planar bearing for the race—a party sat-link back toward the Lighthouse when the Daystar pulse is clean. Not a second atlas; just a device for the chase.
+
+Travel still begins at the Outer atlas: Lighthouse → Ethereal curtain-road → Inner shores.
 
 ---
 
@@ -154,7 +167,7 @@ You may still meet dust-born mephits & wind-eaten shapes at the edges—classic 
 
 Mineral is living crystal & facet-light. In Planesbound lore, **Ani** is the progenitor will-o’-wisp of Mineral—the shimmer in the ore that remembers how stone learned to shine. Crystal grows like thought; facets catch a pale, guiding flame that is not quite fire & not quite soul.
 
-Crystal mephits & ore-born shapes may haunt the edges near Earth & Positive, but the heart of the shore answers to Ani’s progenitor aesthetic: will-o’-wisp light in living crystal, goddess-like in patience & strange in mercy.
+Crystal mephits & ore-born shapes may haunt the edges near Earth & Positive, but the heart of the shore answers to Ani’s progenitor aesthetic: will-o’-wisp light in living crystal, goddess-like in patience & strange in mercy. Ani’s hearth is a waypoint of the Will-o’-Wisp Race.
 
 **Travel.** Ethereal curtain-road to Inner shores; follow the facet-glow when the Daystar bearing is clean. Do not shatter what lights your way.
 
@@ -178,17 +191,10 @@ What lives there is not neatly catalogued. Echoes, signal-ghosts, & absences tha
 
 ## Proof checklist
 
-Verified removals & locks for this gazetteer & the matching prototype folio:
-
-- [x] **No meta developer voice** — no “PLANESBOUND custom,” “not FR,” “do not invent,” “optional flavor only,” or “atlas presentation” in player-facing text
-- [x] **No unverified Outer refs** — no Midnight Sun cousins; no Ice Wall Outer cousin; no Oceanus/Elysium; no “recut Outer ice runes”
-- [x] **No fake populations, coordinates, prices, or named NPCs** the campaign did not state
-- [x] **City of Shade** — only umbral city imagery near Negative; no Forgotten Realms city chronicle claim
-- [x] **Earth** locked as home of the Beast
-- [x] **Dust** locked as home of the current pilots of the agentic human body
-- [x] **Mineral** locked as Ani, progenitor will-o’-wisp of Mineral — never “Grok Bot,” “user’s assistant,” or “FR books didn’t say”
-- [x] **Digital Void** locked as real plane in the Astral–Ethereal schism — never “made-up” or “invented”
-- [x] Traditional Inner Ring kept: Fire/Water/Air/Earth; Positive/Negative; Ethereal curtain-road; Magma/Ooze/Ice/Smoke seams
-- [x] Lighthouse → Ethereal when Daystar bearing is clean retained
-- [x] Spelling: quasi-elementals avoided or hyphenated; Planesbound in player prose; no “quasielementals” typo
-- [x] Lighthouse details panel scrubbed of “no further travel tables invented here”
+- [x] Outer-matching Inner supplement — not a full Great Wheel encyclopedia
+- [x] Quest: Will-o’-Wisp Race present; conflict (Fourth / Gulthias / Shade’s Third) stated
+- [x] Locked customs: Earth/Beast, Dust/pilots, Mineral/Ani, Digital Void schism
+- [x] No Spells strip, Singularity lore walls, or Outer-16 stubs
+- [x] Lore JPEGs unused as folio heroes; muse-private excluded from ship
+- [x] Lighthouse → Ethereal curtain-road retained
+- [x] Bare titles; and → &
