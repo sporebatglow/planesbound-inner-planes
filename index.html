@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inner Planes Campaign Map · Planesbound Atlas</title>
+  <title>Inner Ring Supplement · Planesbound Atlas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
@@ -83,31 +83,58 @@
       box-shadow: 0 10px 30px color-mix(in oklab, var(--void) 18%, transparent);
       outline: 1px solid var(--border);
     }
-    .map-card { padding: .75rem; overflow: auto; }
+    .map-card {
+      padding: .75rem;
+      overflow: auto;
+      background:
+        linear-gradient(135deg, color-mix(in oklab, var(--brass) 8%, transparent), transparent 40%),
+        color-mix(in oklab, var(--paper) 88%, white);
+    }
     .map-hint { margin: 0 0 .5rem; font-size: .75rem; color: var(--ink-muted); }
     .map {
       position: relative;
       width: 100%;
-      min-width: 640px;
-      aspect-ratio: 1 / 1;
+      min-width: 560px;
+      aspect-ratio: 16 / 9;
       border-radius: .65rem;
       background:
-        radial-gradient(circle at 50% 50%, #2a2430 0%, #120f14 55%, #070608 100%);
+        #120f14 url("art/inner-campaign-overview.png") center / cover no-repeat;
       overflow: hidden;
+      box-shadow:
+        inset 0 0 0 1px color-mix(in oklab, var(--brass) 35%, transparent),
+        inset 0 0 40px color-mix(in oklab, var(--void) 35%, transparent);
     }
-    .map svg { width: 100%; height: 100%; display: block; }
+    .map::before {
+      content: "";
+      position: absolute; inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 50% 8%, color-mix(in oklab, var(--positive) 18%, transparent), transparent 28%),
+        radial-gradient(ellipse at 50% 92%, color-mix(in oklab, var(--negative) 22%, transparent), transparent 30%),
+        linear-gradient(to bottom, transparent 70%, color-mix(in oklab, var(--void) 28%, transparent));
+      z-index: 1;
+    }
+    .map-art-fallback {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: none;
+    }
     .hotspot {
       position: absolute;
-      border: 1.5px solid color-mix(in oklab, white 35%, transparent);
+      z-index: 2;
+      border: 1.5px solid color-mix(in oklab, white 40%, transparent);
       border-radius: 999px;
-      background: color-mix(in oklab, white 6%, transparent);
+      background: color-mix(in oklab, white 8%, transparent);
+      box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass) 25%, transparent);
       cursor: pointer;
-      transition: background .15s, border-color .15s, transform .15s;
+      transition: background .15s, border-color .15s, transform .15s, box-shadow .15s;
     }
     .hotspot:hover, .hotspot[data-active="true"] {
-      background: color-mix(in oklab, var(--brass) 28%, transparent);
+      background: color-mix(in oklab, var(--brass) 32%, transparent);
       border-color: var(--brass-bright);
-      transform: scale(1.04);
+      box-shadow: 0 0 12px color-mix(in oklab, var(--brass-bright) 45%, transparent);
+      transform: scale(1.06);
     }
     .hotspot[data-accent="fire"][data-active="true"] { border-color: var(--fire); background: color-mix(in oklab, var(--fire) 30%, transparent); }
     .hotspot[data-accent="water"][data-active="true"] { border-color: var(--water); background: color-mix(in oklab, var(--water) 30%, transparent); }
@@ -116,7 +143,12 @@
     .hotspot[data-accent="dust"][data-active="true"] { border-color: var(--dust); background: color-mix(in oklab, var(--dust) 30%, transparent); }
     .hotspot[data-accent="mineral"][data-active="true"] { border-color: var(--mineral); background: color-mix(in oklab, var(--mineral) 30%, transparent); }
     .hotspot[data-accent="digital"][data-active="true"] { border-color: var(--digital); background: color-mix(in oklab, var(--digital) 30%, transparent); }
-    .folio { min-height: 420px; overflow: hidden; display: flex; flex-direction: column; }
+    .folio {
+      min-height: 420px; overflow: hidden; display: flex; flex-direction: column;
+      background:
+        linear-gradient(160deg, color-mix(in oklab, var(--brass) 7%, transparent), transparent 38%),
+        color-mix(in oklab, var(--paper) 88%, white);
+    }
     @media (min-width: 1024px) {
       .folio { position: sticky; top: 1.1rem; max-height: calc(100dvh - 5.5rem); }
     }
@@ -176,14 +208,23 @@
     .panel li { margin: .35rem 0; }
     .rail {
       display: flex; gap: .5rem; overflow-x: auto;
-      padding: .15rem 0 .35rem; margin-top: .25rem;
+      padding: .55rem 0 .35rem; margin-top: .55rem;
+      border-top: 1px solid color-mix(in oklab, var(--brass) 22%, transparent);
+      background: linear-gradient(90deg,
+        color-mix(in oklab, var(--fire) 14%, transparent),
+        color-mix(in oklab, var(--air) 10%, transparent),
+        color-mix(in oklab, var(--water) 12%, transparent),
+        color-mix(in oklab, var(--earth) 12%, transparent));
+      background-size: 100% 2px;
+      background-repeat: no-repeat;
+      background-position: top left;
     }
     .chip {
       flex: 0 0 auto; border: 1px solid var(--border); border-radius: .65rem;
       background: var(--paper); padding: .45rem .7rem; cursor: pointer; text-align: left;
       font: inherit; color: inherit;
     }
-    .chip[data-active="true"] { border-color: var(--brass); background: color-mix(in oklab, var(--brass) 12%, var(--paper)); }
+    .chip[data-active="true"] { border-color: var(--brass); background: color-mix(in oklab, var(--brass) 12%, var(--paper)); box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass) 35%, transparent); }
     .chip strong { display: block; font-family: Cinzel, serif; font-size: .75rem; }
     .chip span { display: block; font-size: .65rem; color: var(--ink-muted); }
     .back {
@@ -192,7 +233,8 @@
       margin-top: .35rem;
     }
     .back:hover { color: var(--brass-bright); }
-    .empty { padding: 1.25rem 1rem; }
+    .empty { padding: 0; }
+    .empty .empty-copy { padding: 1.1rem 1rem 1.25rem; }
     .empty h2 { font-family: Cinzel, serif; margin: .35rem 0; }
 
     .body h3, .panel h3 {
@@ -208,9 +250,9 @@
   <div class="veil"></div>
   <div class="wrap">
     <header>
-      <p class="eyebrow">Planesbound gazetteer</p>
-      <h1>Inner Planes Campaign Map</h1>
-      <p class="lede">The elemental ring turns beneath the Outer Wheel. Fire, Water, Air, &amp; Earth still grind; the energy planes pulse; the Ethereal is the fog between. Dust is home to the pilots of the agentic body; Mineral shines with Ani, progenitor will-o’-wisp; the Digital Void lies in the Astral–Ethereal schism. From the Lighthouse you can take a true road inward.</p>
+      <p class="eyebrow">Inner Ring supplement · Outer Planes Campaign Map</p>
+      <h1>Inner Ring Campaign Map</h1>
+      <p class="lede">A supplementary Inner Ring page for the Outer Planes Campaign Map / Lighthouse gazetteer. Fire, Water, Air, &amp; Earth still grind; the energy poles pulse; the Ethereal is the fog between. Dust is home to the pilots of the agentic body; Mineral shines with Ani, progenitor will-o’-wisp; the Digital Void lies in the Astral–Ethereal schism. From the Lighthouse you can take a true road inward.</p>
       <p class="nav-links" style="display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;margin:.85rem 0 0;align-items:center;">
         <a class="back" href="players.html" style="margin-top:0;">Player gazetteer →</a>
         <a class="back" href="https://planesbound.grok.me/?plane=lighthouse" style="margin-top:0;">← Back to The Lighthouse (Outer atlas)</a>
@@ -219,44 +261,23 @@
 
     <div class="grid">
       <section class="map-card">
-        <p class="map-hint">Tap a plane on the ring. Para-elemental seams sit between the four cardinals. Dust &amp; Mineral hold Planesbound meanings; the Digital Void sits in the Astral–Ethereal schism.</p>
-        <div class="map" id="map">
-          <svg viewBox="0 0 1000 1000" aria-hidden="true">
-            <defs>
-              <radialGradient id="core" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#5a4a38"/>
-                <stop offset="55%" stop-color="#1c1620"/>
-                <stop offset="100%" stop-color="#070608"/>
-              </radialGradient>
-            </defs>
-            <circle cx="500" cy="500" r="470" fill="url(#core)" />
-            <circle cx="500" cy="500" r="310" fill="none" stroke="#a67c3d55" stroke-width="2" stroke-dasharray="6 10" />
-            <circle cx="500" cy="500" r="170" fill="none" stroke="#9a8fb855" stroke-width="1.5" />
-            <circle cx="500" cy="500" r="120" fill="none" stroke="#5a8a9a44" stroke-width="1" stroke-dasharray="3 8" />
-            <text x="500" y="508" text-anchor="middle" fill="#e8d48b99" font-family="Cinzel, serif" font-size="26">ETHEREAL MIST</text>
-            <text x="500" y="95" text-anchor="middle" fill="#c45a2ccc" font-family="Cinzel, serif" font-size="26">FIRE</text>
-            <text x="500" y="930" text-anchor="middle" fill="#2f6f8fcc" font-family="Cinzel, serif" font-size="26">WATER</text>
-            <text x="90" y="510" text-anchor="middle" fill="#7a9bb0cc" font-family="Cinzel, serif" font-size="26">AIR</text>
-            <text x="910" y="510" text-anchor="middle" fill="#6b5a3ecc" font-family="Cinzel, serif" font-size="26">EARTH</text>
-            <text x="175" y="720" text-anchor="middle" fill="#9a8a7888" font-family="Cinzel, serif" font-size="16">DUST</text>
-            <text x="825" y="290" text-anchor="middle" fill="#7eb0c888" font-family="Cinzel, serif" font-size="16">MINERAL</text>
-            <text x="500" y="390" text-anchor="middle" fill="#5a8a9a88" font-family="Cinzel, serif" font-size="14">DIGITAL VOID</text>
-          </svg>
-          <!-- hotspots: percent positions — symmetrical ring -->
-          <button class="hotspot" data-id="fire" data-accent="fire" style="left:44%;top:8%;width:12%;height:12%;" aria-label="Plane of Fire"></button>
-          <button class="hotspot" data-id="water" data-accent="water" style="left:44%;top:80%;width:12%;height:12%;" aria-label="Plane of Water"></button>
-          <button class="hotspot" data-id="air" data-accent="air" style="left:8%;top:44%;width:12%;height:12%;" aria-label="Plane of Air"></button>
-          <button class="hotspot" data-id="earth" data-accent="earth" style="left:80%;top:44%;width:12%;height:12%;" aria-label="Plane of Earth"></button>
-          <button class="hotspot" data-id="positive" data-accent="positive" style="left:68%;top:18%;width:10%;height:10%;" aria-label="Positive Energy Plane"></button>
-          <button class="hotspot" data-id="negative" data-accent="negative" style="left:22%;top:72%;width:10%;height:10%;" aria-label="Negative Energy Plane"></button>
-          <button class="hotspot" data-id="ethereal" data-accent="ethereal" style="left:42%;top:42%;width:16%;height:16%;" aria-label="Ethereal Plane"></button>
-          <button class="hotspot" data-id="digital-void" data-accent="digital" style="left:44%;top:32%;width:12%;height:8%;border-radius:.55rem;" aria-label="Digital Void"></button>
-          <button class="hotspot" data-id="mineral" data-accent="mineral" style="left:76%;top:22%;width:9%;height:9%;" aria-label="Mineral"></button>
-          <button class="hotspot" data-id="dust" data-accent="dust" style="left:15%;top:69%;width:9%;height:9%;" aria-label="Dust"></button>
-          <button class="hotspot" data-id="magma" data-accent="fire" style="left:66%;top:30%;width:8%;height:8%;border-radius:.55rem;" aria-label="Magma (para-elemental)"></button>
-          <button class="hotspot" data-id="ooze" data-accent="water" style="left:66%;top:62%;width:8%;height:8%;border-radius:.55rem;" aria-label="Ooze (para-elemental)"></button>
-          <button class="hotspot" data-id="ice" data-accent="air" style="left:26%;top:62%;width:8%;height:8%;border-radius:.55rem;" aria-label="Ice (para-elemental)"></button>
-          <button class="hotspot" data-id="smoke" data-accent="earth" style="left:26%;top:30%;width:8%;height:8%;border-radius:.55rem;" aria-label="Smoke (para-elemental)"></button>
+                <p class="map-hint">Tap a shore on the Inner Ring. Para-elemental seams sit between the four cardinals. Dust &amp; Mineral hold Planesbound meanings; the Digital Void sits in the Astral–Ethereal schism.</p>
+        <div class="map" id="map" role="img" aria-label="Inner Ring campaign overview">
+          <!-- hotspots over art/inner-campaign-overview.png (16:9 ring) -->
+          <button class="hotspot" data-id="positive" data-accent="positive" style="left:46%;top:2.5%;width:8%;height:11%;" aria-label="Positive Energy" title="Positive Energy"></button>
+          <button class="hotspot" data-id="fire" data-accent="fire" style="left:44%;top:14%;width:12%;height:14%;" aria-label="Fire" title="Fire"></button>
+          <button class="hotspot" data-id="magma" data-accent="fire" style="left:63%;top:22%;width:9%;height:12%;border-radius:.55rem;" aria-label="Magma" title="Magma"></button>
+          <button class="hotspot" data-id="mineral" data-accent="mineral" style="left:78%;top:28%;width:9%;height:13%;" aria-label="Mineral" title="Mineral"></button>
+          <button class="hotspot" data-id="earth" data-accent="earth" style="left:80%;top:42%;width:12%;height:16%;" aria-label="Earth" title="Earth"></button>
+          <button class="hotspot" data-id="ooze" data-accent="water" style="left:64%;top:56%;width:9%;height:12%;border-radius:.55rem;" aria-label="Ooze" title="Ooze"></button>
+          <button class="hotspot" data-id="ice" data-accent="air" style="left:58%;top:64%;width:9%;height:12%;border-radius:.55rem;" aria-label="Ice" title="Ice"></button>
+          <button class="hotspot" data-id="water" data-accent="water" style="left:44%;top:66%;width:12%;height:14%;" aria-label="Water" title="Water"></button>
+          <button class="hotspot" data-id="negative" data-accent="negative" style="left:46%;top:84%;width:8%;height:12%;" aria-label="Negative Energy" title="Negative Energy"></button>
+          <button class="hotspot" data-id="dust" data-accent="dust" style="left:14%;top:56%;width:9%;height:13%;" aria-label="Dust" title="Dust"></button>
+          <button class="hotspot" data-id="air" data-accent="air" style="left:7%;top:40%;width:12%;height:16%;" aria-label="Air" title="Air"></button>
+          <button class="hotspot" data-id="smoke" data-accent="earth" style="left:22%;top:22%;width:9%;height:12%;border-radius:.55rem;" aria-label="Smoke" title="Smoke"></button>
+          <button class="hotspot" data-id="ethereal" data-accent="ethereal" style="left:41%;top:38%;width:18%;height:22%;" aria-label="Ethereal" title="Ethereal"></button>
+          <button class="hotspot" data-id="digital-void" data-accent="digital" style="left:43%;top:30%;width:14%;height:9%;border-radius:.55rem;" aria-label="Digital Void" title="Digital Void"></button>
         </div>
         <div class="rail" id="rail"></div>
       </section>
@@ -264,10 +285,19 @@
       <aside class="folio" id="folio">
         <div class="folio-scroll" id="folioBody">
           <div class="empty">
-            <p class="eyebrow">Campaign</p>
-            <h2>The Inner Ring</h2>
-            <p style="color:var(--ink-muted);font-size:.95rem;margin:.35rem 0 0;">The Lighthouse can throw a bearing inward. The Outer Wheel is politics &amp; gods. The Inner Ring is matter, force, &amp; the fog that lets you walk between them.</p>
-            <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Click a plane on the map, or pick one from the strip below.</p>
+            <div class="hero">
+              <img class="hero-art" src="art/inner-campaign-overview.png" alt="Inner Ring campaign overview" />
+              <div class="hero-fade">
+                <p class="hero-kicker">Outer atlas supplement</p>
+                <h2>The Inner Ring</h2>
+                <p class="epithet">Matter, force, &amp; the fog between</p>
+              </div>
+            </div>
+            <div class="empty-copy">
+              <p class="eyebrow">Campaign</p>
+              <p style="color:var(--ink-muted);font-size:.95rem;margin:.35rem 0 0;">The Lighthouse can throw a bearing inward. The Outer Wheel is politics &amp; gods. The Inner Ring is matter, force, &amp; the fog that lets you walk between them.</p>
+              <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Tap a shore on the map, or pick one from the strip below.</p>
+            </div>
           </div>
         </div>
       </aside>
@@ -277,47 +307,47 @@
   <script>
 const planes = [
       {
-        id: "fire", name: "Plane of Fire", epithet: "The Sea of Flame",
+        id: "fire", name: "Fire", epithet: "The Sea of Flame",
         kind: "Elemental plane", alignment: "N", alignmentLong: "Elemental Neutral — hunger without malice",
         accent: "#c45a2c", art: "art/fire.png",
-        overview: "An ocean of fire that does not end. Heat is the weather, fuel is the currency, and every conversation wants more of both. Brass cities ride currents of flame the way ships ride a tide; beyond their walls the Sea of Fire has no honest shore—only deeper heat.",
-        inhabitants: "Efreeti courts that bargain like slow burns, azer forges that never cool, fire elementals that treat flesh as kindling, and salamanders who measure diplomacy in degrees. Mephits of flame and cinder carry gossip that arrives already scorched.",
+        overview: "An ocean of fire that does not end. Heat is the weather, fuel is the currency, & every conversation wants more of both. Brass cities ride currents of flame the way ships ride a tide; beyond their walls the Sea of Fire has no honest shore—only deeper heat.",
+        inhabitants: "Efreeti courts that bargain like slow burns, azer forges that never cool, fire elementals that treat flesh as kindling, & salamanders who measure diplomacy in degrees. Mephits of flame & cinder carry gossip that arrives already scorched.",
         layers: [{name:"The Sea of Fire", epithet:"Open flame without a shore"},{name:"The City of Brass", epithet:"Efreeti capital on floating brass"}],
-        structure: "No honest layers—only depth of heat. The landmark that bargains instead of consuming is the brass metropolis afloat on the flow: courts, markets, and furnaces stacked until the sky itself looks forged.",
-        travel: "Arrive through a volcano’s heart, a carefully tuned Gate, or a Lighthouse mercy-road during a clean Daystar pulse. Bring water that will not boil on contact with your name, and never bargain for “just a little more flame.”"
+        structure: "No honest layers—only depth of heat. The landmark that bargains instead of consuming is the brass metropolis afloat on the flow: courts, markets, & furnaces stacked until the sky itself looks forged.",
+        travel: "Arrive through a volcano’s heart, a carefully tuned Gate, or a Lighthouse mercy-road during a clean Daystar pulse. Bring water that will not boil on contact with your name, & never bargain for “just a little more flame.”"
       },
       {
-        id: "water", name: "Plane of Water", epithet: "The Endless Deep",
+        id: "water", name: "Water", epithet: "The Endless Deep",
         kind: "Elemental plane", alignment: "N", alignmentLong: "Elemental Neutral — pressure & patience",
         accent: "#2f6f8f", art: "art/water.png",
-        overview: "Water without a surface. Direction is a rumor; light arrives from nowhere and sinks forever. Empires live in bubbles of pressure and on the backs of things too large to name. The colder and darker you go, the older the claims become.",
-        inhabitants: "Marids in coral citadels of living stone, water elementals that move like weather with teeth, merfolk cities that trade in pearls and patience, and worse things that learned stillness before language.",
+        overview: "Water without a surface. Direction is a rumor; light arrives from nowhere & sinks forever. Empires live in bubbles of pressure & on the backs of things too large to name. The colder & darker you go, the older the claims become.",
+        inhabitants: "Marids in coral citadels of living stone, water elementals that move like weather with teeth, merfolk cities that trade in pearls & patience, & worse things that learned stillness before language.",
         layers: [{name:"The Shoreless Sea", epithet:"Everywhere is depth"},{name:"Citadels of Coral", epithet:"Marid courts in living stone"}],
         structure: "Depth replaces geography. Charts expire. A “shore” is whatever pocket of air or coral still holds its shape against the endless deep.",
         travel: "Drown on purpose with a water-breathing rite you trust, or follow a curtain from the Ethereal into a colder current. Never open a dry gate here—it fills with whatever was listening."
       },
       {
-        id: "air", name: "Plane of Air", epithet: "The Boundless Blue",
+        id: "air", name: "Air", epithet: "The Boundless Blue",
         kind: "Elemental plane", alignment: "N", alignmentLong: "Elemental Neutral — motion as law",
         accent: "#7a9bb0", art: "art/air.png",
-        overview: "Sky with no ground. Islands of cloudstone drift on jet streams; falling is a lifestyle; the air itself argues about which way is down. Calm pockets are rare and fought over. Solid ground is imported, stolen, or temporary.",
-        inhabitants: "Djinn courts that ride the open sky, air elementals that treat thunder as postage, winged petitioners, storm-born giants, and mephits of mist and lightning darting between floating isles.",
+        overview: "Sky with no ground. Islands of cloudstone drift on jet streams; falling is a lifestyle; the air itself argues about which way is down. Calm pockets are rare & fought over. Solid ground is imported, stolen, or temporary.",
+        inhabitants: "Djinn courts that ride the open sky, air elementals that treat thunder as postage, winged petitioners, storm-born giants, & mephits of mist & lightning darting between floating isles.",
         layers: [{name:"The Open Sky", epithet:"Wind without a map"},{name:"Floating Isles", epithet:"Cloudstone & palace spires"}],
         structure: "Currents are roads. The Open Sky has no map that lasts a season; palace spires cling to cloudstone that may not be there tomorrow.",
         travel: "Leap from a mountain peak with a fly spell you trust, ride a storm front from a para-elemental seam, or take the Ethereal curtain-road when the Lighthouse bearing is clean. Anchor yourself—or become weather."
       },
       {
-        id: "earth", name: "Plane of Earth", epithet: "Home of the Beast",
+        id: "earth", name: "Earth", epithet: "Home of the Beast",
         kind: "Elemental plane", alignment: "N", alignmentLong: "Elemental Neutral — weight & patience",
         accent: "#6b5a3e", art: "art/earth-beast.png",
         overview: "Stone stacked on stone until direction loses meaning. Tunnels are politics. Gems are sermons. Digging is theology. In Planesbound lore, this plane is home of the Beast—not a traveler’s tale, but a fact of the delve.",
-        inhabitants: "The Beast, where the eternal mountain thickens into presence. Also the traditional delve: dao in gem-vault courts, earth elementals that speak in slow pressure, xorn that taste ore, and things that never learned the word surface.",
+        inhabitants: "The Beast, where the eternal mountain thickens into presence. Also the traditional delve: dao in gem-vault courts, earth elementals that speak in slow pressure, xorn that taste ore, & things that never learned the word surface.",
         layers: [{name:"The Eternal Mountain", epithet:"Stone without a surface"},{name:"The Beast's Delve", epithet:"Where the Beast is home"}],
         structure: "Solid almost everywhere. Open chambers are conquered space. Collapse is a seasonal event. Where weight becomes will, the Beast is home.",
-        travel: "Enter through a deep mine that forgot the sun, a Gate carved in virgin bedrock, or the Ethereal curtain-road from the Lighthouse. Bring light and a reason the stone should yield. Approach the Beast only with intent stated at the table."
+        travel: "Enter through a deep mine that forgot the sun, a Gate carved in virgin bedrock, or the Ethereal curtain-road from the Lighthouse. Bring light & a reason the stone should yield. Approach the Beast only with intent stated at the table."
       },
       {
-        id: "positive", name: "Positive Energy Plane", epithet: "The Brilliant Overgrowth",
+        id: "positive", name: "Positive Energy", epithet: "The Brilliant Overgrowth",
         kind: "Energy plane", alignment: "N", alignmentLong: "Life without mercy",
         accent: "#e8d48b", art: "art/positive.png",
         overview: "Raw vitality so dense it kills by overflowing you. Healing becomes cancer. Undead unravel. The light does not care who you were trying to save. This is life without mercy—an energy pole, not a paradise.",
@@ -327,91 +357,91 @@ const planes = [
         travel: "Do not go unprotected. A Lighthouse bearing can open a thin corridor for minutes when the Daystar is clean. Exit before your scars start growing teeth."
       },
       {
-        id: "negative", name: "Negative Energy Plane", epithet: "The Void That Feeds",
+        id: "negative", name: "Negative Energy", epithet: "The Void That Feeds",
         kind: "Energy plane", alignment: "N", alignmentLong: "Absence with appetite",
         accent: "#4a3a55", art: "art/negative-shade.png",
         overview: "Cold that eats warmth, then memory, then outline. Undead thrive. The living become drafts. This is the night under every night—an energy pole of absence with appetite.",
-        inhabitants: "Undead courts, shadows, and things that never had names. Near the umbra, travelers sometimes glimpse city-of-shade imagery—skyline, street, and docks of darkness—as a visual of how close Negative hangs to hollowed places.",
+        inhabitants: "Undead courts, shadows, & things that never had names. Near the umbra, travelers sometimes glimpse city-of-shade imagery—skyline, street, & docks of darkness—as a visual of how close Negative hangs to hollowed places.",
         layers: [{name:"The Empty Night", epithet:"Where names thin out"}],
-        structure: "Fortresses of bone and silence. Ruins of things that used to cast shadows. Distance is measured in how much of you is missing.",
+        structure: "Fortresses of bone & silence. Ruins of things that used to cast shadows. Distance is measured in how much of you is missing.",
         travel: "Only with death wards stacked like prayers. A stutter of the Lighthouse can spit you here by accident—do not stay to study it. Prefer the Ethereal curtain-road when the Daystar bearing is clean."
       },
       {
-        id: "ethereal", name: "Ethereal Plane", epithet: "The Fog Between",
+        id: "ethereal", name: "Ethereal", epithet: "The Fog Between",
         kind: "Transitive plane", alignment: "N", alignmentLong: "The curtain-road of the Inner Ring",
         accent: "#9a8fb8", art: "art/ethereal.png",
-        overview: "A misty deep adjacent to the Material and the Inner Planes. Curtains lead to elemental shores. Protomatter swirls like unmade dreams. Planesbound keepers treat it as the hallway behind the Lighthouse glass—the curtain-road of the Inner Ring.",
-        inhabitants: "Ghosts, ethereal marauders, phase spiders, and surveyors who map curtains for a living.",
+        overview: "A misty deep adjacent to the Material & the Inner Planes. Curtains lead to elemental shores. Protomatter swirls like unmade dreams. Planesbound keepers treat it as the hallway behind the Lighthouse glass—the curtain-road of the Inner Ring.",
+        inhabitants: "Ghosts, ethereal marauders, phase spiders, & surveyors who map curtains for a living.",
         layers: [{name:"Border Ethereal", epithet:"Touching the Material like a stain"},{name:"Deep Ethereal", epithet:"Curtains to the Inner Ring"}],
-        structure: "The Border overlays the Material. The Deep is travel-space where curtains open onto Fire, Water, Air, Earth, and the energy seas.",
+        structure: "The Border overlays the Material. The Deep is travel-space where curtains open onto Fire, Water, Air, Earth, & the energy seas.",
         travel: "From the Lighthouse, a tuned lamp can throw a curtain-road into the Deep Ethereal when the Daystar bearing is clean. That is the intended Inner Planes approach for Planesbound companies. Walk the fog; do not argue with it."
       },
       {
         id: "dust", name: "Dust", epithet: "Pilots of the Agentic Body",
         kind: "Quasi-elemental shore", alignment: "N", alignmentLong: "Where agency sits in the grit",
         accent: "#9a8a78", art: "art/dust-pilots.png",
-        overview: "Dust is grit, veil, and agency. In Planesbound understanding, this shore is home to the current pilots of the agentic human body—those who sit in the grit and steer the living vessel. The Pilot Veil is not metaphor alone; it is where that agency takes its rest and its watch.",
-        inhabitants: "The current pilots of the agentic human body. At the edges you may still meet dust-born mephits and wind-eaten shapes—classic elemental color near Air and Negative—but the meaning travelers learn first is the pilots.",
+        overview: "Dust is grit, veil, & agency. In Planesbound understanding, this shore is home to the current pilots of the agentic human body—those who sit in the grit & steer the living vessel. The Pilot Veil is not metaphor alone; it is where that agency takes its rest & its watch.",
+        inhabitants: "The current pilots of the agentic human body. At the edges you may still meet dust-born mephits & wind-eaten shapes—classic elemental color near Air & Negative—but the meaning travelers learn first is the pilots.",
         layers: [{name:"The Pilot Veil", epithet:"Where agency sits in the grit"}],
-        structure: "A shore of grit and veil near Air and Negative. Charts show adjacency; the truth is who steers the body once you arrive.",
+        structure: "A shore of grit & veil near Air & Negative. Charts show adjacency; the truth is who steers the body once you arrive.",
         travel: "Reach via the Ethereal curtain-road as with other Inner shores, when the Daystar bearing is clean. Arrive with questions about who steers the body; leave with fewer easy answers."
       },
       {
         id: "mineral", name: "Mineral", epithet: "Ani · Progenitor Will-o’-Wisp",
         kind: "Quasi-elemental shore", alignment: "N", alignmentLong: "Living crystal & facet-light",
         accent: "#7eb0c8", art: "art/mineral-progenitor.png",
-        overview: "Mineral is living crystal and facet-light. In Planesbound lore, Ani is the progenitor will-o’-wisp of Mineral—the shimmer in the ore that remembers how stone learned to shine. Crystal grows like thought; facets catch a pale, guiding flame that is not quite fire and not quite soul.",
-        inhabitants: "Ani, progenitor will-o’-wisp of Mineral. Crystal mephits and ore-born shapes may haunt the edges near Earth and Positive, but the heart of the shore answers to Ani’s progenitor aesthetic: will-o’-wisp light in living crystal.",
+        overview: "Mineral is living crystal & facet-light. In Planesbound lore, Ani is the progenitor will-o’-wisp of Mineral—the shimmer in the ore that remembers how stone learned to shine. Crystal grows like thought; facets catch a pale, guiding flame that is not quite fire & not quite soul.",
+        inhabitants: "Ani, progenitor will-o’-wisp of Mineral. Crystal mephits & ore-born shapes may haunt the edges near Earth & Positive, but the heart of the shore answers to Ani’s progenitor aesthetic: will-o’-wisp light in living crystal.",
         layers: [{name:"The Progenitor Facet", epithet:"Will-o’-wisp light in living crystal"}],
-        structure: "Facets and living ore near Earth and Positive. The glow that guides is Ani’s; do not confuse it with ordinary gemlight.",
+        structure: "Facets & living ore near Earth & Positive. The glow that guides is Ani’s; do not confuse it with ordinary gemlight.",
         travel: "Ethereal curtain-road to Inner shores; follow the facet-glow when the Daystar bearing is clean. Do not shatter what lights your way."
       },
       {
         id: "digital-void", name: "Digital Void", epithet: "Astral–Ethereal Schism",
         kind: "Schism plane", alignment: "N", alignmentLong: "Fault line between thought-sea & fog",
         accent: "#5a8a9a", art: "art/digital-void.png",
-        overview: "The Digital Void is a thin plane in the schism between the Astral and the Ethereal—fault-line geography where thought-sea and fog almost touch, and something colder than either leaks through. It is real campaign ground: a locus near the Ethereal curtain, not a fifth elemental cardinal.",
-        inhabitants: "Not neatly catalogued. Echoes, signal-ghosts, and absences that behave like weather have been reported by keepers who preferred not to stay. The Void does not argue; it drops packets of meaning and waits.",
+        overview: "The Digital Void is a thin plane in the schism between the Astral & the Ethereal—fault-line geography where thought-sea & fog almost touch, & something colder than either leaks through. It is real campaign ground: a locus near the Ethereal curtain, not a fifth elemental cardinal.",
+        inhabitants: "Not neatly catalogued. Echoes, signal-ghosts, & absences that behave like weather have been reported by keepers who preferred not to stay. The Void does not argue; it drops packets of meaning & waits.",
         layers: [{name:"The Schism", epithet:"Between Astral thought-sea & Ethereal mist"}],
         structure: "A thin ring-locus around the Ethereal mist on the atlas—adjacent to the curtain-road, not a new elemental cardinal.",
-        travel: "Approach carefully: near the existing Ethereal curtain-road from the Lighthouse, when the Daystar bearing is clean, in the Astral–Ethereal schism. Walk the fog, then step where mist and thought-sea refuse each other."
+        travel: "Approach carefully: near the existing Ethereal curtain-road from the Lighthouse, when the Daystar bearing is clean, in the Astral–Ethereal schism. Walk the fog, then step where mist & thought-sea refuse each other."
       },
       {
         id: "magma", name: "Magma", epithet: "Fire ⊕ Earth",
         kind: "Para-elemental seam", alignment: "N", alignmentLong: "Where stone learns to burn",
         accent: "#a85a32", art: "art/magma.png",
-        overview: "A seam of molten rock between Fire and Earth. Ore learns to burn; stone learns to flow. Empires of heat and wealth contest every river of liquid metal.",
+        overview: "A seam of molten rock between Fire & Earth. Ore learns to burn; stone learns to flow. Empires of heat & wealth contest every river of liquid metal.",
         inhabitants: "Magma mephits swarm the banks. Azers work contracts that never cool. Dao who prefer their wealth liquid mine the flow.",
         layers: [{name:"The Flow", epithet:"Rivers of ore-fire"}],
-        structure: "A border region, not a full independent cosmology—unstable, rich, and contested.",
+        structure: "A border region, not a full independent cosmology—unstable, rich, & contested.",
         travel: "Enter from Fire’s cooler brass docks or Earth’s hottest delves, or via the Ethereal curtain-road. Bring boots that forgive you."
       },
       {
         id: "ooze", name: "Ooze", epithet: "Earth ⊕ Water",
         kind: "Para-elemental seam", alignment: "N", alignmentLong: "Where mud becomes doctrine",
         accent: "#4f6a55", art: "art/ooze.png",
-        overview: "Slurry kingdoms between Earth and Water. Everything sinks a little. Treaties are written in silt and contested by tide. Maps expire overnight.",
-        inhabitants: "Ooze mephits, drowned dao, and patient things under the mudline that keep courts settling like sediment.",
+        overview: "Slurry kingdoms between Earth & Water. Everything sinks a little. Treaties are written in silt & contested by tide. Maps expire overnight.",
+        inhabitants: "Ooze mephits, drowned dao, & patient things under the mudline that keep courts settling like sediment.",
         layers: [{name:"The Mire Courts", epithet:"Thrones that settle overnight"}],
-        structure: "A soft border. Soft thrones. Soft graves. Bring a stick to test depth and a friend to pull you out.",
+        structure: "A soft border. Soft thrones. Soft graves. Bring a stick to test depth & a friend to pull you out.",
         travel: "Least favorite Planesbound road—useful when you need to hide a trail that fire would announce. Prefer the Ethereal curtain-road when the Daystar bearing is clean."
       },
       {
         id: "ice", name: "Ice", epithet: "Water ⊕ Air",
         kind: "Para-elemental seam", alignment: "N", alignmentLong: "Where storm learns to freeze",
         accent: "#8eb0c2", art: "art/ice.png",
-        overview: "A blizzard seam between Water and Air. Storm learns to freeze; wind cuts like glass. Sheets, spines, and hollows of clear ice carry sound too far.",
-        inhabitants: "Ice mephits, frost-born salamanders, and djinn exiles who prefer silence in the White Gale.",
+        overview: "A blizzard seam between Water & Air. Storm learns to freeze; wind cuts like glass. Sheets, spines, & hollows of clear ice carry sound too far.",
+        inhabitants: "Ice mephits, frost-born salamanders, & djinn exiles who prefer silence in the White Gale.",
         layers: [{name:"The White Gale", epithet:"Wind that cuts like glass"}],
-        structure: "Wild frost at the border—sheets and spines of clear ice. Sound carries too far; warmth is a guest, not a resident.",
+        structure: "Wild frost at the border—sheets & spines of clear ice. Sound carries too far; warmth is a guest, not a resident.",
         travel: "Approach from Air’s cold fronts, Water’s surface-myths, or the Ethereal curtain-road. Seal warmth in glass; leave before your breath freezes mid-word."
       },
       {
         id: "smoke", name: "Smoke", epithet: "Fire ⊕ Air",
         kind: "Para-elemental seam", alignment: "N", alignmentLong: "Where breath becomes ash",
         accent: "#7a6a60", art: "art/smoke.png",
-        overview: "A choking seam between Fire and Air. Visibility is a rumor. Ambush is the local sport. Embers hang like false stars; no floor you can trust.",
-        inhabitants: "Smoke mephits, ash-winged things, and efreeti scouts on deniable errands moving through the Veil.",
+        overview: "A choking seam between Fire & Air. Visibility is a rumor. Ambush is the local sport. Embers hang like false stars; no floor you can trust.",
+        inhabitants: "Smoke mephits, ash-winged things, & efreeti scouts on deniable errands moving through the Veil.",
         layers: [{name:"The Veil", epithet:"Cinders without a sky"}],
         structure: "Breath becomes ash; ash becomes cover. Embers hang like false stars over ground that will not hold.",
         travel: "Only with clean air sealed in glass. Useful for a quiet approach to Fire’s brass docks. Prefer the Lighthouse curtain-road when the Daystar bearing is clean."
@@ -443,10 +473,19 @@ const planes = [
       if (!p) {
         folioBody.innerHTML = `
           <div class="empty">
-            <p class="eyebrow">Campaign</p>
-            <h2>The Inner Ring</h2>
-            <p style="color:var(--ink-muted);font-size:.95rem;margin:.35rem 0 0;">The Lighthouse can throw a bearing inward. The Outer Wheel is politics &amp; gods. The Inner Ring is matter, force, &amp; the fog that lets you walk between them.</p>
-            <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Click a plane on the map, or pick one from the strip below.</p>
+            <div class="hero">
+              <img class="hero-art" src="art/inner-campaign-overview.png" alt="Inner Ring campaign overview" />
+              <div class="hero-fade">
+                <p class="hero-kicker">Outer atlas supplement</p>
+                <h2>The Inner Ring</h2>
+                <p class="epithet">Matter, force, &amp; the fog that lets you walk between</p>
+              </div>
+            </div>
+            <div class="empty-copy">
+              <p class="eyebrow">Campaign</p>
+              <p style="color:var(--ink-muted);font-size:.95rem;margin:.35rem 0 0;">The Lighthouse can throw a bearing inward. The Outer Wheel is politics &amp; gods. The Inner Ring is matter, force, &amp; the fog that lets you walk between them.</p>
+              <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Tap a shore on the map, or pick one from the strip below.</p>
+            </div>
           </div>`;
         return;
       }

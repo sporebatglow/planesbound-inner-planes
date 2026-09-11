@@ -36,7 +36,9 @@ Public-ship package for the PLANESBOUND Inner Planes local atlas (workaround aro
 - [x] `art/ice.png`
 - [x] `art/smoke.png`
 
-Extra presentation art on disk (not required by folio `art:` keys): shade-skyline / street / docks, fire/air/ethereal stations, inner-ring-control.
+Extra presentation art on disk: `art/inner-campaign-overview.png` (map background), overview-banner / overview-ring-parchment, shade-skyline / street / docks, fire/air/ethereal stations, inner-ring-control.
+
+Titles are bare names (Fire, Water, … Positive Energy, Ethereal) — never “Plane of …”. Player copy uses & for English “and”. Framed as Inner Ring supplement to Outer Planes Campaign Map / Lighthouse gazetteer.
 
 ## Pages & links
 
