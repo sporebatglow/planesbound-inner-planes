@@ -1,5 +1,7 @@
 # Planesbound Players’ Gazetteer — The Inner Ring
 
+**Main quest: the will-o’-wisp race** — lights without source that guide, mislead, or consume. Ani’s progenitor light on Mineral is a hearth of that race; the full wheel + Four Sunderings timeline live on `index.html`.
+
 A player-facing handout for the Inner Planes. Read aloud at the table, copy into character journals, or keep beside the atlas map.
 
 ---

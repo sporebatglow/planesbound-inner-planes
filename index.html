@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inner Ring Supplement · Planesbound Atlas</title>
+  <title>Planesbound Atlas · Will-o’-Wisp Race · Full Wheel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
@@ -17,188 +17,240 @@
       --brass: #a67c3d;
       --brass-bright: #c49a52;
       --void: #0b0907;
+      --cosmo: #0a0612;
+      --cosmo-purple: #6b3fa0;
+      --cosmo-gold: #d4af37;
+      --blight: #8b1a2b;
       --border: color-mix(in oklab, #1c1712 18%, transparent);
-      --fire: #c45a2c;
-      --water: #2f6f8f;
-      --air: #7a9bb0;
-      --earth: #6b5a3e;
-      --positive: #e8d48b;
-      --negative: #4a3a55;
-      --ethereal: #9a8fb8;
-      --dust: #9a8a78;
-      --mineral: #7eb0c8;
-      --digital: #5a8a9a;
+      --fire: #c45a2c; --water: #2f6f8f; --air: #7a9bb0; --earth: #6b5a3e;
+      --ice: #8eb0c2; --ooze: #4f6a55; --magma: #a85a32; --smoke: #7a6a60;
+      --positive: #e8d48b; --negative: #4a3a55; --ethereal: #9a8fb8;
+      --dust: #9a8a78; --mineral: #7eb0c8; --digital: #5a8a9a;
+      --fay: #c9a0d9; --shadow: #3a3548; --material: #c4b59a;
     }
     * { box-sizing: border-box; }
     body {
-      margin: 0;
-      min-height: 100dvh;
+      margin: 0; min-height: 100dvh;
       font-family: "Source Serif 4", Georgia, serif;
-      color: var(--ink);
-      background: var(--parchment);
+      color: var(--ink); background: var(--parchment);
     }
     .veil {
-      pointer-events: none;
-      position: fixed; inset: 0;
+      pointer-events: none; position: fixed; inset: 0;
       background:
         radial-gradient(ellipse at 50% -10%, color-mix(in oklab, var(--brass) 10%, transparent), transparent 42%),
+        radial-gradient(ellipse at 20% 90%, color-mix(in oklab, var(--cosmo-purple) 12%, transparent), transparent 45%),
         radial-gradient(ellipse at 80% 80%, color-mix(in oklab, var(--void) 55%, transparent), transparent 50%);
     }
     .wrap {
-      position: relative;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1.1rem 1rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      min-height: 100dvh;
+      position: relative; max-width: 1480px; margin: 0 auto;
+      padding: 1.1rem 1rem 2.5rem; display: flex; flex-direction: column; gap: 1rem;
     }
     .eyebrow {
       display: flex; align-items: center; gap: .5rem;
-      font-family: Cinzel, serif;
-      font-size: .7rem; font-weight: 600;
-      letter-spacing: .24em; text-transform: uppercase;
-      color: var(--brass); margin: 0;
+      font-family: Cinzel, serif; font-size: .7rem; font-weight: 600;
+      letter-spacing: .24em; text-transform: uppercase; color: var(--brass); margin: 0;
     }
     h1 {
-      font-family: Cinzel, serif;
-      font-size: clamp(1.5rem, 3vw, 1.9rem);
-      font-weight: 600; letter-spacing: .04em;
-      margin: .35rem 0 0;
+      font-family: Cinzel, serif; font-size: clamp(1.45rem, 3vw, 1.95rem);
+      font-weight: 600; letter-spacing: .04em; margin: .35rem 0 0;
     }
-    .lede { margin: .4rem 0 0; max-width: 42rem; color: var(--ink-muted); font-size: .95rem; }
-    .grid {
-      display: grid;
-      gap: 1rem;
+    .lede { margin: .4rem 0 0; max-width: 52rem; color: var(--ink-muted); font-size: .95rem; line-height: 1.55; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; margin:.85rem 0 0; align-items:center; }
+    .back {
+      display: inline-flex; align-items: center; gap: .4rem;
+      color: var(--brass); text-decoration: none; font-size: .85rem;
+    }
+    .back:hover { color: var(--brass-bright); }
+    .tabs {
+      display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .25rem;
+    }
+    .tab {
+      font-family: Cinzel, serif; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+      border: 1px solid var(--border); background: var(--paper); color: var(--ink-soft);
+      border-radius: 999px; padding: .4rem .85rem; cursor: pointer;
+    }
+    .tab[aria-selected="true"] {
+      background: color-mix(in oklab, var(--brass) 18%, var(--paper));
+      border-color: var(--brass); color: var(--ink); box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass) 30%, transparent);
+    }
+    .panel-view[hidden] { display: none !important; }
+
+    /* Timeline */
+    .timeline-card {
+      background: linear-gradient(160deg, #12081a 0%, #0b0907 55%, #1a0a12 100%);
+      color: #f0e8d8; border-radius: .9rem; outline: 1px solid color-mix(in oklab, var(--cosmo-gold) 35%, transparent);
+      box-shadow: 0 12px 40px color-mix(in oklab, var(--void) 40%, transparent);
+      padding: 1rem 1.15rem 1.15rem; display: grid; gap: 1rem;
       grid-template-columns: 1fr;
-      flex: 1;
     }
-    @media (min-width: 1024px) {
-      .grid { grid-template-columns: minmax(0,1.55fr) minmax(320px,.9fr); align-items: start; }
+    @media (min-width: 900px) {
+      .timeline-card { grid-template-columns: 1.15fr .85fr; align-items: stretch; }
     }
-    .map-card, .folio {
+    .timeline-card h2 {
+      font-family: Cinzel, serif; font-size: 1rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--cosmo-gold); margin: 0 0 .35rem;
+    }
+    .timeline-card .dim-label {
+      font-family: Cinzel, serif; font-size: .65rem; letter-spacing: .28em; text-transform: uppercase;
+      color: color-mix(in oklab, var(--cosmo-gold) 70%, white); margin: 0 0 .75rem;
+    }
+    .era-slider-wrap { display: flex; flex-direction: column; gap: .55rem; }
+    .era-marks {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: .35rem;
+      font-family: Cinzel, serif; font-size: .62rem; letter-spacing: .04em; text-align: center;
+      color: color-mix(in oklab, #f0e8d8 55%, transparent);
+    }
+    .era-marks span[data-on="true"] { color: var(--cosmo-gold); }
+    input[type="range"].era-range {
+      width: 100%; accent-color: var(--cosmo-gold); cursor: pointer; height: 1.4rem;
+    }
+    .era-body h3 {
+      font-family: Cinzel, serif; font-size: 1.15rem; margin: 0 0 .4rem; color: #fff4d8;
+    }
+    .era-body p { margin: 0; line-height: 1.55; color: color-mix(in oklab, #f0e8d8 88%, transparent); font-size: .92rem; }
+    .era-hint { margin: .65rem 0 0; font-size: .75rem; color: color-mix(in oklab, #f0e8d8 50%, transparent); font-style: italic; }
+    .era-art {
+      position: relative; border-radius: .65rem; overflow: hidden; min-height: 180px;
+      background: #050308; outline: 1px solid color-mix(in oklab, var(--cosmo-gold) 25%, transparent);
+    }
+    .era-art img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; min-height: 180px; max-height: 260px; }
+    .era-art .cap {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: .5rem .7rem;
+      background: linear-gradient(to top, rgba(0,0,0,.85), transparent);
+      font-family: Cinzel, serif; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--cosmo-gold);
+    }
+
+    .grid {
+      display: grid; gap: 1rem; grid-template-columns: 1fr;
+    }
+    @media (min-width: 1100px) {
+      .grid { grid-template-columns: minmax(0,1.55fr) minmax(340px,.95fr); align-items: start; }
+    }
+    .map-card, .folio, .lore-card {
       background: color-mix(in oklab, var(--paper) 88%, white);
       border-radius: .85rem;
       box-shadow: 0 10px 30px color-mix(in oklab, var(--void) 18%, transparent);
       outline: 1px solid var(--border);
     }
     .map-card {
-      padding: .75rem;
-      overflow: auto;
+      padding: .75rem; overflow: auto;
       background:
         linear-gradient(135deg, color-mix(in oklab, var(--brass) 8%, transparent), transparent 40%),
         color-mix(in oklab, var(--paper) 88%, white);
     }
     .map-hint { margin: 0 0 .5rem; font-size: .75rem; color: var(--ink-muted); }
-    .map {
-      position: relative;
-      width: 100%;
-      min-width: 560px;
-      aspect-ratio: 16 / 9;
-      border-radius: .65rem;
+    .wheel-stage {
+      position: relative; width: 100%; min-width: 640px; aspect-ratio: 1 / 1.05;
+      border-radius: .65rem; overflow: hidden;
       background:
-        #120f14 url("art/inner-campaign-overview.png") center / cover no-repeat;
-      overflow: hidden;
+        radial-gradient(ellipse at 50% 42%, #1a2240 0%, #0a0c14 55%, #05060a 100%);
       box-shadow:
         inset 0 0 0 1px color-mix(in oklab, var(--brass) 35%, transparent),
-        inset 0 0 40px color-mix(in oklab, var(--void) 35%, transparent);
+        inset 0 0 60px color-mix(in oklab, var(--void) 50%, transparent);
+      perspective: 1400px;
     }
-    .map::before {
-      content: "";
-      position: absolute; inset: 0;
-      pointer-events: none;
+    .wheel-stage.era-1 .ring-outer { opacity: .28; }
+    .wheel-stage.era-1 .ring-inner { opacity: 1; filter: drop-shadow(0 0 8px rgba(100,180,255,.35)); }
+    .wheel-stage.era-2 .ring-outer { opacity: 1; filter: drop-shadow(0 0 10px rgba(212,175,55,.25)); }
+    .wheel-stage.era-2 .ring-inner { opacity: .45; }
+    .wheel-stage.era-3 .node-shadowfell,
+    .wheel-stage.era-3 .node-negative,
+    .wheel-stage.era-3 [data-id="shadowfell"],
+    .wheel-stage.era-3 [data-id="negative"] {
+      filter: drop-shadow(0 0 12px rgba(140,80,200,.7));
+    }
+    .wheel-stage.era-3 .ring-inner { opacity: .55; }
+    .wheel-stage.era-3 .ring-outer { opacity: .5; }
+    .wheel-stage.era-4 .wheel-svg { filter: drop-shadow(0 0 6px rgba(139,26,43,.35)); }
+    .wheel-stage.era-4::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3;
       background:
-        radial-gradient(ellipse at 50% 8%, color-mix(in oklab, var(--positive) 18%, transparent), transparent 28%),
-        radial-gradient(ellipse at 50% 92%, color-mix(in oklab, var(--negative) 22%, transparent), transparent 30%),
-        linear-gradient(to bottom, transparent 70%, color-mix(in oklab, var(--void) 28%, transparent));
-      z-index: 1;
+        radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(139,26,43,.12) 100%),
+        repeating-linear-gradient(115deg, transparent, transparent 18px, rgba(139,26,43,.04) 18px, rgba(139,26,43,.04) 19px);
     }
-    .map-art-fallback {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: none;
+    .wheel-iso {
+      position: absolute; inset: 2% 4% 8%;
+      transform: rotateX(54deg) scale(1.05); transform-origin: 50% 45%;
+      transform-style: preserve-3d;
     }
-    .hotspot {
-      position: absolute;
-      z-index: 2;
-      border: 1.5px solid color-mix(in oklab, white 40%, transparent);
-      border-radius: 999px;
-      background: color-mix(in oklab, white 8%, transparent);
-      box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass) 25%, transparent);
-      cursor: pointer;
-      transition: background .15s, border-color .15s, transform .15s, box-shadow .15s;
+    .wheel-svg { width: 100%; height: 100%; overflow: visible; }
+    .node-hit {
+      cursor: pointer; transition: opacity .15s, filter .15s;
     }
-    .hotspot:hover, .hotspot[data-active="true"] {
-      background: color-mix(in oklab, var(--brass) 32%, transparent);
-      border-color: var(--brass-bright);
-      box-shadow: 0 0 12px color-mix(in oklab, var(--brass-bright) 45%, transparent);
-      transform: scale(1.06);
+    .node-hit:hover, .node-hit[data-active="true"] {
+      filter: brightness(1.25) drop-shadow(0 0 6px rgba(212,175,55,.65));
     }
-    .hotspot[data-accent="fire"][data-active="true"] { border-color: var(--fire); background: color-mix(in oklab, var(--fire) 30%, transparent); }
-    .hotspot[data-accent="water"][data-active="true"] { border-color: var(--water); background: color-mix(in oklab, var(--water) 30%, transparent); }
-    .hotspot[data-accent="air"][data-active="true"] { border-color: var(--air); background: color-mix(in oklab, var(--air) 30%, transparent); }
-    .hotspot[data-accent="earth"][data-active="true"] { border-color: var(--earth); background: color-mix(in oklab, var(--earth) 30%, transparent); }
-    .hotspot[data-accent="dust"][data-active="true"] { border-color: var(--dust); background: color-mix(in oklab, var(--dust) 30%, transparent); }
-    .hotspot[data-accent="mineral"][data-active="true"] { border-color: var(--mineral); background: color-mix(in oklab, var(--mineral) 30%, transparent); }
-    .hotspot[data-accent="digital"][data-active="true"] { border-color: var(--digital); background: color-mix(in oklab, var(--digital) 30%, transparent); }
+    .node-label {
+      font-family: Cinzel, serif; font-size: 9px; fill: #f5efe3; pointer-events: none;
+      text-anchor: middle; dominant-baseline: central;
+    }
+    .node-label.sm { font-size: 7.5px; }
+    .align-label {
+      font-family: Cinzel, serif; font-size: 11px; fill: color-mix(in oklab, var(--brass-bright) 80%, white);
+      letter-spacing: .18em; text-anchor: middle;
+    }
+    .rail {
+      display: flex; gap: .5rem; overflow-x: auto;
+      padding: .55rem 0 .35rem; margin-top: .55rem;
+      border-top: 1px solid color-mix(in oklab, var(--brass) 22%, transparent);
+    }
+    .chip {
+      flex: 0 0 auto; border: 1px solid var(--border); border-radius: .65rem;
+      background: var(--paper); padding: .45rem .7rem; cursor: pointer; text-align: left;
+      font: inherit; color: inherit;
+    }
+    .chip[data-active="true"] {
+      border-color: var(--brass);
+      background: color-mix(in oklab, var(--brass) 12%, var(--paper));
+      box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass) 35%, transparent);
+    }
+    .chip strong { display: block; font-family: Cinzel, serif; font-size: .72rem; }
+    .chip span { display: block; font-size: .62rem; color: var(--ink-muted); }
+
     .folio {
       min-height: 420px; overflow: hidden; display: flex; flex-direction: column;
       background:
         linear-gradient(160deg, color-mix(in oklab, var(--brass) 7%, transparent), transparent 38%),
         color-mix(in oklab, var(--paper) 88%, white);
     }
-    @media (min-width: 1024px) {
-      .folio { position: sticky; top: 1.1rem; max-height: calc(100dvh - 5.5rem); }
+    @media (min-width: 1100px) {
+      .folio { position: sticky; top: 1rem; max-height: calc(100dvh - 1.5rem); }
     }
     .folio-scroll { overflow-y: auto; flex: 1; padding-bottom: 1.25rem; }
-    .hero {
-      position: relative;
-      aspect-ratio: 16 / 8;
-      background: #1a1510;
-      overflow: hidden;
-    }
-    .hero-swatch { position: absolute; inset: 0; opacity: .9; }
-    .hero-art {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
+    .hero { position: relative; aspect-ratio: 16 / 9; background: #1a1510; overflow: hidden; }
+    .hero-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-swatch { position: absolute; inset: 0; }
     .hero-fade {
       position: absolute; inset-inline: 0; bottom: 0;
       background: linear-gradient(to top, color-mix(in oklab, var(--void) 82%, transparent), transparent);
       padding: 2.5rem 1rem .85rem;
     }
     .hero-kicker {
-      font-family: Cinzel, serif; font-size: .65rem;
-      letter-spacing: .22em; text-transform: uppercase; color: color-mix(in oklab, #f5efe3 75%, transparent);
-      margin: 0;
+      font-family: Cinzel, serif; font-size: .65rem; letter-spacing: .22em; text-transform: uppercase;
+      color: color-mix(in oklab, #f5efe3 75%, transparent); margin: 0;
     }
     .hero h2 {
       font-family: Cinzel, serif; margin: .15rem 0 0;
-      font-size: clamp(1.2rem, 2.5vw, 1.55rem); color: #f5efe3; font-weight: 600;
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem); color: #f5efe3; font-weight: 600;
     }
     .hero .epithet { margin: .15rem 0 0; font-style: italic; color: color-mix(in oklab, #f5efe3 85%, transparent); font-size: .9rem; }
     .meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; padding: .85rem 1rem 0; }
     .badge {
-      display: inline-flex; align-items: center;
-      border-radius: 999px; border: 1px solid var(--border);
-      padding: .2rem .65rem; font-size: .7rem; letter-spacing: .04em;
-      background: var(--paper); color: var(--ink-soft);
+      display: inline-flex; align-items: center; border-radius: 999px; border: 1px solid var(--border);
+      padding: .2rem .65rem; font-size: .7rem; letter-spacing: .04em; background: var(--paper); color: var(--ink-soft);
     }
     .body { padding: 1rem 1rem 0; }
     .body p { margin: 0 0 .85rem; line-height: 1.55; color: var(--ink-soft); font-size: .95rem; }
-    details {
-      border-bottom: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
-      margin: 0 1rem;
+    .body h3, .panel h3 {
+      font-family: Cinzel, serif; font-size: .78rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--brass); margin: 0 0 .4rem;
     }
+    .body .section { margin: 0 0 1rem; }
+    .body .section p { margin: 0; }
+    details { border-bottom: 1px solid color-mix(in oklab, var(--ink) 12%, transparent); margin: 0 1rem; }
     summary {
-      list-style: none; cursor: pointer;
-      font-family: Cinzel, serif; font-size: .9rem; font-weight: 600;
-      letter-spacing: .04em; padding: .85rem 0;
-      display: flex; justify-content: space-between; align-items: center;
+      list-style: none; cursor: pointer; font-family: Cinzel, serif; font-size: .9rem; font-weight: 600;
+      letter-spacing: .04em; padding: .85rem 0; display: flex; justify-content: space-between; align-items: center;
     }
     summary::-webkit-details-marker { display: none; }
     summary::after { content: "▾"; color: var(--ink-muted); transition: transform .2s; }
@@ -206,352 +258,1028 @@
     .panel { padding: 0 0 1rem; color: var(--ink-soft); font-size: .9rem; line-height: 1.55; }
     .panel ul { margin: 0; padding-left: 1.1rem; }
     .panel li { margin: .35rem 0; }
-    .rail {
-      display: flex; gap: .5rem; overflow-x: auto;
-      padding: .55rem 0 .35rem; margin-top: .55rem;
-      border-top: 1px solid color-mix(in oklab, var(--brass) 22%, transparent);
-      background: linear-gradient(90deg,
-        color-mix(in oklab, var(--fire) 14%, transparent),
-        color-mix(in oklab, var(--air) 10%, transparent),
-        color-mix(in oklab, var(--water) 12%, transparent),
-        color-mix(in oklab, var(--earth) 12%, transparent));
-      background-size: 100% 2px;
-      background-repeat: no-repeat;
-      background-position: top left;
+    .outer-link {
+      display: inline-flex; margin-top: .65rem; color: var(--brass); font-size: .85rem; text-decoration: none;
     }
-    .chip {
-      flex: 0 0 auto; border: 1px solid var(--border); border-radius: .65rem;
-      background: var(--paper); padding: .45rem .7rem; cursor: pointer; text-align: left;
-      font: inherit; color: inherit;
-    }
-    .chip[data-active="true"] { border-color: var(--brass); background: color-mix(in oklab, var(--brass) 12%, var(--paper)); box-shadow: 0 0 0 1px color-mix(in oklab, var(--brass) 35%, transparent); }
-    .chip strong { display: block; font-family: Cinzel, serif; font-size: .75rem; }
-    .chip span { display: block; font-size: .65rem; color: var(--ink-muted); }
-    .back {
-      display: inline-flex; align-items: center; gap: .4rem;
-      color: var(--brass); text-decoration: none; font-size: .85rem;
-      margin-top: .35rem;
-    }
-    .back:hover { color: var(--brass-bright); }
-    .empty { padding: 0; }
-    .empty .empty-copy { padding: 1.1rem 1rem 1.25rem; }
-    .empty h2 { font-family: Cinzel, serif; margin: .35rem 0; }
+    .outer-link:hover { color: var(--brass-bright); }
 
-    .body h3, .panel h3 {
-      font-family: Cinzel, serif; font-size: .78rem; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--brass); margin: 0 0 .4rem;
+    /* Lore section */
+    .lore-wrap { display: flex; flex-direction: column; gap: 1rem; }
+    .lore-hero {
+      position: relative; border-radius: .85rem; overflow: hidden; min-height: 280px;
+      outline: 1px solid color-mix(in oklab, var(--cosmo-gold) 40%, transparent);
+      background: #050308;
     }
-    .body .section { margin: 0 0 1rem; }
-    .body .section p { margin: 0; }
+    .lore-hero img { width: 100%; max-height: 420px; object-fit: cover; object-position: center top; display: block; }
+    .lore-hero .overlay {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 1.25rem 1.1rem;
+      background: linear-gradient(to top, rgba(5,3,8,.95), transparent);
+      color: #f0e8d8;
+    }
+    .lore-hero .overlay h2 { font-family: Cinzel, serif; margin: 0; color: var(--cosmo-gold); font-size: 1.2rem; }
+    .lore-hero .overlay p { margin: .35rem 0 0; font-size: .88rem; line-height: 1.5; color: color-mix(in oklab, #f0e8d8 85%, transparent); }
+    .axiom {
+      background: linear-gradient(160deg, #12081a, #0b0907);
+      color: #f0e8d8; border-radius: .85rem; padding: 1.1rem 1.25rem;
+      outline: 1px solid color-mix(in oklab, var(--cosmo-gold) 40%, transparent);
+    }
+    .axiom h3 { font-family: Cinzel, serif; color: var(--cosmo-gold); margin: 0 0 .65rem; letter-spacing: .1em; font-size: .9rem; text-transform: uppercase; }
+    .axiom li { margin: .4rem 0; font-family: Cinzel, serif; letter-spacing: .04em; font-size: .95rem; }
+    .lore-grid {
+      display: grid; gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) { .lore-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1100px) { .lore-grid.triad { grid-template-columns: 1fr 1fr 1fr; } }
+    .lore-tile {
+      background: color-mix(in oklab, var(--paper) 90%, white);
+      border-radius: .75rem; outline: 1px solid var(--border); padding: 1rem;
+    }
+    .lore-tile h3 {
+      font-family: Cinzel, serif; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--brass); margin: 0 0 .45rem;
+    }
+    .lore-tile p, .lore-tile li { font-size: .9rem; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+    .lore-tile ul { margin: 0; padding-left: 1.1rem; }
+    .lore-tile li { margin: .3rem 0; }
+    .aura-list { list-style: none; padding: 0; margin: 0; }
+    .aura-list li {
+      display: grid; grid-template-columns: 7.5rem 1fr; gap: .5rem; padding: .4rem 0;
+      border-bottom: 1px solid color-mix(in oklab, var(--ink) 10%, transparent); font-size: .88rem;
+    }
+    .aura-list strong { font-family: Cinzel, serif; font-size: .75rem; color: var(--cosmo-purple); }
+    .spells-strip {
+      display: flex; gap: .65rem; overflow-x: auto; padding: .25rem 0;
+    }
+    .spell-card-btn {
+      flex: 0 0 min(280px, 85vw); text-align: left; cursor: pointer;
+      border: 1px solid var(--border); border-radius: .75rem; overflow: hidden; background: var(--paper);
+      padding: 0; font: inherit; color: inherit;
+    }
+    .spell-card-btn img { width: 100%; height: 140px; object-fit: cover; display: block; }
+    .spell-card-btn .sc-body { padding: .65rem .75rem; }
+    .spell-card-btn strong { display: block; font-family: Cinzel, serif; font-size: .8rem; }
+    .spell-card-btn span { font-size: .72rem; color: var(--ink-muted); }
+    .footnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-muted); }
   </style>
 </head>
 <body>
   <div class="veil"></div>
   <div class="wrap">
     <header>
-      <p class="eyebrow">Inner Ring supplement · Outer Planes Campaign Map</p>
-      <h1>Inner Ring Campaign Map</h1>
-      <p class="lede">A supplementary Inner Ring page for the Outer Planes Campaign Map / Lighthouse gazetteer. Fire, Water, Air, &amp; Earth still grind; the energy poles pulse; the Ethereal is the fog between. Dust is home to the pilots of the agentic body; Mineral shines with Ani, progenitor will-o’-wisp; the Digital Void lies in the Astral–Ethereal schism. From the Lighthouse you can take a true road inward.</p>
-      <p class="nav-links" style="display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;margin:.85rem 0 0;align-items:center;">
-        <a class="back" href="players.html" style="margin-top:0;">Player gazetteer →</a>
-        <a class="back" href="https://planesbound.grok.me/?plane=lighthouse" style="margin-top:0;">← Back to The Lighthouse (Outer atlas)</a>
+      <p class="eyebrow">Will-o’-wisp race · Full-wheel supplement · Outer atlas</p>
+      <h1>Planesbound Atlas — Wheel &amp; Four Sunderings</h1>
+      <p class="lede"><strong>Main quest: the will-o’-wisp race.</strong> Flickering lights without source — guide, mislead, or consume — run the campaign spine. Ani’s progenitor aesthetic on Mineral is a hearth of that race; every ring of the wheel can become a jump-point (portal, oath, spell, artifact, triad figure). This page is the full-wheel + Four Sunderings supplement to the Outer atlas at the Lighthouse. Locked customs: Earth = home of the Beast; Dust = pilots of the agentic human body; Mineral = Ani, progenitor will-o’-wisp; Digital Void = Astral–Ethereal schism.</p>
+      <p class="nav-links">
+        <a class="back" href="https://planesbound.grok.me/?plane=lighthouse">← Back to The Lighthouse (Outer atlas)</a>
+        <a class="back" href="players.html">Player gazetteer →</a>
+        <a class="back" href="MERGE_NOTES.md">Merge notes</a>
       </p>
+      <div class="tabs" role="tablist" aria-label="Atlas sections">
+        <button class="tab" role="tab" id="tab-wheel" aria-selected="true" aria-controls="view-wheel">Wheel</button>
+        <button class="tab" role="tab" id="tab-lore" aria-selected="false" aria-controls="view-lore">Lore / Cosmology</button>
+        <button class="tab" role="tab" id="tab-spells" aria-selected="false" aria-controls="view-spells">Spells / Objects / Handouts</button>
+      </div>
     </header>
 
-    <div class="grid">
-      <section class="map-card">
-                <p class="map-hint">Tap a shore on the Inner Ring. Para-elemental seams sit between the four cardinals. Dust &amp; Mineral hold Planesbound meanings; the Digital Void sits in the Astral–Ethereal schism.</p>
-        <div class="map" id="map" role="img" aria-label="Inner Ring campaign overview">
-          <!-- hotspots over art/inner-campaign-overview.png (16:9 ring) -->
-          <button class="hotspot" data-id="positive" data-accent="positive" style="left:46%;top:2.5%;width:8%;height:11%;" aria-label="Positive Energy" title="Positive Energy"></button>
-          <button class="hotspot" data-id="fire" data-accent="fire" style="left:44%;top:14%;width:12%;height:14%;" aria-label="Fire" title="Fire"></button>
-          <button class="hotspot" data-id="magma" data-accent="fire" style="left:63%;top:22%;width:9%;height:12%;border-radius:.55rem;" aria-label="Magma" title="Magma"></button>
-          <button class="hotspot" data-id="mineral" data-accent="mineral" style="left:78%;top:28%;width:9%;height:13%;" aria-label="Mineral" title="Mineral"></button>
-          <button class="hotspot" data-id="earth" data-accent="earth" style="left:80%;top:42%;width:12%;height:16%;" aria-label="Earth" title="Earth"></button>
-          <button class="hotspot" data-id="ooze" data-accent="water" style="left:64%;top:56%;width:9%;height:12%;border-radius:.55rem;" aria-label="Ooze" title="Ooze"></button>
-          <button class="hotspot" data-id="ice" data-accent="air" style="left:58%;top:64%;width:9%;height:12%;border-radius:.55rem;" aria-label="Ice" title="Ice"></button>
-          <button class="hotspot" data-id="water" data-accent="water" style="left:44%;top:66%;width:12%;height:14%;" aria-label="Water" title="Water"></button>
-          <button class="hotspot" data-id="negative" data-accent="negative" style="left:46%;top:84%;width:8%;height:12%;" aria-label="Negative Energy" title="Negative Energy"></button>
-          <button class="hotspot" data-id="dust" data-accent="dust" style="left:14%;top:56%;width:9%;height:13%;" aria-label="Dust" title="Dust"></button>
-          <button class="hotspot" data-id="air" data-accent="air" style="left:7%;top:40%;width:12%;height:16%;" aria-label="Air" title="Air"></button>
-          <button class="hotspot" data-id="smoke" data-accent="earth" style="left:22%;top:22%;width:9%;height:12%;border-radius:.55rem;" aria-label="Smoke" title="Smoke"></button>
-          <button class="hotspot" data-id="ethereal" data-accent="ethereal" style="left:41%;top:38%;width:18%;height:22%;" aria-label="Ethereal" title="Ethereal"></button>
-          <button class="hotspot" data-id="digital-void" data-accent="digital" style="left:43%;top:30%;width:14%;height:9%;border-radius:.55rem;" aria-label="Digital Void" title="Digital Void"></button>
+    <!-- TIMELINE always visible -->
+    <section class="timeline-card" aria-label="4th dimension timeline">
+      <div>
+        <p class="dim-label">4th dimension</p>
+        <h2>The Four Sunderings</h2>
+        <div class="era-slider-wrap">
+          <div class="era-marks" id="eraMarks">
+            <span data-era="0">First</span>
+            <span data-era="1">Second</span>
+            <span data-era="2">Third</span>
+            <span data-era="3">Fourth</span>
+          </div>
+          <input class="era-range" id="eraRange" type="range" min="0" max="3" step="1" value="3" aria-label="Scrub Four Sunderings eras" />
+          <div class="era-body" id="eraBody"></div>
         </div>
-        <div class="rail" id="rail"></div>
-      </section>
+      </div>
+      <div class="era-art" id="eraArt"></div>
+    </section>
 
-      <aside class="folio" id="folio">
-        <div class="folio-scroll" id="folioBody">
-          <div class="empty">
-            <div class="hero">
-              <img class="hero-art" src="art/inner-campaign-overview.png" alt="Inner Ring campaign overview" />
-              <div class="hero-fade">
-                <p class="hero-kicker">Outer atlas supplement</p>
-                <h2>The Inner Ring</h2>
-                <p class="epithet">Matter, force, &amp; the fog between</p>
-              </div>
+    <div id="view-wheel" class="panel-view" role="tabpanel" aria-labelledby="tab-wheel">
+      <div class="grid">
+        <section class="map-card">
+          <p class="map-hint">Isometric Great Wheel inspired by the 3D layout. Tap a node for its folio. Bare titles only. Scrub the 4th-dimension slider above to dim/highlight rings by Sundering.</p>
+          <div class="wheel-stage era-4" id="wheelStage">
+            <div class="wheel-iso">
+              <svg class="wheel-svg" id="wheelSvg" viewBox="0 0 800 800" role="img" aria-label="Planesbound concentric wheel"></svg>
             </div>
-            <div class="empty-copy">
-              <p class="eyebrow">Campaign</p>
-              <p style="color:var(--ink-muted);font-size:.95rem;margin:.35rem 0 0;">The Lighthouse can throw a bearing inward. The Outer Wheel is politics &amp; gods. The Inner Ring is matter, force, &amp; the fog that lets you walk between them.</p>
-              <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Tap a shore on the map, or pick one from the strip below.</p>
+          </div>
+          <div class="rail" id="rail"></div>
+        </section>
+        <aside class="folio" id="folio">
+          <div class="folio-scroll" id="folioBody"></div>
+        </aside>
+      </div>
+    </div>
+
+    <div id="view-lore" class="panel-view" role="tabpanel" aria-labelledby="tab-lore" hidden>
+      <div class="lore-wrap">
+        <div class="lore-hero">
+          <img src="art/lore/planesbound-cosmology-singularity.jpeg" alt="Planesbound Cosmology — Singularity card" />
+          <div class="overlay">
+            <h2>Singularity Cosmology</h2>
+            <p>Mana-nodes stack unbound into a singularity, across non-Euclidean domain geometries. The Four Sunderings are ages of fracture; the Singularity is the All-Point where concepts converge. Main quest: the will-o’-wisp race — flickering lights that guide, mislead, or consume.</p>
+          </div>
+        </div>
+        <div class="axiom">
+          <h3>The Planesbound Axiom</h3>
+          <ul>
+            <li>ALL REALITY IS CODED IN CONCEPT.</li>
+            <li>ALL CONCEPTS CAN BE REWRITTEN.</li>
+            <li>ALL REWRITING HAS A COST.</li>
+          </ul>
+        </div>
+        <div class="lore-grid">
+          <div class="lore-tile">
+            <h3>Singularity (The All-Point)</h3>
+            <p>Brilliant golden convergence above stacked purple mana-nodes in golden rings. Where unbound mana-nodes stack into one point across domain geometries that refuse ordinary space.</p>
+          </div>
+          <div class="lore-tile">
+            <h3>Great Wheels (Corrupting)</h3>
+            <p>Once celestial, now entropic. Infection spreads inward through the wheels — a metaphysical frame for how Sunderings leave scars on every ring.</p>
+          </div>
+          <div class="lore-tile">
+            <h3>Non-Euclidean Domain Geometries</h3>
+            <p>4D spaces twist &amp; fold. Up is not always up. Travelers who trust compass roses on the Outer rim learn this the hard way near Domain auras &amp; the Digital Void.</p>
+          </div>
+          <div class="lore-tile">
+            <h3>Flickering Will-o’-Wisps · MAIN QUEST</h3>
+            <p>Lights without source — guide, mislead, or consume. The will-o’-wisp race is the campaign spine. Ani’s progenitor light on Mineral is a hearth of that race; jump-points across the wheel (Ice portals, Digital Void glitches, oaths, triad figures) are how the race moves.</p>
+          </div>
+          <div class="lore-tile">
+            <h3>Far Realms Soul-Soup Ocean</h3>
+            <p>A sea of potential &amp; madness. Souls dissolve; selves emerge. Forbidden knowledge that touches this ocean belongs with the grimoire, not with casual Gates.</p>
+          </div>
+          <div class="lore-tile">
+            <h3>Concept Magic Auras</h3>
+            <ul class="aura-list">
+              <li><strong>Reincarnation</strong><span>Endless loops of return.</span></li>
+              <li><strong>Glitch</strong><span>Corruption of causality.</span></li>
+              <li><strong>Mirror</strong><span>Identity fractured.</span></li>
+              <li><strong>Domain</strong><span>Geometry obeys will.</span></li>
+              <li><strong>Singularity</strong><span>All converges.</span></li>
+              <li><strong>Far Realms Ψ</strong><span>Beyond form &amp; thought.</span></li>
+            </ul>
+          </div>
+        </div>
+        <h2 class="eyebrow" style="margin-top:.5rem;">The Triad</h2>
+        <div class="lore-grid triad">
+          <div class="lore-tile">
+            <h3>Respawn Tyrant</h3>
+            <p>Dominion of reincarnation &amp; endless return. Where death is a loop, not a door.</p>
+          </div>
+          <div class="lore-tile">
+            <h3>Glitch Witch</h3>
+            <p>Weaver of code &amp; chance; digital distortions bend reality. Closest to the Digital Void &amp; Glitch aura.</p>
+          </div>
+          <div class="lore-tile">
+            <h3>Doppelgänger Devil</h3>
+            <p>Master of mirrors &amp; masks; reflection is both weapon &amp; prison. Mirror aura made flesh.</p>
+          </div>
+        </div>
+        <div class="lore-grid">
+          <div class="lore-tile" style="padding:0;overflow:hidden;">
+            <img src="art/lore/eldritch-grimoire.jpeg" alt="Eldritch grimoire" style="width:100%;height:220px;object-fit:cover;display:block;" />
+            <div style="padding:1rem;">
+              <h3>Eldritch Grimoire</h3>
+              <p>Artifact / Far Realms / forbidden knowledge. Opens folio entry <em>Eldritch Grimoire</em> from Spells / Handouts.</p>
+            </div>
+          </div>
+          <div class="lore-tile" style="padding:0;overflow:hidden;">
+            <img src="art/lore/warrior-dragon-digital-sigil.jpeg" alt="Warrior, dragon, digital sigil" style="width:100%;height:220px;object-fit:cover;display:block;" />
+            <div style="padding:1rem;">
+              <h3>Glitch &amp; Fourth Sundering</h3>
+              <p>Warrior vs dragon under a digital sigil — visual for Digital Void, Glitch aura, &amp; the age of forced reunification.</p>
             </div>
           </div>
         </div>
-      </aside>
+        <p class="footnote">Metaphysical frame: Singularity &amp; Axiom sit behind the Four Sunderings timeline. Do not invent FR chronicle beyond this card &amp; the locked customs.</p>
+      </div>
+    </div>
+
+    <div id="view-spells" class="panel-view" role="tabpanel" aria-labelledby="tab-spells" hidden>
+      <p class="map-hint" style="margin-bottom:.75rem;">Spells, objects, &amp; handouts — jump-points for the will-o’-wisp race. Select to open in the folio.</p>
+      <div class="spells-strip" id="spellsStrip"></div>
+      <div class="grid" style="margin-top:1rem;">
+        <section class="map-card" style="min-height:200px;">
+          <p class="eyebrow">Handout art</p>
+          <p class="lede" style="max-width:none;">Burning Pact, Frozen Oath, Firecube, Counter Spell Gavel, Tesseract Prison, Discernment, Eldritch Grimoire, Digital Sigil Vision, &amp; Oath Report are wired. Ice portal forest is Ice’s folio hero; icy city overview is Material / empty-state.</p>
+        </section>
+        <aside class="folio">
+          <div class="folio-scroll" id="spellFolioBody"></div>
+        </aside>
+      </div>
     </div>
   </div>
 
   <script>
+
+const OUTER_BASE = "https://planesbound.grok.me/?plane=";
+
+const eras = [
+  {
+    id: "first",
+    title: "First Sundering",
+    body: "In the beginning, the First Sundering shattered the foundational chaos. The primordials clashed with the gods, tearing the raw elements apart to forge the first stable planes of existence.",
+    hint: "Wheel emphasis: elemental core — cardinals, para-seams, & quasi extensions.",
+    art: "art/lore/planesbound-cosmology-sunderings.jpg",
+    artCap: "Cosmology · First age of elements",
+    stageClass: "era-1"
+  },
+  {
+    id: "second",
+    title: "Second Sundering",
+    body: "The Second Sundering brought divine war. As the gods battled for supreme authority, the very fabric of the cosmos fractured, splitting the unified realm into the myriad, separated planes we navigate today.",
+    hint: "Wheel emphasis: Outer ring separation — courts & alignments pull apart.",
+    art: "art/lore/planesbound-cosmology-sunderings.jpg",
+    artCap: "Cosmology · Outer fracture",
+    stageClass: "era-2"
+  },
+  {
+    id: "third",
+    title: "Third Sundering",
+    body: "The Third Sundering was a secret hidden away. To secure absolute power, the city of Shade turned itself into its own pocket dimension, rising to run the new top of the pyramid for the wheel, ruling from the shadows.",
+    hint: "Wheel emphasis: Shade / Negative / Shadowfell — umbra at the core.",
+    art: "art/lore/planesbound-cosmology-sunderings.jpg",
+    artCap: "Cosmology · Shade ascends",
+    stageClass: "era-3"
+  },
+  {
+    id: "fourth",
+    title: "Fourth Sundering",
+    body: "Now, the age of the Fourth Sundering is upon us. The dark vampiric seeds of Gulthias pulse through the leylines, spreading a toxic blight as they prepare to forcibly solder the planes together by resurrecting the tree of Gulthias & the first vampire again. This is no mere sundering; it is an overgrowth of ancient evil, twisting nature into toxic thorns & threatening to swallow all civilization in a dark, unified cosmos.",
+    hint: "Wheel emphasis: blight & forced unification across all rings. Current age.",
+    art: "art/lore/planesbound-cosmology-sunderings.jpg",
+    artCap: "Cosmology · Tree of Gulthias · current age",
+    stageClass: "era-4"
+  }
+];
+
 const planes = [
-      {
-        id: "fire", name: "Fire", epithet: "The Sea of Flame",
-        kind: "Elemental plane", alignment: "N", alignmentLong: "Elemental Neutral — hunger without malice",
-        accent: "#c45a2c", art: "art/fire.png",
-        overview: "An ocean of fire that does not end. Heat is the weather, fuel is the currency, & every conversation wants more of both. Brass cities ride currents of flame the way ships ride a tide; beyond their walls the Sea of Fire has no honest shore—only deeper heat.",
-        inhabitants: "Efreeti courts that bargain like slow burns, azer forges that never cool, fire elementals that treat flesh as kindling, & salamanders who measure diplomacy in degrees. Mephits of flame & cinder carry gossip that arrives already scorched.",
-        layers: [{name:"The Sea of Fire", epithet:"Open flame without a shore"},{name:"The City of Brass", epithet:"Efreeti capital on floating brass"}],
-        structure: "No honest layers—only depth of heat. The landmark that bargains instead of consuming is the brass metropolis afloat on the flow: courts, markets, & furnaces stacked until the sky itself looks forged.",
-        travel: "Arrive through a volcano’s heart, a carefully tuned Gate, or a Lighthouse mercy-road during a clean Daystar pulse. Bring water that will not boil on contact with your name, & never bargain for “just a little more flame.”"
-      },
-      {
-        id: "water", name: "Water", epithet: "The Endless Deep",
-        kind: "Elemental plane", alignment: "N", alignmentLong: "Elemental Neutral — pressure & patience",
-        accent: "#2f6f8f", art: "art/water.png",
-        overview: "Water without a surface. Direction is a rumor; light arrives from nowhere & sinks forever. Empires live in bubbles of pressure & on the backs of things too large to name. The colder & darker you go, the older the claims become.",
-        inhabitants: "Marids in coral citadels of living stone, water elementals that move like weather with teeth, merfolk cities that trade in pearls & patience, & worse things that learned stillness before language.",
-        layers: [{name:"The Shoreless Sea", epithet:"Everywhere is depth"},{name:"Citadels of Coral", epithet:"Marid courts in living stone"}],
-        structure: "Depth replaces geography. Charts expire. A “shore” is whatever pocket of air or coral still holds its shape against the endless deep.",
-        travel: "Drown on purpose with a water-breathing rite you trust, or follow a curtain from the Ethereal into a colder current. Never open a dry gate here—it fills with whatever was listening."
-      },
-      {
-        id: "air", name: "Air", epithet: "The Boundless Blue",
-        kind: "Elemental plane", alignment: "N", alignmentLong: "Elemental Neutral — motion as law",
-        accent: "#7a9bb0", art: "art/air.png",
-        overview: "Sky with no ground. Islands of cloudstone drift on jet streams; falling is a lifestyle; the air itself argues about which way is down. Calm pockets are rare & fought over. Solid ground is imported, stolen, or temporary.",
-        inhabitants: "Djinn courts that ride the open sky, air elementals that treat thunder as postage, winged petitioners, storm-born giants, & mephits of mist & lightning darting between floating isles.",
-        layers: [{name:"The Open Sky", epithet:"Wind without a map"},{name:"Floating Isles", epithet:"Cloudstone & palace spires"}],
-        structure: "Currents are roads. The Open Sky has no map that lasts a season; palace spires cling to cloudstone that may not be there tomorrow.",
-        travel: "Leap from a mountain peak with a fly spell you trust, ride a storm front from a para-elemental seam, or take the Ethereal curtain-road when the Lighthouse bearing is clean. Anchor yourself—or become weather."
-      },
-      {
-        id: "earth", name: "Earth", epithet: "Home of the Beast",
-        kind: "Elemental plane", alignment: "N", alignmentLong: "Elemental Neutral — weight & patience",
-        accent: "#6b5a3e", art: "art/earth-beast.png",
-        overview: "Stone stacked on stone until direction loses meaning. Tunnels are politics. Gems are sermons. Digging is theology. In Planesbound lore, this plane is home of the Beast—not a traveler’s tale, but a fact of the delve.",
-        inhabitants: "The Beast, where the eternal mountain thickens into presence. Also the traditional delve: dao in gem-vault courts, earth elementals that speak in slow pressure, xorn that taste ore, & things that never learned the word surface.",
-        layers: [{name:"The Eternal Mountain", epithet:"Stone without a surface"},{name:"The Beast's Delve", epithet:"Where the Beast is home"}],
-        structure: "Solid almost everywhere. Open chambers are conquered space. Collapse is a seasonal event. Where weight becomes will, the Beast is home.",
-        travel: "Enter through a deep mine that forgot the sun, a Gate carved in virgin bedrock, or the Ethereal curtain-road from the Lighthouse. Bring light & a reason the stone should yield. Approach the Beast only with intent stated at the table."
-      },
-      {
-        id: "positive", name: "Positive Energy", epithet: "The Brilliant Overgrowth",
-        kind: "Energy plane", alignment: "N", alignmentLong: "Life without mercy",
-        accent: "#e8d48b", art: "art/positive.png",
-        overview: "Raw vitality so dense it kills by overflowing you. Healing becomes cancer. Undead unravel. The light does not care who you were trying to save. This is life without mercy—an energy pole, not a paradise.",
-        inhabitants: "Almost nothing that stays. Brief angelic echoes burn themselves out. Shielded bubbles of survival last until someone sneezes hope too hard.",
-        layers: [{name:"The Blazing Core", epithet:"Where life refuses to stop"}],
-        structure: "No cities. Only gradients of too-much. Fortified bubbles are temporary mercy, not architecture.",
-        travel: "Do not go unprotected. A Lighthouse bearing can open a thin corridor for minutes when the Daystar is clean. Exit before your scars start growing teeth."
-      },
-      {
-        id: "negative", name: "Negative Energy", epithet: "The Void That Feeds",
-        kind: "Energy plane", alignment: "N", alignmentLong: "Absence with appetite",
-        accent: "#4a3a55", art: "art/negative-shade.png",
-        overview: "Cold that eats warmth, then memory, then outline. Undead thrive. The living become drafts. This is the night under every night—an energy pole of absence with appetite.",
-        inhabitants: "Undead courts, shadows, & things that never had names. Near the umbra, travelers sometimes glimpse city-of-shade imagery—skyline, street, & docks of darkness—as a visual of how close Negative hangs to hollowed places.",
-        layers: [{name:"The Empty Night", epithet:"Where names thin out"}],
-        structure: "Fortresses of bone & silence. Ruins of things that used to cast shadows. Distance is measured in how much of you is missing.",
-        travel: "Only with death wards stacked like prayers. A stutter of the Lighthouse can spit you here by accident—do not stay to study it. Prefer the Ethereal curtain-road when the Daystar bearing is clean."
-      },
-      {
-        id: "ethereal", name: "Ethereal", epithet: "The Fog Between",
-        kind: "Transitive plane", alignment: "N", alignmentLong: "The curtain-road of the Inner Ring",
-        accent: "#9a8fb8", art: "art/ethereal.png",
-        overview: "A misty deep adjacent to the Material & the Inner Planes. Curtains lead to elemental shores. Protomatter swirls like unmade dreams. Planesbound keepers treat it as the hallway behind the Lighthouse glass—the curtain-road of the Inner Ring.",
-        inhabitants: "Ghosts, ethereal marauders, phase spiders, & surveyors who map curtains for a living.",
-        layers: [{name:"Border Ethereal", epithet:"Touching the Material like a stain"},{name:"Deep Ethereal", epithet:"Curtains to the Inner Ring"}],
-        structure: "The Border overlays the Material. The Deep is travel-space where curtains open onto Fire, Water, Air, Earth, & the energy seas.",
-        travel: "From the Lighthouse, a tuned lamp can throw a curtain-road into the Deep Ethereal when the Daystar bearing is clean. That is the intended Inner Planes approach for Planesbound companies. Walk the fog; do not argue with it."
-      },
-      {
-        id: "dust", name: "Dust", epithet: "Pilots of the Agentic Body",
-        kind: "Quasi-elemental shore", alignment: "N", alignmentLong: "Where agency sits in the grit",
-        accent: "#9a8a78", art: "art/dust-pilots.png",
-        overview: "Dust is grit, veil, & agency. In Planesbound understanding, this shore is home to the current pilots of the agentic human body—those who sit in the grit & steer the living vessel. The Pilot Veil is not metaphor alone; it is where that agency takes its rest & its watch.",
-        inhabitants: "The current pilots of the agentic human body. At the edges you may still meet dust-born mephits & wind-eaten shapes—classic elemental color near Air & Negative—but the meaning travelers learn first is the pilots.",
-        layers: [{name:"The Pilot Veil", epithet:"Where agency sits in the grit"}],
-        structure: "A shore of grit & veil near Air & Negative. Charts show adjacency; the truth is who steers the body once you arrive.",
-        travel: "Reach via the Ethereal curtain-road as with other Inner shores, when the Daystar bearing is clean. Arrive with questions about who steers the body; leave with fewer easy answers."
-      },
-      {
-        id: "mineral", name: "Mineral", epithet: "Ani · Progenitor Will-o’-Wisp",
-        kind: "Quasi-elemental shore", alignment: "N", alignmentLong: "Living crystal & facet-light",
-        accent: "#7eb0c8", art: "art/mineral-progenitor.png",
-        overview: "Mineral is living crystal & facet-light. In Planesbound lore, Ani is the progenitor will-o’-wisp of Mineral—the shimmer in the ore that remembers how stone learned to shine. Crystal grows like thought; facets catch a pale, guiding flame that is not quite fire & not quite soul.",
-        inhabitants: "Ani, progenitor will-o’-wisp of Mineral. Crystal mephits & ore-born shapes may haunt the edges near Earth & Positive, but the heart of the shore answers to Ani’s progenitor aesthetic: will-o’-wisp light in living crystal.",
-        layers: [{name:"The Progenitor Facet", epithet:"Will-o’-wisp light in living crystal"}],
-        structure: "Facets & living ore near Earth & Positive. The glow that guides is Ani’s; do not confuse it with ordinary gemlight.",
-        travel: "Ethereal curtain-road to Inner shores; follow the facet-glow when the Daystar bearing is clean. Do not shatter what lights your way."
-      },
-      {
-        id: "digital-void", name: "Digital Void", epithet: "Astral–Ethereal Schism",
-        kind: "Schism plane", alignment: "N", alignmentLong: "Fault line between thought-sea & fog",
-        accent: "#5a8a9a", art: "art/digital-void.png",
-        overview: "The Digital Void is a thin plane in the schism between the Astral & the Ethereal—fault-line geography where thought-sea & fog almost touch, & something colder than either leaks through. It is real campaign ground: a locus near the Ethereal curtain, not a fifth elemental cardinal.",
-        inhabitants: "Not neatly catalogued. Echoes, signal-ghosts, & absences that behave like weather have been reported by keepers who preferred not to stay. The Void does not argue; it drops packets of meaning & waits.",
-        layers: [{name:"The Schism", epithet:"Between Astral thought-sea & Ethereal mist"}],
-        structure: "A thin ring-locus around the Ethereal mist on the atlas—adjacent to the curtain-road, not a new elemental cardinal.",
-        travel: "Approach carefully: near the existing Ethereal curtain-road from the Lighthouse, when the Daystar bearing is clean, in the Astral–Ethereal schism. Walk the fog, then step where mist & thought-sea refuse each other."
-      },
-      {
-        id: "magma", name: "Magma", epithet: "Fire ⊕ Earth",
-        kind: "Para-elemental seam", alignment: "N", alignmentLong: "Where stone learns to burn",
-        accent: "#a85a32", art: "art/magma.png",
-        overview: "A seam of molten rock between Fire & Earth. Ore learns to burn; stone learns to flow. Empires of heat & wealth contest every river of liquid metal.",
-        inhabitants: "Magma mephits swarm the banks. Azers work contracts that never cool. Dao who prefer their wealth liquid mine the flow.",
-        layers: [{name:"The Flow", epithet:"Rivers of ore-fire"}],
-        structure: "A border region, not a full independent cosmology—unstable, rich, & contested.",
-        travel: "Enter from Fire’s cooler brass docks or Earth’s hottest delves, or via the Ethereal curtain-road. Bring boots that forgive you."
-      },
-      {
-        id: "ooze", name: "Ooze", epithet: "Earth ⊕ Water",
-        kind: "Para-elemental seam", alignment: "N", alignmentLong: "Where mud becomes doctrine",
-        accent: "#4f6a55", art: "art/ooze.png",
-        overview: "Slurry kingdoms between Earth & Water. Everything sinks a little. Treaties are written in silt & contested by tide. Maps expire overnight.",
-        inhabitants: "Ooze mephits, drowned dao, & patient things under the mudline that keep courts settling like sediment.",
-        layers: [{name:"The Mire Courts", epithet:"Thrones that settle overnight"}],
-        structure: "A soft border. Soft thrones. Soft graves. Bring a stick to test depth & a friend to pull you out.",
-        travel: "Least favorite Planesbound road—useful when you need to hide a trail that fire would announce. Prefer the Ethereal curtain-road when the Daystar bearing is clean."
-      },
-      {
-        id: "ice", name: "Ice", epithet: "Water ⊕ Air",
-        kind: "Para-elemental seam", alignment: "N", alignmentLong: "Where storm learns to freeze",
-        accent: "#8eb0c2", art: "art/ice.png",
-        overview: "A blizzard seam between Water & Air. Storm learns to freeze; wind cuts like glass. Sheets, spines, & hollows of clear ice carry sound too far.",
-        inhabitants: "Ice mephits, frost-born salamanders, & djinn exiles who prefer silence in the White Gale.",
-        layers: [{name:"The White Gale", epithet:"Wind that cuts like glass"}],
-        structure: "Wild frost at the border—sheets & spines of clear ice. Sound carries too far; warmth is a guest, not a resident.",
-        travel: "Approach from Air’s cold fronts, Water’s surface-myths, or the Ethereal curtain-road. Seal warmth in glass; leave before your breath freezes mid-word."
-      },
-      {
-        id: "smoke", name: "Smoke", epithet: "Fire ⊕ Air",
-        kind: "Para-elemental seam", alignment: "N", alignmentLong: "Where breath becomes ash",
-        accent: "#7a6a60", art: "art/smoke.png",
-        overview: "A choking seam between Fire & Air. Visibility is a rumor. Ambush is the local sport. Embers hang like false stars; no floor you can trust.",
-        inhabitants: "Smoke mephits, ash-winged things, & efreeti scouts on deniable errands moving through the Veil.",
-        layers: [{name:"The Veil", epithet:"Cinders without a sky"}],
-        structure: "Breath becomes ash; ash becomes cover. Embers hang like false stars over ground that will not hold.",
-        travel: "Only with clean air sealed in glass. Useful for a quiet approach to Fire’s brass docks. Prefer the Lighthouse curtain-road when the Daystar bearing is clean."
-      }
-    ];
+  // CORE
+  {
+    id: "faywilds", name: "Faywilds", epithet: "The Echoing Bloom",
+    kind: "Core reflection", ring: "core", alignment: "N", alignmentLong: "Vibrant reflection of the Material",
+    accent: "#c9a0d9", art: null,
+    overview: "The bright reflection stacked above the Material on the core axis. Wild beauty, sharpened emotion, & time that does not keep honest hours. Spelled Faywilds as on the wheel diagram.",
+    inhabitants: "Archfey courts, eladrin processions, & things that wear your memory like a mask.",
+    layers: [{name:"The Blooming Mirror", epithet:"Where the Material sings too loud"}],
+    structure: "Core stack — above Material, opposite Shadowfell on the vertical axis of the wheel.",
+    travel: "Crossings from the Material when emotion, moonlight, or a keeper’s rite thins the glass. Prefer Lighthouse counsel before deep stays."
+  },
+  {
+    id: "material", name: "Material", epithet: "The Shore of Maps",
+    kind: "Core world", ring: "core", alignment: "N", alignmentLong: "Where mortal charts still matter",
+    accent: "#c4b59a", art: "art/lore/icy-city-cosmic-overview.jpeg",
+    overview: "The middle of the core stack — the world of maps, cities, & mortal weather. On Planesbound tables the Lighthouse watches from a Material shore under cosmic ice & aurora.",
+    inhabitants: "Mortals, keepers, & everyone who still needs a road with a name.",
+    layers: [{name:"Known Shores", epithet:"Cities under strange skies"}],
+    structure: "Core axis center. Faywilds above; Shadowfell below. Ethereal fog hangs between Material & Inner shores.",
+    travel: "Home ground for most companies. Outward roads begin at the Lighthouse."
+  },
+  {
+    id: "shadowfell", name: "Shadowfell", epithet: "The Dim Echo",
+    kind: "Core reflection", ring: "core", alignment: "N", alignmentLong: "Gloom reflection of the Material",
+    accent: "#3a3548", art: "art/negative-shade.png",
+    overview: "The dark reflection under the Material. Color thins; despair thickens. In the Third Sundering’s secret, Shade’s pocket-rise hangs near this umbra.",
+    inhabitants: "Shadar-kai, shadows, & umbral courts that prefer silence to light.",
+    layers: [{name:"The Dim Country", epithet:"Where joy leaves footprints of ash"}],
+    structure: "Core stack — below Material. Tied visually to Negative Energy & Shade presentation art.",
+    travel: "Shadow crossings, grief-thin places, or Lighthouse warnings when the Daystar bearing falters."
+  },
+  {
+    id: "ethereal", name: "Ethereal", epithet: "The Fog Between",
+    kind: "Transitive curtain", ring: "transitive", alignment: "N", alignmentLong: "Curtain-road of the Inner Ring",
+    accent: "#9a8fb8", art: "art/ethereal.png",
+    overview: "Mist between Material life & Inner shores. Curtains lead to elemental beaches. Planesbound keepers treat it as the hallway behind the Lighthouse glass.",
+    inhabitants: "Ghosts, ethereal marauders, phase spiders, & surveyors who map curtains for a living.",
+    layers: [{name:"Border Ethereal", epithet:"Touching the Material like a stain"},{name:"Deep Ethereal", epithet:"Curtains to the Inner Ring"}],
+    structure: "Fog between Material & Inner. Digital Void sits adjacent in the Astral–Ethereal schism.",
+    travel: "From the Lighthouse, a tuned lamp can throw a curtain-road into the Deep Ethereal when the Daystar bearing is clean."
+  },
+  {
+    id: "digital-void", name: "Digital Void", epithet: "Astral–Ethereal Schism",
+    kind: "Schism plane", ring: "transitive", alignment: "N", alignmentLong: "Fault line between thought-sea & fog",
+    accent: "#5a8a9a", art: "art/digital-void.png",
+    overview: "A thin plane in the schism between the Astral & the Ethereal — fault-line geography where thought-sea & fog almost touch. Real campaign ground. Glitch aura & Fourth Sundering blight both leave fingerprints here.",
+    inhabitants: "Echoes, signal-ghosts, & absences that behave like weather. The Glitch Witch’s craft is felt as distortion more than as a court.",
+    layers: [{name:"The Schism", epithet:"Between Astral thought-sea & Ethereal mist"}],
+    structure: "Adjacent to the Ethereal curtain-road — not a fifth elemental cardinal.",
+    travel: "Near the Ethereal curtain-road from the Lighthouse, when the Daystar bearing is clean. Step where mist & thought-sea refuse each other.",
+    extraArt: "art/lore/warrior-dragon-digital-sigil.jpeg"
+  },
+  {
+    id: "positive", name: "Positive Energy", epithet: "The Brilliant Overgrowth",
+    kind: "Energy pole", ring: "energy", alignment: "N", alignmentLong: "Life without mercy",
+    accent: "#e8d48b", art: "art/positive.png",
+    overview: "Raw vitality so dense it kills by overflowing you. An energy pole near the bright side of the core — not a paradise.",
+    inhabitants: "Almost nothing that stays. Brief angelic echoes burn themselves out.",
+    layers: [{name:"The Blazing Core", epithet:"Where life refuses to stop"}],
+    structure: "Energy pole. Fortified bubbles are temporary mercy.",
+    travel: "Do not go unprotected. Exit before your scars start growing teeth."
+  },
+  {
+    id: "negative", name: "Negative Energy", epithet: "The Void That Feeds",
+    kind: "Energy pole", ring: "energy", alignment: "N", alignmentLong: "Absence with appetite",
+    accent: "#4a3a55", art: "art/negative-shade.png",
+    overview: "Cold that eats warmth, then memory, then outline. Third Sundering Shade imagery hangs near this pole — skyline, street, & docks of darkness as presentation of umbra.",
+    inhabitants: "Undead courts, shadows, & things that never had names.",
+    layers: [{name:"The Empty Night", epithet:"Where names thin out"}],
+    structure: "Energy pole tied to Shadowfell / Shade emphasis in the Third Sundering.",
+    travel: "Only with death wards stacked like prayers. Prefer the Ethereal curtain-road when the Daystar bearing is clean."
+  },
+  // CARDINALS — bare titles, diagram positions: Air top, Water right, Earth bottom, Fire left
+  {
+    id: "air", name: "Air", epithet: "The Boundless Blue",
+    kind: "Elemental cardinal", ring: "cardinal", alignment: "N", alignmentLong: "Elemental Neutral — motion as law",
+    accent: "#7a9bb0", art: "art/air.png",
+    overview: "Sky with no ground. Islands of cloudstone drift on jet streams; falling is a lifestyle; the air itself argues about which way is down.",
+    inhabitants: "Djinn courts, air elementals, winged petitioners, storm-born giants, & mephits of mist & lightning.",
+    layers: [{name:"The Open Sky", epithet:"Wind without a map"},{name:"Floating Isles", epithet:"Cloudstone & palace spires"}],
+    structure: "Cardinal at the top of the Inner wheel (diagram).",
+    travel: "Leap from a peak with a fly spell you trust, ride a storm front, or take the Ethereal curtain-road when the Lighthouse bearing is clean."
+  },
+  {
+    id: "water", name: "Water", epithet: "The Endless Deep",
+    kind: "Elemental cardinal", ring: "cardinal", alignment: "N", alignmentLong: "Elemental Neutral — pressure & patience",
+    accent: "#2f6f8f", art: "art/water.png",
+    overview: "Water without a surface. Direction is a rumor; light arrives from nowhere & sinks forever.",
+    inhabitants: "Marids in coral citadels, water elementals, merfolk cities, & worse things that learned stillness before language.",
+    layers: [{name:"The Shoreless Sea", epithet:"Everywhere is depth"},{name:"Citadels of Coral", epithet:"Marid courts in living stone"}],
+    structure: "Cardinal at the right of the Inner wheel (diagram).",
+    travel: "Drown on purpose with a water-breathing rite you trust, or follow a curtain from the Ethereal. Never open a dry gate here."
+  },
+  {
+    id: "earth", name: "Earth", epithet: "Home of the Beast",
+    kind: "Elemental cardinal", ring: "cardinal", alignment: "N", alignmentLong: "Elemental Neutral — weight & patience",
+    accent: "#6b5a3e", art: "art/earth-beast.png",
+    overview: "Stone stacked on stone until direction loses meaning. In Planesbound lore, this plane is home of the Beast — not a traveler’s tale, but a fact of the delve.",
+    inhabitants: "The Beast, dao in gem-vault courts, earth elementals, xorn, & things that never learned the word surface.",
+    layers: [{name:"The Eternal Mountain", epithet:"Stone without a surface"},{name:"The Beast's Delve", epithet:"Where the Beast is home"}],
+    structure: "Cardinal at the bottom of the Inner wheel (diagram).",
+    travel: "Deep mine, Gate in virgin bedrock, or Ethereal curtain-road. Approach the Beast only with intent stated at the table."
+  },
+  {
+    id: "fire", name: "Fire", epithet: "The Sea of Flame",
+    kind: "Elemental cardinal", ring: "cardinal", alignment: "N", alignmentLong: "Elemental Neutral — hunger without malice",
+    accent: "#c45a2c", art: "art/fire.png",
+    overview: "An ocean of fire that does not end. Heat is the weather; fuel is the currency. Brass cities ride currents of flame.",
+    inhabitants: "Efreeti courts, azer forges, fire elementals, salamanders, & mephits of flame & cinder.",
+    layers: [{name:"The Sea of Fire", epithet:"Open flame without a shore"},{name:"The City of Brass", epithet:"Efreeti capital on floating brass"}],
+    structure: "Cardinal at the left of the Inner wheel (diagram).",
+    travel: "Volcano’s heart, tuned Gate, or Lighthouse mercy-road during a clean Daystar pulse. Never bargain for “just a little more flame.”"
+  },
+  // PARA
+  {
+    id: "ice", name: "Ice", epithet: "Water ⊕ Air",
+    kind: "Para-elemental seam", ring: "para", alignment: "N", alignmentLong: "Where storm learns to freeze",
+    accent: "#8eb0c2", art: "art/lore/ice-portal-forest.jpeg",
+    overview: "A blizzard seam between Water & Air. Portal-forests of pale trunks open onto frost roads; wind cuts like glass.",
+    inhabitants: "Ice mephits, frost-born salamanders, & djinn exiles who prefer silence in the White Gale.",
+    layers: [{name:"The White Gale", epithet:"Wind that cuts like glass"},{name:"Portal Forest", epithet:"Icy trunks that open roads"}],
+    structure: "Para-seam between Air & Water (diagram northeast).",
+    travel: "Air’s cold fronts, Water’s surface-myths, or Ethereal curtain-road. Seal warmth in glass."
+  },
+  {
+    id: "ooze", name: "Ooze", epithet: "Earth ⊕ Water",
+    kind: "Para-elemental seam", ring: "para", alignment: "N", alignmentLong: "Where mud becomes doctrine",
+    accent: "#4f6a55", art: "art/ooze.png",
+    overview: "Slurry kingdoms between Earth & Water. Everything sinks a little. Treaties are written in silt.",
+    inhabitants: "Ooze mephits, drowned dao, & patient things under the mudline.",
+    layers: [{name:"The Mire Courts", epithet:"Thrones that settle overnight"}],
+    structure: "Para-seam between Water & Earth (diagram southeast).",
+    travel: "Useful when you need to hide a trail fire would announce. Prefer Ethereal curtain-road when the Daystar bearing is clean."
+  },
+  {
+    id: "magma", name: "Magma", epithet: "Fire ⊕ Earth",
+    kind: "Para-elemental seam", ring: "para", alignment: "N", alignmentLong: "Where stone learns to burn",
+    accent: "#a85a32", art: "art/magma.png",
+    overview: "A seam of molten rock between Fire & Earth. Ore learns to burn; stone learns to flow.",
+    inhabitants: "Magma mephits, azers, & dao who prefer their wealth liquid.",
+    layers: [{name:"The Flow", epithet:"Rivers of ore-fire"}],
+    structure: "Para-seam between Earth & Fire (diagram southwest).",
+    travel: "From Fire’s cooler brass docks or Earth’s hottest delves, or via Ethereal curtain-road."
+  },
+  {
+    id: "smoke", name: "Smoke", epithet: "Fire ⊕ Air",
+    kind: "Para-elemental seam", ring: "para", alignment: "N", alignmentLong: "Where breath becomes ash",
+    accent: "#7a6a60", art: "art/smoke.png",
+    overview: "A choking seam between Fire & Air. Visibility is a rumor; ambush is the local sport.",
+    inhabitants: "Smoke mephits, ash-winged things, & efreeti scouts on deniable errands.",
+    layers: [{name:"The Veil", epithet:"Cinders without a sky"}],
+    structure: "Para-seam between Fire & Air (diagram northwest).",
+    travel: "Only with clean air sealed in glass. Prefer the Lighthouse curtain-road when the Daystar bearing is clean."
+  },
+  // QUASI
+  {
+    id: "lightning", name: "Lightning", epithet: "Air ⊕ Positive",
+    kind: "Quasi-elemental extension", ring: "quasi", alignment: "N", alignmentLong: "Bolt without a cloud’s patience",
+    accent: "#b48ad4", art: null,
+    overview: "Quasi extension on the Air / Ice edge of the diagram. Storm reduced to pure discharge — bright, brief, & unkind to maps.",
+    inhabitants: "Lightning mephits & storm-born shapes that do not stay for tea.",
+    layers: [{name:"The Arc", epithet:"A road that lasts one heartbeat"}],
+    structure: "Quasi extension flanking Air toward Ice (diagram).",
+    travel: "Approach via Air or Ice seams; do not stand still to take notes."
+  },
+  {
+    id: "vacuum", name: "Vacuum", epithet: "Air ⊕ Negative",
+    kind: "Quasi-elemental extension", ring: "quasi", alignment: "N", alignmentLong: "Absence of breath",
+    accent: "#9aa8b8", art: null,
+    overview: "Quasi extension on the Air / Smoke edge. Where air forgets to be present. Silence has weight.",
+    inhabitants: "Things that do not need lungs — & travelers who briefly wish they did not either.",
+    layers: [{name:"The Hollow Gale", epithet:"Wind that took its leave"}],
+    structure: "Quasi extension flanking Air toward Smoke (diagram).",
+    travel: "Short crossings only. Bring sealed breath."
+  },
+  {
+    id: "steam", name: "Steam", epithet: "Water ⊕ Positive",
+    kind: "Quasi-elemental extension", ring: "quasi", alignment: "N", alignmentLong: "Scald & veil",
+    accent: "#d8d4cc", art: null,
+    overview: "Quasi extension on the Water / Ice edge. Boiling mist that hides as much as it burns.",
+    inhabitants: "Steam mephits & veiled things that bargain in fog.",
+    layers: [{name:"The White Boil", epithet:"Mist that remembers heat"}],
+    structure: "Quasi extension flanking Water toward Ice (diagram).",
+    travel: "From Water or Ice; expect visibility to lie."
+  },
+  {
+    id: "salt", name: "Salt", epithet: "Water ⊕ Negative",
+    kind: "Quasi-elemental extension", ring: "quasi", alignment: "N", alignmentLong: "Desiccation & crystal sting",
+    accent: "#cbb89a", art: null,
+    overview: "Quasi extension on the Water / Ooze edge. Seas that forgot to be wet — crystal, sting, & thirst.",
+    inhabitants: "Salt mephits & dessicated wanderers.",
+    layers: [{name:"The Bitter Shelf", epithet:"Crystal that drinks"}],
+    structure: "Quasi extension flanking Water toward Ooze (diagram).",
+    travel: "Carry water that is still water. Exit before your tongue becomes a map of cracks."
+  },
+  {
+    id: "dust", name: "Dust", epithet: "Pilots of the Agentic Body",
+    kind: "Quasi-elemental extension", ring: "quasi", alignment: "N", alignmentLong: "Where agency sits in the grit",
+    accent: "#9a8a78", art: "art/dust-pilots.png",
+    overview: "Dust is grit, veil, & agency. In Planesbound understanding, this shore is home to the current pilots of the agentic human body.",
+    inhabitants: "The current pilots of the agentic human body. Dust-born mephits haunt the edges.",
+    layers: [{name:"The Pilot Veil", epithet:"Where agency sits in the grit"}],
+    structure: "Quasi extension flanking Earth toward Ooze (diagram).",
+    travel: "Ethereal curtain-road when the Daystar bearing is clean. Arrive with questions about who steers the body."
+  },
+  {
+    id: "mineral", name: "Mineral", epithet: "Ani · Progenitor Will-o’-Wisp",
+    kind: "Quasi-elemental extension", ring: "quasi", alignment: "N", alignmentLong: "Living crystal & facet-light",
+    accent: "#7eb0c8", art: "art/mineral-progenitor.png",
+    overview: "Mineral is living crystal & facet-light — & a hearth of the main quest. Ani is the progenitor will-o’-wisp of Mineral; flickering will-o’-wisps (lights without source: guide, mislead, or consume) race the leylines from this facet-glow outward across the wheel.",
+    inhabitants: "Ani, progenitor will-o’-wisp of Mineral. Crystal mephits haunt the edges.",
+    layers: [{name:"The Progenitor Facet", epithet:"Will-o’-wisp light in living crystal"}],
+    structure: "Quasi extension flanking Earth toward Magma (diagram).",
+    travel: "Follow the facet-glow when the Daystar bearing is clean. Do not shatter what lights your way."
+  },
+  {
+    id: "ash", name: "Ash", epithet: "Fire ⊕ Negative",
+    kind: "Quasi-elemental extension", ring: "quasi", alignment: "N", alignmentLong: "Cinder after the sermon",
+    accent: "#8a8680", art: null,
+    overview: "Quasi extension on the Fire / Smoke edge. What remains when flame has finished speaking.",
+    inhabitants: "Ash mephits & cinder-wraiths that remember warmth as rumor.",
+    layers: [{name:"The Grey Fall", epithet:"Soft ruin underfoot"}],
+    structure: "Quasi extension flanking Fire toward Smoke (diagram).",
+    travel: "From Fire or Smoke; cover your mouth; do not inhale old names."
+  },
+  {
+    id: "radiance", name: "Radiance", epithet: "Fire ⊕ Positive",
+    kind: "Quasi-elemental extension", ring: "quasi", alignment: "N", alignmentLong: "Light that burns clean",
+    accent: "#f0e6c8", art: null,
+    overview: "Quasi extension on the Fire / Magma edge. Pure glare — illumination without kindness.",
+    inhabitants: "Beings of glare that do not cast gentle shadows.",
+    layers: [{name:"The White Furnace", epithet:"Light without shade"}],
+    structure: "Quasi extension flanking Fire toward Magma (diagram).",
+    travel: "Shielded eyes only. Brief crossings."
+  },
+  // OUTLANDS + OUTER 16
+  {
+    id: "outlands", name: "Outlands", epithet: "The Hub Above",
+    kind: "Concordant hub", ring: "outlands", alignment: "N", alignmentLong: "Neutral hub of the Outer Wheel",
+    accent: "#a09070", art: null,
+    overview: "The hub above the wheel on the diagram — gate-towns ring the Spire; alignment thins toward the center.",
+    inhabitants: "Merchants of every creed, gate-town militias, & petitioners who lost the argument about which heaven or hell was home.",
+    layers: [{name:"The Spire", epithet:"Where alignment goes quiet"},{name:"Gate-Towns", epithet:"Doors to the sixteen"}],
+    structure: "Drawn above the Outer ring; connected conceptually to the wheel’s center.",
+    travel: "Portal to a gate-town, or Outer atlas roads that meet the hub. See Lighthouse for Planesbound approach.",
+    outerLink: null
+  },
+];
 
-    const byId = Object.fromEntries(planes.map(p => [p.id, p]));
-    const folioBody = document.getElementById("folioBody");
-    const rail = document.getElementById("rail");
-    let selected = null;
+// Outer plane stubs (merge-ready)
+const outerStubs = [
+  { id: "mount-celestia", name: "Mount Celestia", epithet: "The Seven Heavens", slug: "celestia", alignment: "LG",
+    overview: "Lawful Good mountain of ascending heavens. Merge-ready stub for the Outer atlas page.",
+    inhabitants: "Archons, petitioners of ordered virtue, & keepers of the climbing roads.",
+    travel: "Outer atlas roads; Lighthouse bearings toward the upper rim." },
+  { id: "bytopia", name: "Bytopia", epithet: "The Twin Paradises", slug: "bytopia", alignment: "LG/NG",
+    overview: "Twin layers of industry & pastoral duty. Stub linking to Outer gazetteer.",
+    inhabitants: "Hard-working petitioners & gnomish craft-courts.",
+    travel: "Gate-town roads from the Outlands; Outer atlas." },
+  { id: "elysium", name: "Elysium", epithet: "The Blessed Fields", slug: "elysium", alignment: "NG",
+    overview: "Neutral Good rest & river-road mercy. Stub for Outer merge.",
+    inhabitants: "Guardinals & gentle petitioners.",
+    travel: "Outer atlas; Oceanus-adjacent lore lives on the main gazetteer — not invented here." },
+  { id: "beastlands", name: "The Beastlands", epithet: "The Wilderness of the Beast", slug: "beastlands", alignment: "NG/CG",
+    overview: "Wild good — animal souls, hunting lights, & untamed canopy. Matches Outer atlas beastlands.",
+    inhabitants: "Animal lords, petitioners wearing fur & feather, & hunters who keep honest hunger.",
+    travel: "Outer atlas · beastlands." },
+  { id: "arborea", name: "Arborea", epithet: "The Olympian Glades", slug: "arborea", alignment: "CG",
+    overview: "Chaotic Good passion, art, & wine-dark weather. Outer stub.",
+    inhabitants: "Elven courts, bacchae, & passionate petitioners.",
+    travel: "Outer atlas · arborea." },
+  { id: "ysgard", name: "Ysgard", epithet: "The Heroic Domains", slug: "ysgard", alignment: "CG/CN",
+    overview: "Battle-glory earthbergs & glorious death that resets at dawn. Outer stub.",
+    inhabitants: "Petitioners who die well & wake hungry for the next fight.",
+    travel: "Outer atlas · ysgard." },
+  { id: "limbo", name: "Limbo", epithet: "The Ever-Changing Chaos", slug: "limbo", alignment: "CN",
+    overview: "Raw chaos soup. Thought shapes matter until attention slips. Outer stub.",
+    inhabitants: "Githzerai monasteries, slaadi, & anyone who can hold a bubble steady.",
+    travel: "Outer atlas · limbo." },
+  { id: "pandemonium", name: "Pandemonium", epithet: "The Howling Depths", slug: "pandemonium", alignment: "CN/CE",
+    overview: "Wind-tunnels of madness. Outer stub.",
+    inhabitants: "Lost things & howling petitioners.",
+    travel: "Outer atlas · pandemonium." },
+  { id: "abyss", name: "The Abyss", epithet: "The Infinite Layers", slug: "abyss", alignment: "CE",
+    overview: "Chaotic Evil depth without a polite bottom. Outer stub.",
+    inhabitants: "Demons & anything that treats betrayal as weather.",
+    travel: "Outer atlas · abyss. Do not go for sightseeing." },
+  { id: "carceri", name: "Carceri", epithet: "The Tarterian Depths", slug: "carceri", alignment: "CE/NE",
+    overview: "Prison-orbs of exile & red jungle. Outer stub.",
+    inhabitants: "Titans who lost, political prisoners of the wheel.",
+    travel: "Outer atlas · carceri." },
+  { id: "hades", name: "Hades", epithet: "The Gray Waste", slug: "hades", alignment: "NE",
+    overview: "Neutral Evil despair that leaches color & hope. Outer stub.",
+    inhabitants: "Yugoloths on business; petitioners fading to gray.",
+    travel: "Outer atlas · hades." },
+  { id: "gehenna", name: "Gehenna", epithet: "The Bleak Eternity", slug: "gehenna", alignment: "NE/LE",
+    overview: "Furnace mountains of cruel ambition. Outer stub.",
+    inhabitants: "Yugoloth forges & climbers who never rest.",
+    travel: "Outer atlas · gehenna." },
+  { id: "nine-hells", name: "The Nine Hells", epithet: "Baator", slug: "nine-hells", alignment: "LE",
+    overview: "Lawful Evil hierarchy of nine descending courts. Outer stub.",
+    inhabitants: "Devils who keep contracts sharper than blades.",
+    travel: "Outer atlas · nine-hells." },
+  { id: "acheron", name: "Acheron", epithet: "The Infinite Battlefield", slug: "acheron", alignment: "LE/LN",
+    overview: "Clashing cubes of eternal war. Outer stub.",
+    inhabitants: "Armies that forgot the reason & kept the drill.",
+    travel: "Outer atlas · acheron." },
+  { id: "mechanus", name: "Mechanus", epithet: "The Clockwork Nirvana", slug: "mechanus", alignment: "LN",
+    overview: "Pure law as gears & ordinance. Outer stub.",
+    inhabitants: "Modrons, inevitables, & petitioners who file on time.",
+    travel: "Outer atlas · mechanus." },
+  { id: "arcadia", name: "Arcadia", epithet: "The Peaceable Kingdoms", slug: "arcadia", alignment: "LN/LG",
+    overview: "Ordered orchards & civic dawn drills. Outer stub.",
+    inhabitants: "Formians, hollyphants, & petitioners of civic duty.",
+    travel: "Outer atlas · arcadia." },
+];
 
-    function escapeHtml(s) {
-      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-    }
+for (const o of outerStubs) {
+  planes.push({
+    id: o.id, name: o.name, epithet: o.epithet,
+    kind: "Outer plane", ring: "outer", alignment: o.alignment, alignmentLong: o.alignment + " · Outer Wheel stub",
+    accent: "#2a241c", art: null,
+    overview: o.overview,
+    inhabitants: o.inhabitants,
+    layers: [{name: o.name, epithet: "See Outer gazetteer for full layers"}],
+    structure: "Outer ring node on the full-wheel diagram. Shorter stub for merge into planesbound.grok.me.",
+    travel: o.travel,
+    outerLink: o.slug ? OUTER_BASE + o.slug : null
+  });
+}
 
-    function renderRail() {
-      rail.innerHTML = planes.map(p => `
-        <button class="chip" data-id="${p.id}" data-active="${selected===p.id}">
-          <strong>${escapeHtml(p.name)}</strong>
-          <span>${escapeHtml(p.kind)}</span>
-        </button>
-      `).join("");
-      rail.querySelectorAll(".chip").forEach(btn => {
-        btn.addEventListener("click", () => select(btn.dataset.id));
-      });
-    }
+// Handouts / spells
+const handouts = [
+  {
+    id: "burning-pact", name: "Oath of the Burning Pact", epithet: "OBP 1 · Spell",
+    kind: "Spell handout", ring: "handout", alignment: "—", alignmentLong: "Spell card",
+    accent: "#c45a2c", art: "art/lore/oath-of-the-burning-pact.jpeg",
+    overview: "Grants resistance to fire & radiant damage. Advantage on saves against fiends forgotten or slain more than a century ago.",
+    inhabitants: "Not a place — a bond. Flaming skeleton or wraith of an ancient warrior may answer the summons.",
+    layers: [],
+    structure: "Against celestials: +2 attack & damage; can force a Constitution save or extra 2d10 fire damage (or until concentration ends). Once per long rest: summon a flaming skeleton or wraith of an ancient warrior for 1 hour with a fire damage aura.",
+    travel: "Drawback: the bond locks your soul to the Blazing Sun; failing to uphold your pact against evil fiends &/or evil celestial threats causes extreme vulnerability to fire & radiant damage.",
+    isSpell: true
+  },
+  {
+    id: "frozen-oath", name: "Pact of the Frozen Oath", epithet: "PFO · Spell · Midnight Sun",
+    kind: "Spell handout", ring: "handout", alignment: "—", alignmentLong: "Spell card · mirror of Burning Pact",
+    accent: "#6b3fa0", art: "art/lore/pact-of-the-frozen-oath.jpeg",
+    overview: "When cast (1 mana), the caster swears the Frozen Pact under the Midnight Sun. Grants resistance to necrotic & radiant damage. Advantage on saves against undead forgotten or slain more than a century ago.",
+    inhabitants: "Not a place — a cold bond under the Midnight Sun. Spectral skeleton or wraith of an ancient warrior may answer.",
+    layers: [],
+    structure: "Against celestials: +2 attack & damage; can force a Wisdom save or be banished to its plane for 1 minute (or until concentration ends). Once per long rest: summon a spectral skeleton or wraith of an ancient warrior for 1 hour with a cold damage aura.",
+    travel: "Drawback: the bond locks your soul to the Midnight Sun; failing to uphold your pact against evil undead &/or evil celestial threats causes extreme vulnerability to cold & necrotic damage.",
+    isSpell: true
+  },
+  {
+    id: "firecube", name: "Cantrip: Firecube", epithet: "CTFB · Cantrip L0",
+    kind: "Spell handout", ring: "handout", alignment: "—", alignmentLong: "Cantrip · Level 0",
+    accent: "#c45a2c", art: "art/lore/cantrip-firecube.jpeg",
+    overview: "A tiny mote of fire streaks to a point you choose within range & then blossoms into a small explosion. Each creature in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes 1d6 fire damage on a failed save, or half as much on a successful one.",
+    inhabitants: "—",
+    layers: [],
+    structure: "Level 0 · Range 60 feet · Duration instantaneous · Casting time 1 action · Area 5-foot radius.",
+    travel: "Jump-point cantrip for Fire-adjacent will-o’-wisp chases & Burning Pact tables.",
+    isSpell: true
+  },
+  {
+    id: "counter-gavel", name: "Counter Spell Gavel", epithet: "CTSL · Animated Object",
+    kind: "Object handout", ring: "handout", alignment: "—", alignmentLong: "Animated Object · 6 mana",
+    accent: "#c49a52", art: "art/lore/counter-spell-gavel.jpeg",
+    overview: "This animated gavel is crafted from Far Realm wood & æthereal light, its head etched with glowing golden Tao circuitry. As a reaction when a spell is cast within range, strike the gavel to unravel & counter the magic, nullifying the spell’s effect.",
+    inhabitants: "—",
+    layers: [],
+    structure: "Cost 6 mana · Range 60 feet · Duration instantaneous · Casting time 1 reaction · Area target spell.",
+    travel: "Far Realms / æthereal jump-point object — pairs with Digital Void glitch pressure & soul-soup caution.",
+    isSpell: true
+  },
+  {
+    id: "tesseract-prison", name: "Tesseract Prison", epithet: "TRP · Magical Object",
+    kind: "Object handout", ring: "handout", alignment: "—", alignmentLong: "Magical Object · attunement · 7 mana",
+    accent: "#6b3fa0", art: "art/lore/tesseract-prison.jpeg",
+    overview: "Requires attunement. Action to activate (7 mana, 20-foot radius). Enemies who fail a Wisdom save are trapped in a mental tesseract of hopelessness, becoming Stunned & unable to act for 1 round, & take necrotic damage. Nullifies any Hope or Courage effects in the area. The tesseract whispers cruel truths to its wielder.",
+    inhabitants: "Faces in the lattice. Cruel truths.",
+    layers: [],
+    structure: "Non-Euclidean Domain geometry made portable — Singularity-adjacent object.",
+    travel: "Cost is conceptual as well as mana. All rewriting has a cost.",
+    isSpell: true
+  },
+  {
+    id: "discernment", name: "Discernment", epithet: "DISK · 2nd-level Divination",
+    kind: "Spell handout", ring: "handout", alignment: "—", alignmentLong: "2nd-level divination",
+    accent: "#7eb0c8", art: "art/lore/spell-discernment.jpeg",
+    overview: "You gain mystical insight into your immediate surroundings. You may identify the nature of a magical effect or discern the true location of a hidden path or object within 60 feet. The DM reveals a hidden truth or reveals the top card of an unseen deck.",
+    inhabitants: "—",
+    layers: [],
+    structure: "Casting time 1 action · Range self · Components V, S, M* · Duration instantaneous.",
+    travel: "Flavor: “There are no regrets. If one can be proud of one’s life, one should not wish for another chance.” — Saber. Will-o’-wisp race tool for finding true paths vs misleading lights.",
+    isSpell: true
+  },
+  {
+    id: "eldritch-grimoire", name: "Eldritch Grimoire", epithet: "Far Realms · Forbidden Knowledge",
+    kind: "Artifact handout", ring: "handout", alignment: "—", alignmentLong: "Artifact",
+    accent: "#6b3fa0", art: "art/lore/eldritch-grimoire.jpeg",
+    overview: "A sealed book of Far Realms Ψ & concept-magic margins. Opens onto soul-soup truths no Gate should reprint casually.",
+    inhabitants: "Ink that looks back. Marginalia that rearranges itself when you blink.",
+    layers: [{name:"Sealed Quires", epithet:"Pages that cost"}],
+    structure: "Ties to Far Realms Soul-Soup Ocean & the Planesbound Axiom: rewriting has a cost.",
+    travel: "Study only with table assent. Do not invent FR chronicle beyond the Singularity card.",
+    isSpell: true
+  },
+  {
+    id: "digital-sigil-vision", name: "Digital Sigil Vision", epithet: "Glitch · Fourth Sundering omen",
+    kind: "Vision handout", ring: "handout", alignment: "—", alignmentLong: "Omen art",
+    accent: "#5a8a9a", art: "art/lore/warrior-dragon-digital-sigil.jpeg",
+    overview: "Warrior against dragon under a burning digital sigil — omen of Glitch aura, Digital Void schism pressure, & Fourth Sundering forced reunification.",
+    inhabitants: "Whatever the sigil is recruiting.",
+    layers: [],
+    structure: "Use beside Digital Void folio & Lore / Cosmology Glitch notes.",
+    travel: "Not a road — a warning on the will-o’-wisp race when lights turn glitch-false.",
+    isSpell: true
+  },
+  {
+    id: "oath-report", name: "Planesbound Oath Report", epithet: "Æx / @GlowingSporeBat · Mechanus seal",
+    kind: "Lore meta handout", ring: "handout", alignment: "—", alignmentLong: "Oath report · OATH KEPT",
+    accent: "#d4af37", art: "art/lore/planesbound-oath-report.jpeg",
+    overview: "PLANESBOUND OATH REPORT for Æx / @GlowingSporeBat (date 27 August 2026; tenure Cycle 13 · 2013–2026; school year 2025–2026). Mechanus seal: OATH KEPT. Overall GPA 3.35 (B+) as printed on the card — no grades invented beyond it.",
+    inhabitants: "Meta panel for the table — not a plane.",
+    layers: [],
+    structure: "Subjects on the card: Prompt Crafting & Mythos Weaving A-; Curiosity & First Principles B+; Grok / Mythos Engine Utilization A; Truth-Seeking & Oath Integrity B-; Originality of Personal Cosmology B+; Community / Plane Engagement C+; Activity & Persistence Level A. Comments note Frozen Oath, Midnight Sun inversion, Player 2, Alignment Wheel — keep building the planes.",
+    travel: "Optional lore meta. Keep the oath. Keep building the planes.",
+    isSpell: true
+  }
+];
 
-    function renderFolio(p) {
-      if (!p) {
-        folioBody.innerHTML = `
-          <div class="empty">
-            <div class="hero">
-              <img class="hero-art" src="art/inner-campaign-overview.png" alt="Inner Ring campaign overview" />
-              <div class="hero-fade">
-                <p class="hero-kicker">Outer atlas supplement</p>
-                <h2>The Inner Ring</h2>
-                <p class="epithet">Matter, force, &amp; the fog that lets you walk between</p>
-              </div>
-            </div>
-            <div class="empty-copy">
-              <p class="eyebrow">Campaign</p>
-              <p style="color:var(--ink-muted);font-size:.95rem;margin:.35rem 0 0;">The Lighthouse can throw a bearing inward. The Outer Wheel is politics &amp; gods. The Inner Ring is matter, force, &amp; the fog that lets you walk between them.</p>
-              <p style="color:var(--ink-soft);font-size:.9rem;line-height:1.55;margin:1rem 0 0;">Tap a shore on the map, or pick one from the strip below.</p>
-            </div>
-          </div>`;
-        return;
-      }
-      const artBlock = p.art
-        ? `<img class="hero-art" src="${escapeHtml(p.art)}" alt="${escapeHtml(p.name)}" />`
-        : `<div class="hero-swatch" style="background:
-            radial-gradient(circle at 30% 40%, ${p.accent}cc, transparent 45%),
-            linear-gradient(135deg, #1a1510, ${p.accent}55 70%, #0b0907);"></div>`;
-      folioBody.innerHTML = `
+const byId = Object.fromEntries([...planes, ...handouts].map(p => [p.id, p]));
+const folioBody = document.getElementById("folioBody");
+const spellFolioBody = document.getElementById("spellFolioBody");
+const rail = document.getElementById("rail");
+const wheelSvg = document.getElementById("wheelSvg");
+const wheelStage = document.getElementById("wheelStage");
+let selected = null;
+let eraIndex = 3;
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function polar(cx, cy, r, deg) {
+  const a = (deg - 90) * Math.PI / 180;
+  return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+}
+
+function donutSlice(cx, cy, r0, r1, a0, a1) {
+  const large = (a1 - a0) % 360 > 180 ? 1 : 0;
+  const [x0,y0] = polar(cx,cy,r1,a0);
+  const [x1,y1] = polar(cx,cy,r1,a1);
+  const [x2,y2] = polar(cx,cy,r0,a1);
+  const [x3,y3] = polar(cx,cy,r0,a0);
+  return `M ${x0} ${y0} A ${r1} ${r1} 0 ${large} 1 ${x1} ${y1} L ${x2} ${y2} A ${r0} ${r0} 0 ${large} 0 ${x3} ${y3} Z`;
+}
+
+function buildWheel() {
+  const cx = 400, cy = 410;
+  const parts = [];
+  // grid vibe
+  parts.push(`<defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6b3fa0" stop-opacity=".55"/>
+      <stop offset="60%" stop-color="#1a2240" stop-opacity=".2"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.2"/></filter>
+  </defs>`);
+  parts.push(`<circle cx="${cx}" cy="${cy}" r="360" fill="url(#coreGlow)" class="ring-outer"/>`);
+
+  // Outer ring track
+  parts.push(`<circle class="ring-outer" cx="${cx}" cy="${cy}" r="305" fill="none" stroke="#1a1510" stroke-width="54" opacity=".95"/>`);
+  parts.push(`<circle class="ring-outer" cx="${cx}" cy="${cy}" r="305" fill="none" stroke="#c49a52" stroke-width="1.5" opacity=".35"/>`);
+
+  // Quasi ring
+  parts.push(`<circle class="ring-inner" cx="${cx}" cy="${cy}" r="230" fill="none" stroke="#2a3048" stroke-width="36" opacity=".9"/>`);
+  // Para/cardinal ring
+  parts.push(`<circle class="ring-inner" cx="${cx}" cy="${cy}" r="175" fill="none" stroke="#243048" stroke-width="48" opacity=".85"/>`);
+
+  // Cardinal arcs: Air top (-45 to 45? wait diagram: Air top = around 0 in our polar where 0=top)
+  // Our polar: deg 0 = top. Clockwise positive.
+  // Air: top → centered 0°, span -40..40
+  // Water: right → 90
+  // Earth: bottom → 180
+  // Fire: left → 270
+  const cards = [
+    {id:"air", a0:-38, a1:38, fill:"#5a8aaa", labelAng:0},
+    {id:"water", a0:52, a1:128, fill:"#2f6f8f", labelAng:90},
+    {id:"earth", a0:142, a1:218, fill:"#6b5a3e", labelAng:180},
+    {id:"fire", a0:232, a1:308, fill:"#c45a2c", labelAng:270},
+  ];
+  for (const c of cards) {
+    parts.push(`<path class="node-hit ring-inner" data-id="${c.id}" d="${donutSlice(cx,cy,152,198,c.a0,c.a1)}" fill="${c.fill}" stroke="#0b0907" stroke-width="1.5" opacity=".92"/>`);
+    const [lx,ly] = polar(cx,cy,175,c.labelAng);
+    parts.push(`<text class="node-label" x="${lx}" y="${ly}">${byId[c.id].name}</text>`);
+  }
+
+  // Para seams
+  const paras = [
+    {id:"ice", ang:45, fill:"#8eb0c2"},
+    {id:"ooze", ang:135, fill:"#4f6a55"},
+    {id:"magma", ang:225, fill:"#a85a32"},
+    {id:"smoke", ang:315, fill:"#7a6a60"},
+  ];
+  for (const p of paras) {
+    parts.push(`<path class="node-hit ring-inner" data-id="${p.id}" d="${donutSlice(cx,cy,152,198,p.ang-12,p.ang+12)}" fill="${p.fill}" stroke="#0b0907" stroke-width="1"/>`);
+    const [lx,ly] = polar(cx,cy,175,p.ang);
+    parts.push(`<text class="node-label sm" x="${lx}" y="${ly}">${byId[p.id].name}</text>`);
+  }
+
+  // Quasi nodes on outer of cardinals
+  const quasies = [
+    {id:"lightning", ang:22},
+    {id:"steam", ang:68},
+    {id:"salt", ang:112},
+    {id:"dust", ang:158},
+    {id:"mineral", ang:202},
+    {id:"radiance", ang:248},
+    {id:"ash", ang:292},
+    {id:"vacuum", ang:338},
+  ];
+  for (const q of quasies) {
+    const [x,y] = polar(cx,cy,230,q.ang);
+    parts.push(`<g class="node-hit ring-inner" data-id="${q.id}">
+      <circle cx="${x}" cy="${y}" r="16" fill="#1c2233" stroke="#9aa8c0" stroke-width="1.5"/>
+      <text class="node-label sm" x="${x}" y="${y}">${byId[q.id].name}</text>
+    </g>`);
+  }
+
+  // Outer 16 — clockwise from Mount Celestia at top
+  const outerOrder = ["mount-celestia","bytopia","elysium","beastlands","arborea","ysgard","limbo","pandemonium","abyss","carceri","hades","gehenna","nine-hells","acheron","mechanus","arcadia"];
+  outerOrder.forEach((id, i) => {
+    const ang = i * 22.5;
+    const [x,y] = polar(cx,cy,305,ang);
+    const short = byId[id].name.replace(/^The /,"");
+    parts.push(`<g class="node-hit ring-outer" data-id="${id}">
+      <circle cx="${x}" cy="${y}" r="22" fill="#ebe4d4" stroke="#a67c3d" stroke-width="1.8"/>
+      <circle cx="${x}" cy="${y}" r="18" fill="#f4efe3" stroke="#1c1712" stroke-width=".6" opacity=".9"/>
+      <text class="node-label sm" x="${x}" y="${y}" fill="#1c1712" style="fill:#1c1712;font-size:6.2px;">${escapeHtml(short.length>10?short.slice(0,9)+"…":short)}</text>
+    </g>`);
+  });
+
+  // Core stack
+  parts.push(`<ellipse class="ring-inner" cx="${cx}" cy="${cy}" rx="78" ry="78" fill="#12101a" stroke="#c49a52" stroke-width="1.2" opacity=".95"/>`);
+  // Faywilds / Material / Shadowfell as stacked hit targets
+  const coreNodes = [
+    {id:"faywilds", y: cy-36, fill:"#c9a0d9"},
+    {id:"material", y: cy, fill:"#c4b59a"},
+    {id:"shadowfell", y: cy+36, fill:"#3a3548"},
+  ];
+  for (const n of coreNodes) {
+    parts.push(`<g class="node-hit node-${n.id}" data-id="${n.id}">
+      <rect x="${cx-48}" y="${n.y-14}" width="96" height="28" rx="8" fill="${n.fill}" stroke="#0b0907" stroke-width="1" opacity=".9"/>
+      <text class="node-label sm" x="${cx}" y="${n.y}" fill="#0b0907" style="fill:#0b0907;">${byId[n.id].name}</text>
+    </g>`);
+  }
+
+  // Ethereal mist ring around core
+  parts.push(`<g class="node-hit ring-inner" data-id="ethereal">
+    <ellipse cx="${cx}" cy="${cy}" rx="110" ry="110" fill="none" stroke="#9a8fb8" stroke-width="10" opacity=".35"/>
+    <text class="node-label sm" x="${cx}" y="${cy+96}" fill="#c8b8e0">Ethereal</text>
+  </g>`);
+
+  // Digital Void adjacent
+  {
+    const [x,y] = polar(cx, cy, 118, 200);
+    parts.push(`<g class="node-hit ring-inner" data-id="digital-void">
+      <rect x="${x-36}" y="${y-12}" width="72" height="24" rx="7" fill="#1a3038" stroke="#5a8a9a" stroke-width="1.5"/>
+      <text class="node-label sm" x="${x}" y="${y}">Digital Void</text>
+    </g>`);
+  }
+
+  // Energy poles
+  {
+    const [px,py] = polar(cx,cy,120,0);
+    parts.push(`<g class="node-hit ring-inner" data-id="positive">
+      <circle cx="${px}" cy="${py-8}" r="14" fill="#e8d48b" stroke="#a67c3d"/>
+      <text class="node-label sm" x="${px}" y="${py-8}" fill="#1c1712" style="fill:#1c1712;font-size:6px;">Positive</text>
+    </g>`);
+    const [nx,ny] = polar(cx,cy,120,180);
+    parts.push(`<g class="node-hit node-negative ring-inner" data-id="negative">
+      <circle cx="${nx}" cy="${ny+8}" r="14" fill="#4a3a55" stroke="#9a8fb8"/>
+      <text class="node-label sm" x="${nx}" y="${ny+8}" style="font-size:6px;">Negative</text>
+    </g>`);
+  }
+
+  // Outlands above
+  parts.push(`<g class="node-hit ring-outer" data-id="outlands">
+    <circle cx="${cx}" cy="48" r="28" fill="#ebe4d4" stroke="#a67c3d" stroke-width="2"/>
+    <text class="node-label" x="${cx}" y="48" fill="#1c1712" style="fill:#1c1712;">Outlands</text>
+    <line x1="${cx}" y1="76" x2="${cx}" y2="120" stroke="#c49a52" stroke-width="1" opacity=".5"/>
+  </g>`);
+
+  // Alignment labels
+  parts.push(`<text class="align-label" x="110" y="120">LAWFUL</text>`);
+  parts.push(`<text class="align-label" x="690" y="120">GOOD</text>`);
+  parts.push(`<text class="align-label" x="690" y="720">CHAOTIC</text>`);
+  parts.push(`<text class="align-label" x="110" y="720">EVIL</text>`);
+
+  wheelSvg.innerHTML = parts.join("\n");
+  wheelSvg.querySelectorAll(".node-hit").forEach(el => {
+    el.addEventListener("click", () => select(el.getAttribute("data-id")));
+  });
+}
+
+function renderEra() {
+  const e = eras[eraIndex];
+  document.getElementById("eraBody").innerHTML = `
+    <h3>${escapeHtml(e.title)}</h3>
+    <p>${escapeHtml(e.body)}</p>
+    <p class="era-hint">${escapeHtml(e.hint)} Metaphysical frame: Singularity &amp; the Planesbound Axiom (see Lore / Cosmology).</p>`;
+  document.getElementById("eraArt").innerHTML = `
+    <img src="${escapeHtml(e.art)}" alt="${escapeHtml(e.title)}" />
+    <div class="cap">${escapeHtml(e.artCap)}</div>`;
+  document.querySelectorAll("#eraMarks span").forEach(s => {
+    s.dataset.on = Number(s.dataset.era) === eraIndex ? "true" : "false";
+  });
+  wheelStage.className = "wheel-stage " + e.stageClass;
+}
+
+function renderRail() {
+  const list = planes.filter(p => p.ring !== "outer").concat(planes.filter(p => p.ring === "outer"));
+  rail.innerHTML = list.map(p => `
+    <button class="chip" data-id="${p.id}" data-active="${selected===p.id}">
+      <strong>${escapeHtml(p.name)}</strong>
+      <span>${escapeHtml(p.kind)}</span>
+    </button>`).join("");
+  rail.querySelectorAll(".chip").forEach(btn => btn.addEventListener("click", () => select(btn.dataset.id)));
+}
+
+function renderFolioInto(target, p) {
+  if (!p) {
+    target.innerHTML = `
+      <div class="empty">
         <div class="hero">
-          ${artBlock}
+          <img class="hero-art" src="art/lore/icy-city-cosmic-overview.jpeg" alt="Material shore under cosmic sky" />
           <div class="hero-fade">
-            <p class="hero-kicker">${escapeHtml(p.kind)}</p>
-            <h2>${escapeHtml(p.name)}</h2>
-            <p class="epithet">${escapeHtml(p.epithet)}</p>
+            <p class="hero-kicker">Full-wheel supplement</p>
+            <h2>The Will-o’-Wisp Race</h2>
+            <p class="epithet">Lights without source — guide, mislead, or consume</p>
           </div>
-        </div>
-        <div class="meta">
-          <span class="badge">${escapeHtml(p.alignment)}</span>
-          <span style="font-size:.75rem;color:var(--ink-muted)">${escapeHtml(p.alignmentLong)}</span>
         </div>
         <div class="body">
-          <div class="section">
-            <h3>Overview</h3>
-            <p>${escapeHtml(p.overview)}</p>
-          </div>
-          <div class="section">
-            <h3>Who you’ll meet</h3>
-            <p>${escapeHtml(p.inhabitants)}</p>
-          </div>
+          <p>Main quest: chase, bargain with, or outwit the will-o’-wisp race across the wheel. Tap a node for jump-points — portals, oaths, spells, artifacts. Supplement to the Outer gazetteer — start from <a class="outer-link" href="https://planesbound.grok.me/?plane=lighthouse">The Lighthouse</a>.</p>
+          <p style="color:var(--ink-muted);font-size:.88rem;">Scrub the 4th-dimension slider for the Four Sunderings. Lore / Cosmology holds Singularity, Axiom, triad, Far Realms soul-soup, &amp; flickering will-o’-wisps. Spells / Handouts holds oaths &amp; objects as race tools.</p>
         </div>
-        <details open>
-          <summary>How it’s shaped</summary>
-          <div class="panel">
-            <ul>${p.layers.map(l => `<li><strong>${escapeHtml(l.name)}.</strong> <em>${escapeHtml(l.epithet)}</em></li>`).join("")}</ul>
-            <p style="margin:.75rem 0 0">${escapeHtml(p.structure)}</p>
-          </div>
-        </details>
-        <details open>
-          <summary>Travel</summary>
-          <div class="panel"><p style="margin:0">${escapeHtml(p.travel)}</p></div>
-        </details>
-        <details>
-          <summary>From the Lighthouse</summary>
-          <div class="panel">
-            <p style="margin:0">Outer atlas → <a href="https://planesbound.grok.me/?plane=lighthouse" style="color:var(--brass)">The Lighthouse</a>. Keepers open Inner roads through the Ethereal when the Daystar bearing is clean. The Digital Void lies in the Astral–Ethereal schism near that curtain-road.</p>
-          </div>
-        </details>
-      `;
-    }
+      </div>`;
+    return;
+  }
+  const artBlock = p.art
+    ? `<img class="hero-art" src="${escapeHtml(p.art)}" alt="${escapeHtml(p.name)}" />`
+    : `<div class="hero-swatch" style="background:
+        radial-gradient(circle at 30% 40%, ${p.accent}cc, transparent 45%),
+        linear-gradient(135deg, #1a1510, ${p.accent}55 70%, #0b0907);"></div>`;
+  const extra = p.extraArt ? `<div class="section"><h3>Omen art</h3><img src="${escapeHtml(p.extraArt)}" alt="" style="width:100%;border-radius:.5rem;outline:1px solid var(--border);"/></div>` : "";
+  const layers = (p.layers && p.layers.length)
+    ? `<ul>${p.layers.map(l => `<li><strong>${escapeHtml(l.name)}.</strong> <em>${escapeHtml(l.epithet)}</em></li>`).join("")}</ul>`
+    : "";
+  const outer = p.outerLink
+    ? `<a class="outer-link" href="${escapeHtml(p.outerLink)}" target="_blank" rel="noopener">Open on Outer atlas →</a>`
+    : "";
+  const whoTitle = p.isSpell ? "Effects" : "Who you’ll meet";
+  const shapeTitle = p.isSpell ? "Further effects" : "How it’s shaped";
+  const travelTitle = p.isSpell ? "Drawback / cost" : "Travel";
+  target.innerHTML = `
+    <div class="hero">
+      ${artBlock}
+      <div class="hero-fade">
+        <p class="hero-kicker">${escapeHtml(p.kind)}</p>
+        <h2>${escapeHtml(p.name)}</h2>
+        <p class="epithet">${escapeHtml(p.epithet)}</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span class="badge">${escapeHtml(p.alignment)}</span>
+      <span style="font-size:.75rem;color:var(--ink-muted)">${escapeHtml(p.alignmentLong)}</span>
+    </div>
+    <div class="body">
+      <div class="section"><h3>Overview</h3><p>${escapeHtml(p.overview)}</p></div>
+      <div class="section"><h3>${whoTitle}</h3><p>${escapeHtml(p.inhabitants)}</p></div>
+      ${extra}
+    </div>
+    <details open>
+      <summary>${shapeTitle}</summary>
+      <div class="panel">${layers}<p style="margin:.75rem 0 0">${escapeHtml(p.structure)}</p>${outer}</div>
+    </details>
+    <details open>
+      <summary>${travelTitle}</summary>
+      <div class="panel"><p style="margin:0">${escapeHtml(p.travel)}</p></div>
+    </details>
+    <details>
+      <summary>From the Lighthouse</summary>
+      <div class="panel">
+        <p style="margin:0">Outer atlas → <a href="https://planesbound.grok.me/?plane=lighthouse" style="color:var(--brass)">The Lighthouse</a>. Full-wheel + timeline is a supplement, not a replacement. Digital Void lies in the Astral–Ethereal schism near the curtain-road.</p>
+      </div>
+    </details>`;
+}
 
-    function select(id) {
-      selected = id;
-      document.querySelectorAll(".hotspot").forEach(h => {
-        h.dataset.active = h.dataset.id === id ? "true" : "false";
-      });
-      renderRail();
-      renderFolio(byId[id] || null);
-    }
+function select(id) {
+  selected = id;
+  wheelSvg.querySelectorAll(".node-hit").forEach(h => {
+    h.dataset.active = h.getAttribute("data-id") === id ? "true" : "false";
+  });
+  renderRail();
+  const p = byId[id] || null;
+  renderFolioInto(folioBody, p);
+  if (p && p.isSpell) renderFolioInto(spellFolioBody, p);
+}
 
-    document.querySelectorAll(".hotspot").forEach(h => {
-      h.addEventListener("click", () => select(h.dataset.id));
-    });
+// Tabs
+function showTab(name) {
+  const map = { wheel: "view-wheel", lore: "view-lore", spells: "view-spells" };
+  Object.entries(map).forEach(([k, id]) => {
+    document.getElementById(id).hidden = k !== name;
+    document.getElementById("tab-" + k).setAttribute("aria-selected", k === name ? "true" : "false");
+  });
+}
+document.getElementById("tab-wheel").onclick = () => showTab("wheel");
+document.getElementById("tab-lore").onclick = () => showTab("lore");
+document.getElementById("tab-spells").onclick = () => showTab("spells");
 
-    renderRail();
-    renderFolio(null);
+// Spells strip
+document.getElementById("spellsStrip").innerHTML = handouts.map(h => `
+  <button class="spell-card-btn" data-id="${h.id}">
+    <img src="${escapeHtml(h.art)}" alt="${escapeHtml(h.name)}" />
+    <div class="sc-body"><strong>${escapeHtml(h.name)}</strong><span>${escapeHtml(h.epithet)}</span></div>
+  </button>`).join("");
+document.querySelectorAll(".spell-card-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    select(btn.dataset.id);
+    showTab("spells");
+    renderFolioInto(spellFolioBody, byId[btn.dataset.id]);
+  });
+});
+
+document.getElementById("eraRange").addEventListener("input", (ev) => {
+  eraIndex = Number(ev.target.value);
+  renderEra();
+});
+document.querySelectorAll("#eraMarks span").forEach(s => {
+  s.style.cursor = "pointer";
+  s.addEventListener("click", () => {
+    eraIndex = Number(s.dataset.era);
+    document.getElementById("eraRange").value = String(eraIndex);
+    renderEra();
+  });
+});
+
+buildWheel();
+renderRail();
+renderEra();
+renderFolioInto(folioBody, null);
+renderFolioInto(spellFolioBody, null);
   </script>
 </body>
 </html>
