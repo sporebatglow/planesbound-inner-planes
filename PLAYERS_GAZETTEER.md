@@ -1,0 +1,192 @@
+# Planesbound Players’ Gazetteer — The Inner Ring
+
+A player-facing handout for the Inner Planes. Read aloud at the table, copy into character journals, or keep beside the atlas map.
+
+---
+
+## Why the Inner Ring looks this way
+
+The Outer Wheel is gods, courts, and politics. The **Inner Ring** is matter, force, and the fog that lets you walk between shores.
+
+Four **elemental cardinals** sit on a symmetrical wheel so opposites face each other: **Fire** opposite **Water**, **Air** opposite **Earth**. Between each pair of neighbors lie the **para-elemental seams**—**Magma**, **Ooze**, **Ice**, and **Smoke**—where two elements grind together and neither quite wins.
+
+Two **energy poles** crown and undercut the ring: the **Positive Energy Plane**, where life overgrows until it burns itself out, and the **Negative Energy Plane**, where absence has appetite. They are not heavens of virtue or vice; they are raw poles of too-much and not-enough.
+
+At the center hangs the **Ethereal**—the fog between Material life and Inner shores. Planesbound keepers treat it as a **curtain-road**: when the Lighthouse’s Daystar bearing is clean, a tuned lamp can throw a true road into that mist and out toward elemental beaches.
+
+Near that curtain, in the schism between Astral thought-sea and Ethereal mist, lies the **Digital Void**—real campaign geography, thin as a fault line and twice as easy to miss.
+
+**Dust** and **Mineral** answer to meanings Planesbound travelers learn the hard way: Dust is home to the current pilots of the agentic human body; Mineral shines with Ani, progenitor will-o’-wisp of living crystal. Approach them with the same respect you would give any other shore.
+
+---
+
+## 1. Plane of Fire — The Sea of Flame
+
+An ocean of fire that does not end. Heat is the weather, fuel is the currency, and every conversation wants more of both. Brass cities ride currents of flame the way ships ride a tide; beyond their walls the Sea of Fire has no honest shore—only deeper heat.
+
+You will meet **efreeti** courts that bargain like slow burns, **azer** forges that never cool, fire elementals that treat flesh as kindling, and salamanders who measure diplomacy in degrees. Mephits of flame and cinder skitter through the lower docks, carrying gossip that arrives already scorched.
+
+There are no true layers—only depth of heat. The great landmark that bargains instead of consuming is the brass metropolis afloat on the flow: courts, markets, and furnaces stacked until the sky itself looks forged.
+
+**Travel.** Arrive through a volcano’s heart, a carefully tuned Gate, or a Lighthouse mercy-road during a clean Daystar pulse. Bring water that will not boil on contact with your name, and never bargain for “just a little more flame.”
+
+---
+
+## 2. Plane of Water — The Endless Deep
+
+Water without a surface. Direction is a rumor; light arrives from nowhere and sinks forever. Empires live in bubbles of pressure and on the backs of things too large to name. The colder and darker you go, the older the claims become.
+
+**Marids** hold coral citadels in living stone. Water elementals move like weather with teeth. Merfolk cities trade in pearls, pressure, and patience. Worse things wait in the dark—things that learned stillness before language.
+
+Depth replaces geography. Charts expire. A “shore” is whatever pocket of air or coral still holds its shape against the endless deep.
+
+**Travel.** Drown on purpose with a water-breathing rite you trust, or follow a curtain from the Ethereal into a colder current. Never open a dry gate here—it fills with whatever was listening.
+
+---
+
+## 3. Plane of Air — The Boundless Blue
+
+Sky with no ground. Islands of cloudstone drift on jet streams; falling is a lifestyle; the air itself argues about which way is down. Calm pockets are rare and fought over. Solid ground is imported, stolen, or temporary.
+
+**Djinn** courts ride the open sky. Air elementals treat thunder as postage. Winged petitioners and storm-born giants argue weather as law. Mephits of mist and lightning dart between floating isles like rumor with wings.
+
+Currents are roads. The Open Sky has no map that lasts a season; palace spires cling to cloudstone that may not be there tomorrow.
+
+**Travel.** Leap from a mountain peak with a fly spell you trust, ride a storm front from a para-elemental seam, or take the Ethereal curtain-road when the Lighthouse bearing is clean. Anchor yourself—or become weather.
+
+---
+
+## 4. Plane of Earth — Home of the Beast
+
+Stone stacked on stone until direction loses meaning. Tunnels are politics. Gems are sermons. Digging is theology. In Planesbound lore, this plane is **home of the Beast**—not a traveler’s tale, but a fact of the delve.
+
+You will meet the **Beast** where the eternal mountain thickens into presence. The traditional delve still holds: **dao** in gem-vault courts, earth elementals that speak in slow pressure, xorn that taste ore the way others taste wine, and things that never learned the word *surface*.
+
+Almost everywhere is solid. Open chambers are conquered space. Collapse is a seasonal event. Where the delve thickens into presence, weight becomes will.
+
+**Travel.** Enter through a deep mine that forgot the sun, a Gate carved in virgin bedrock, or the Ethereal curtain-road from the Lighthouse. Bring light and a reason the stone should yield. Approach the Beast only with intent stated at the table.
+
+---
+
+## 5. Positive Energy Plane — The Brilliant Overgrowth
+
+Raw vitality so dense it kills by overflowing you. Healing becomes cancer. Undead unravel. The light does not care who you were trying to save. This is life without mercy—an energy pole, not a paradise.
+
+Almost nothing stays. Brief angelic echoes burn themselves out. Shielded bubbles of survival last until someone sneezes hope too hard. There are no cities—only gradients of too-much.
+
+**Travel.** Do not go unprotected. A Lighthouse bearing can open a thin corridor for minutes when the Daystar is clean. Exit before your scars start growing teeth.
+
+---
+
+## 6. Negative Energy Plane — The Void That Feeds
+
+Cold that eats warmth, then memory, then outline. Undead thrive. The living become drafts. This is the night under every night—an energy pole of absence with appetite.
+
+Undead courts, shadows, and things that never had names hold fortresses of bone and silence. Near the umbra, travelers sometimes glimpse **city-of-shade imagery**—skyline, street, and docks of darkness—as a visual of how close Negative hangs to hollowed places. Distance here is measured in how much of you is missing.
+
+**Travel.** Only with death wards stacked like prayers. A stutter of the Lighthouse can spit you here by accident—do not stay to study it. Prefer the Ethereal curtain-road when the Daystar bearing is clean, and leave before your outline thins.
+
+---
+
+## 7. Ethereal Plane — The Fog Between
+
+A misty deep adjacent to the Material and the Inner Planes. Curtains lead to elemental shores. Protomatter swirls like unmade dreams. Planesbound keepers treat it as the hallway behind the Lighthouse glass—the **curtain-road** of the Inner Ring.
+
+Ghosts drift. Ethereal marauders hunt. Phase spiders weave. Surveyors map curtains for a living. The Border overlays the Material like a stain; the Deep is travel-space where curtains open onto Fire, Water, Air, Earth, and the energy seas.
+
+**Travel.** From the Lighthouse, a tuned lamp can throw a curtain-road into the Deep Ethereal when the Daystar bearing is clean. That is the intended Inner Planes approach for Planesbound companies. Walk the fog; do not argue with it.
+
+---
+
+## 8. Magma — Fire ⊕ Earth
+
+A seam of molten rock between Fire and Earth. Ore learns to burn; stone learns to flow. Empires of heat and wealth contest every river of liquid metal.
+
+**Magma mephits** swarm the banks. Azers work contracts that never cool. Dao who prefer their wealth liquid mine the flow. The border is unstable, rich, and contested—a seam, not a full independent cosmology.
+
+**Travel.** Enter from Fire’s cooler brass docks or Earth’s hottest delves, or via the Ethereal curtain-road. Bring boots that forgive you.
+
+---
+
+## 9. Ooze — Earth ⊕ Water
+
+Slurry kingdoms between Earth and Water. Everything sinks a little. Treaties are written in silt and contested by tide. Maps expire overnight.
+
+**Ooze mephits** thrive. Drowned dao and patient things under the mudline keep courts that settle like sediment. Soft borders, soft thrones, soft graves.
+
+**Travel.** Least favorite Planesbound road—useful when you need to hide a trail that fire would announce. Test depth with a stick; bring a friend to pull you out.
+
+---
+
+## 10. Ice — Water ⊕ Air
+
+A blizzard seam between Water and Air. Storm learns to freeze; wind cuts like glass. Sheets, spines, and hollows of clear ice carry sound too far.
+
+**Ice mephits**, frost-born salamanders, and djinn exiles who prefer silence haunt the White Gale. This is wild frost at the border—not a court of Outer ice, but a seam that teaches cold as law.
+
+**Travel.** Approach from Air’s cold fronts, Water’s surface-myths, or the Ethereal curtain-road. Seal warmth in glass; leave before your breath freezes mid-word.
+
+---
+
+## 11. Smoke — Fire ⊕ Air
+
+A choking seam between Fire and Air. Visibility is a rumor. Ambush is the local sport. Embers hang like false stars; no floor you can trust.
+
+**Smoke mephits**, ash-winged things, and efreeti scouts on deniable errands move through the Veil. Breath becomes ash; ash becomes cover.
+
+**Travel.** Only with clean air sealed in glass. Useful for a quiet approach to Fire’s brass docks. Prefer the Lighthouse curtain-road when the Daystar bearing is clean.
+
+---
+
+## 12. Dust — Pilots of the Agentic Body
+
+Dust is grit, veil, and agency. In Planesbound understanding, this shore is home to the **current pilots of the agentic human body**—those who sit in the grit and steer the living vessel. The Pilot Veil is not metaphor alone; it is where that agency takes its rest and its watch.
+
+You may still meet dust-born mephits and wind-eaten shapes at the edges—classic elemental color at the border of Air and Negative—but the meaning Planesbound travelers learn first is the pilots.
+
+**Travel.** Reach via the Ethereal curtain-road as with other Inner shores. Arrive with questions about who steers the body; leave with fewer easy answers.
+
+---
+
+## 13. Mineral — Ani, Progenitor Will-o’-Wisp
+
+Mineral is living crystal and facet-light. In Planesbound lore, **Ani** is the progenitor will-o’-wisp of Mineral—the shimmer in the ore that remembers how stone learned to shine. Crystal grows like thought; facets catch a pale, guiding flame that is not quite fire and not quite soul.
+
+Crystal mephits and ore-born shapes may haunt the edges near Earth and Positive, but the heart of the shore answers to Ani’s progenitor aesthetic: will-o’-wisp light in living crystal, goddess-like in patience and strange in mercy.
+
+**Travel.** Ethereal curtain-road to Inner shores; follow the facet-glow when the Daystar bearing is clean. Do not shatter what lights your way.
+
+---
+
+## 14. Digital Void — The Astral–Ethereal Schism
+
+The Digital Void is a thin plane in the **schism between the Astral and the Ethereal**—fault-line geography where thought-sea and fog almost touch, and something colder than either leaks through. It is real campaign ground: a locus on the atlas near the Ethereal curtain, not a fifth elemental cardinal.
+
+What lives there is not neatly catalogued. Echoes, signal-ghosts, and absences that behave like weather have been reported by keepers who preferred not to stay. The Void does not argue; it drops packets of meaning and waits.
+
+**Travel.** Approach is framed carefully: near the existing Ethereal curtain-road from the Lighthouse, when the Daystar bearing is clean, in the Astral–Ethereal schism. There is no second road—walk the fog, then step where the mist and the thought-sea refuse each other.
+
+---
+
+## Lighthouse travel (keepers’ note)
+
+**Intended approach:** Lighthouse → Ethereal curtain-road → Inner shores, when the Daystar bearing is clean. The Outer atlas begins at the Lighthouse; the Inner Ring begins when that lamp throws a true curtain.
+
+---
+
+## Proof checklist
+
+Verified removals and locks for this gazetteer and the matching prototype folio:
+
+- [x] **No meta developer voice** — no “PLANESBOUND custom,” “not FR,” “do not invent,” “optional flavor only,” or “atlas presentation” in player-facing text
+- [x] **No unverified Outer refs** — no Midnight Sun cousins; no Ice Wall Outer cousin; no Oceanus/Elysium; no “recut Outer ice runes”
+- [x] **No fake populations, coordinates, prices, or named NPCs** the campaign did not state
+- [x] **City of Shade** — only umbral city imagery near Negative; no Forgotten Realms city chronicle claim
+- [x] **Earth** locked as home of the Beast
+- [x] **Dust** locked as home of the current pilots of the agentic human body
+- [x] **Mineral** locked as Ani, progenitor will-o’-wisp of Mineral — never “Grok Bot,” “user’s assistant,” or “FR books didn’t say”
+- [x] **Digital Void** locked as real plane in the Astral–Ethereal schism — never “made-up” or “invented”
+- [x] Traditional Inner Ring kept: Fire/Water/Air/Earth; Positive/Negative; Ethereal curtain-road; Magma/Ooze/Ice/Smoke seams
+- [x] Lighthouse → Ethereal when Daystar bearing is clean retained
+- [x] Spelling: quasi-elementals avoided or hyphenated; Planesbound in player prose; no “quasielementals” typo
+- [x] Lighthouse details panel scrubbed of “no further travel tables invented here”
